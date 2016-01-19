@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Leafii</title>
+	<link rel="stylesheet" href="/angular-material/angular-material.min.css">
+	<link rel="stylesheet" href="/angular-material/angular-material.layouts.min.css">
+	<link rel="stylesheet" href="/material-design-icons/iconfont/material-icons.css">
+	<link rel="stylesheet" href="/Skeleton-2.0.4/normalize.css">
+	<link rel="stylesheet" href="/Skeleton-2.0.4/skeleton.css">
+	<link rel="stylesheet" href="/landing/stylesheet/app.css">
+	<link rel="stylesheet" href="/landing/stylesheet/custom.css">
+	<link rel="stylesheet" href="/landing/stylesheet/raleway.css">
+	<script type="text/javascript" src="/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="/angular/angular.min.js"></script>
+	<script type="text/javascript" src="/angular-animate/angular-animate.min.js"></script>
+	<script type="text/javascript" src="/angular-aria/angular-aria.min.js"></script>
+	<script type="text/javascript" src="/angular-material/angular-material.min.js"></script>
+	<script type="text/javascript" src="/landing/javascript/app.js"></script>
+	<script type="text/javascript" src="/landing/javascript/landing.js"></script>
+</head>
+<body>
+<div id="Landing">
+  <div ng-controller="LandingController" id="popupContainer">	
+    <div class="section hero">
+      <div class="container">
+        <div class="row">
+          <div class="one-half column">
+            <h4 class="hero-heading">Let everyone see you from <b>anywhere</b>. Build your brand now.</h4>
+            <a class="button button-primary" ng-click="showAdvanced($event)">Get Efolio</a>
+          </div>
+          <div class="one-half column phones">
+            <img class="phone" src="/landing/assets/iphone.png">
+            <img class="phone" src="/landing/assets/iphone.png">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section values">
+      <div class="container">
+        <div class="row">
+          <div class="one-third column value">
+            <h2 class="value-multiplier">Broadcast</h2>
+            <h5 class="value-heading">Your Message</h5>
+            <p class="value-description">Make some noise, get heard!</p>
+          </div>
+          <div class="one-third column value">
+            <h2 class="value-multiplier">Tune</h2>
+            <h5 class="value-heading">Your Brand</h5>
+            <p class="value-description">Show them your style, impress 'em!</p>
+          </div>
+          <div class="one-third column value">
+            <h2 class="value-multiplier">Call In</h2>
+            <h5 class="value-heading">Your clients</h5>
+            <p class="value-description">Sell your product, and get paid!</b></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section get-help">
+      <div class="container">
+        <h3 class="section-heading">Need help getting started?</h3>
+        <p class="section-description"><b>Efolio</b> is a team of dedicated professionals, ready to bring you a customized personal site. Leave us with your email, and lets get started!</p>
+        <a class="button button-primary" ng-click="showAdvanced($event)">Sign me up!</a>
+      </div>
+    </div>
+
+    <div class="section categories">
+      <div class="container">
+        <h3 class="section-heading">Some of our works</h3>
+        <p class="section-description">Efolio provides a modern touch for your portfolio to stand out!</p>
+        <div class="row">
+          <div class="one-half column category">
+            <img class="u-max-full-width" src="/landing/assets/placeholder.png">
+          </div>
+          <div class="one-half column category">
+            <img class="u-max-full-width" src="/landing/assets/placeholder.png">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="container align-middle">
+      <ul class="navbar-list">
+        <li class="navbar-item"><a class="navbar-link" href="#">About</a></li>
+        <li class="navbar-item"><a class="navbar-link" href="#">Contact</a></li>
+      </ul>
+      <h5><b>powered by Leafii</b></h5>
+      <h6>Waterloo, ON &copy; 2016</h6>
+    </div>
+  </div>
+</div>
+</body>
+</html>
