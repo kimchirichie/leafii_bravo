@@ -29,14 +29,14 @@ App.controller('LandingController',function($scope, $mdDialog, $mdMedia, $http){
 		var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
 		$mdDialog.show({
 			controller: dialogController,
-			templateUrl: 'try',
+			templateUrl: 'signup.html',
 			parent: angular.element(document.body),
 			targetEvent: ev,
 			clickOutsideToClose:true,
 			fullscreen: useFullScreen
 		}).then(function(answer) {
 			console.log(answer);
-			$http.post('/submit', {home : answer})
+			$http.post('/submit', answer)
 			.success(function successCallback(response) {
 				alert('Thank You! We will get in touch with you very soon!');
 				console.log('posting contact successful');

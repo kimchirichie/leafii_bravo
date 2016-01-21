@@ -4,6 +4,21 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var sqlite3 = require('sqlite3').verbose();
+var Sequelize = require('sequelize');
+var sequelize = new Sequelize(undefined,undefined, undefined, {
+  dialect: 'sqlite',
+  storage: 'db/leafii_dev.db'
+});
+
+var Signup = sequelize.define('signup', {
+  name: {type: Sequelize.STRING},
+  email: {type: Sequelize.STRING},
+  phone: {type: Sequelize.STRING}
+});
+
+
+
 var app = express();
 
 // view engine setup
@@ -19,6 +34,23 @@ app.use(express.static(path.join(__dirname, 'node_modules')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
 app.use(express.static(path.join(__dirname, 'vendors')));
 app.get('/', function(req, res) { res.sendFile(__dirname + '/apartment/landing/index.html');});
+app.post('/submit',function(req, res){
+  Signup.sync().then(function(){
+    var data = {
+      name: req.body.name,
+      email: req.body.email,
+      phone: req.body.phone
+    }
+
+    Signup.create(data).then(function(signup){
+      console.dir(signup.get());
+    })
+  });
+  res.send('submit!');
+})
+
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

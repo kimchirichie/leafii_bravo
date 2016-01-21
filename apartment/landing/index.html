@@ -27,7 +27,7 @@
         <div class="row">
           <div class="one-half column">
             <h4 class="hero-heading">Let everyone see you from <b>anywhere</b>. Build your brand now.</h4>
-            <a class="button button-primary" ng-click="showAdvanced($event)">Get Efolio</a>
+            <a class="button button-primary" ng-click="showAdvanced($event)">Get Leafii</a>
           </div>
           <div class="one-half column phones">
             <img class="phone" src="/landing/assets/iphone.png">
@@ -62,7 +62,7 @@
     <div class="section get-help">
       <div class="container">
         <h3 class="section-heading">Need help getting started?</h3>
-        <p class="section-description"><b>Efolio</b> is a team of dedicated professionals, ready to bring you a customized personal site. Leave us with your email, and lets get started!</p>
+        <p class="section-description"><b>Leafii</b> is a team of dedicated professionals, ready to bring you a customized personal site. Leave us with your email, and lets get started!</p>
         <a class="button button-primary" ng-click="showAdvanced($event)">Sign me up!</a>
       </div>
     </div>
@@ -70,7 +70,7 @@
     <div class="section categories">
       <div class="container">
         <h3 class="section-heading">Some of our works</h3>
-        <p class="section-description">Efolio provides a modern touch for your portfolio to stand out!</p>
+        <p class="section-description">Leafii provides a modern touch for your portfolio to stand out!</p>
         <div class="row">
           <div class="one-half column category">
             <img class="u-max-full-width" src="/landing/assets/placeholder.png">
@@ -94,5 +94,44 @@
     </div>
   </div>
 </div>
+
+<script type="text/ng-template" id="signup.html">
+  <md-dialog ng-cloak>
+    <md-toolbar style="background-color:#1EAEDB;">
+      <div class="md-toolbar-tools">
+        <h2>Brand yourself NOW!</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <i title="close" class="material-icons">close</i>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <form name="try" style="margin-bottom:0" novalidate>
+          <div>
+              <label>Your name</label>
+              <input class="u-full-width" name="name" type="text" placeholder="Bob thebuilder.." ng-model="user.name" required>
+          </div>
+          <div>
+              <label>Your email</label>
+              <input class="u-full-width" name="email" type="email" placeholder="myemail@mailbox.com" ng-model="user.email" required>
+          </div>
+          <div>
+              <label>Your phone number</label>
+              <input class="u-full-width" name="phone" type="tel" placeholder="123 456 7890" ng-model="user.phone" required>
+          </div>
+        </form>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions>
+      <a class="button" ng-click="cancel()">Cancle</a>
+      <span flex></span>
+      <a class="button button-primary" ng-click="answer(try.$valid)">Submit</a>
+    </md-dialog-actions>
+  </md-dialog>
+</script>
 </body>
 </html>
