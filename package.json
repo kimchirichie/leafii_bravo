@@ -15,5 +15,9 @@
     "serve-favicon": "~2.3.0",
     "sqlite3": "latest",
     "sequelize": "latest"
+  },
+  "devDependencies": {
+    "sequelize": "^3.18.0",
+    "sequelize-cli": "^2.3.1"
   }
 }
