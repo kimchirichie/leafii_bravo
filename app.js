@@ -17,7 +17,10 @@ var Signup = sequelize.define('signup', {
   phone: {type: Sequelize.STRING}
 });
 
-
+var Traffic = sequelize.define('traffic', {
+  hostname: {type: Sequelize.STRING},
+  ip: {type: Sequelize.STRING}
+});
 
 var app = express();
 
@@ -29,12 +32,37 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'apartment')));
-app.use(express.static(path.join(__dirname, 'node_modules')));
+
+// log traffic for analysis
+app.use(/\/$/, function(req, res, next){
+  console.log('GET / : Recording Traffic');
+  Traffic.sync().then(function(){
+    var data = {
+      hostname: req.hostname,
+      ip: req.ip
+    }
+    Traffic.create(data).then(function(traffic){
+      console.dir(traffic.get());
+    })
+  });
+  next();
+});
+
+// serve public assets before private
 app.use(express.static(path.join(__dirname, 'bower_components')));
 app.use(express.static(path.join(__dirname, 'vendors')));
-app.get('/', function(req, res) { res.sendFile(__dirname + '/apartment/landing/index.html');});
-app.post('/submit',function(req, res){
+
+// serve private assets after public
+app.use(function(req, res, next) {
+  console.log('GET /:hostname : Rerouting to Apartment');
+  req.url="/"+req.hostname+req.url;
+  next();
+});
+app.use(express.static(path.join(__dirname, 'apartment')));
+
+// landing page signup form
+app.post('/signup', function(req, res){
+  console.log('POST /signup : Recording Signup');
   Signup.sync().then(function(){
     var data = {
       name: req.body.name,
@@ -46,10 +74,8 @@ app.post('/submit',function(req, res){
       console.dir(signup.get());
     })
   });
-  res.send('submit!');
+  res.sendStatus(200);
 })
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

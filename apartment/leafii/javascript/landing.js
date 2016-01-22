@@ -36,7 +36,7 @@ App.controller('LandingController',function($scope, $mdDialog, $mdMedia, $http){
 			fullscreen: useFullScreen
 		}).then(function(answer) {
 			console.log(answer);
-			$http.post('/submit', answer)
+			$http.post('/signup', answer)
 			.success(function successCallback(response) {
 				alert('Thank You! We will get in touch with you very soon!');
 				console.log('posting contact successful');
