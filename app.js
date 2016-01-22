@@ -82,6 +82,11 @@ app.post('/signup', function(req, res){
   res.sendStatus(200);
 })
 
+app.use(function(req, res) {
+  console.log('ROUTER: Found no match. Forward to landing page')
+  res.redirect('http://leafii.com');
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
