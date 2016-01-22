@@ -36,7 +36,9 @@ app.use(cookieParser());
 // log traffic for analysis
 app.use(/\/$/, function(req, res, next){
   console.log('GET / : Recording Traffic');
-  var namespace = req.hostname.match(/^[^\.]*/);
+  console.log('namespace: ' + namespace);
+  var splitname = req.hostname.split(".")
+  var namespace = splitname[splitname.length-2];
   Traffic.sync().then(function(){
     var data = {
       hostname: namespace,
@@ -56,7 +58,8 @@ app.use(express.static(path.join(__dirname, 'vendors')));
 // serve private assets after public
 app.use(function(req, res, next) {
   console.log('GET /:hostname : Rerouting to Apartment');
-  var namespace = req.hostname.match(/^[^\.]*/);
+  var splitname = req.hostname.split(".")
+  var namespace = splitname[splitname.length-2];
   req.url="/"+namespace+req.url;
   next();
 });
