@@ -35,8 +35,8 @@ app.use(cookieParser());
 
 // log traffic for analysis
 app.use(/\/$/, function(req, res, next){
-  console.log('GET / : Recording Traffic');
-  console.log('namespace: ' + namespace);
+  console.log('MIDDLEWARE: Recording Traffic');
+  console.log('NAMESPACE: ' + namespace);
   var splitname = req.hostname.split(".")
   var namespace = splitname[splitname.length-2];
   Traffic.sync().then(function(){
@@ -57,7 +57,7 @@ app.use(express.static(path.join(__dirname, 'vendors')));
 
 // serve private assets after public
 app.use(function(req, res, next) {
-  console.log('GET /:hostname : Rerouting to Apartment');
+  console.log('GET: /:hostname : Rerouting to Apartment');
   var splitname = req.hostname.split(".")
   var namespace = splitname[splitname.length-2];
   req.url="/"+namespace+req.url;
@@ -67,7 +67,7 @@ app.use(express.static(path.join(__dirname, 'apartment')));
 
 // landing page signup form
 app.post('/signup', function(req, res){
-  console.log('POST /signup : Recording Signup');
+  console.log('POST: /signup : Recording Signup');
   Signup.sync().then(function(){
     var data = {
       name: req.body.name,
