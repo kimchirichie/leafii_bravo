@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Let's Get Started!</title>
+	<link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/Skeleton-2.0.4/normalize.css">
+	<link rel="stylesheet" type="text/css" href="/Skeleton-2.0.4/skeleton.css">
+	<link rel="stylesheet" type="text/css" href="/leafii/stylesheet/template.css">
+	<link rel="stylesheet" type="text/css" href="/leafii/stylesheet/raleway.css">
+	<script type="text/javascript" src="/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="/angular/angular.min.js"></script>
+	<script type="text/javascript" src="/leafii/javascript/app.js"></script>
+	<script type="text/javascript" src="/leafii/javascript/template.js"></script>
+</head>
+<body>
+	<div class="black-back">
+		<div class="container">
+			<h1>Let's Get started!</h1>
+			<h4 class="align-right">Fill out as much as possible!</h4>
+		</div>
+	</div>
+	<div class="container" ng-controller="TemplateController as tc">
+		<br>
+		<h4>Hello there, let's get you started!</h4>
+		<hr></hr>
+		<form name="template" novalidate>
+			<fieldset>
+				<legend>Contact Information</legend>
+				<label>First Name</label>
+				<input name="first" type="text" placeholder="Alice" ng-model="tc.user.first" required>
+				<label>Last Name</label>
+				 <input name="last" type="text" placeholder="Bobbette" ng-model="tc.user.last" required>
+				<label>Email</label>
+				<input name="email" type="email" placeholder="myemail@mailbox.com" ng-model="tc.user.email" required>
+				<label>Phone</label>
+				<input name="phone" type="tel" placeholder="123 456 7890" ng-model="tc.user.phone" required>
+			</fieldset>
+			<fieldset>
+				<legend>Background</legend>
+				<label>School</label>
+				<input name="school" type="text" placeholder="University of Waterloo" ng-model=""/>
+				<label>Program</label>
+				<label>Profession</label>
+
+			</fieldset>
+        </form>
+	</div>
+</body>
+</html>

@@ -56,13 +56,16 @@ app.use(express.static(path.join(__dirname, 'bower_components')));
 app.use(express.static(path.join(__dirname, 'vendors')));
 
 // serve private assets after public
-app.use(function(req, res, next) {
-  console.log('GET: /:hostname : Rerouting to Apartment');
-  var splitname = req.hostname.split(".")
-  var namespace = splitname[splitname.length-2];
-  req.url="/"+namespace+req.url;
-  next();
-});
+if (app.get('env') === 'production') {
+  app.use(function(req, res, next) {
+    console.log('GET: /:hostname : Rerouting to Apartment');
+    var splitname = req.hostname.split(".")
+    var namespace = splitname[splitname.length-2];
+    req.url="/"+namespace+req.url;
+    next();
+  });
+}
+
 app.use(express.static(path.join(__dirname, 'apartment')));
 
 // landing page signup form
@@ -82,11 +85,12 @@ app.post('/signup', function(req, res){
   res.sendStatus(200);
 })
 
-app.use(function(req, res) {
-  console.log('ROUTER: Found no match. Forward to landing page')
-  res.redirect('http://leafii.com');
-});
-
+if (app.get('env') === 'production') {
+  app.use(function(req, res) {
+    console.log('ROUTER: Found no match. Forward to landing page')
+    res.redirect('http://leafii.com');
+  });
+}
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
