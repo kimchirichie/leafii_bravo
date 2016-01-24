@@ -61,6 +61,14 @@ hr {
 .required {
 	color: red;
 }
+.footer {
+  width: 100%;
+  border-top: solid thin #1a1a1a;
+  position: absolute;
+  text-align: center;
+  background-color: #1a1a1a;
+  color: #f8f8f8;
+}
 
 
 
