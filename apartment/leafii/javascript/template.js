@@ -28,7 +28,7 @@ App.controller('TemplateController', function($http){
 		.success(function (response){
 			alert('Thank you! We will get working on it right away!');
 			console.log('posting template successful');
-			// vm.initialize();
+			window.location.replace('http://leafii.com');
 		}).error(function (response){
 			alert('posting template unsuccessful');
 			console.log(response);
