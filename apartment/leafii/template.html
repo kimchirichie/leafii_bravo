@@ -27,8 +27,8 @@
 		</div>
 		<div class="container" ng-controller="TemplateController as tc">
 			<br>
-			<h4>Hello there, let's get you started!</h4>
-			<hr></hr>
+			<br>
+			<br>
 			<form class="full-width" name="template" novalidate>
 				<fieldset class="five columns contactFields">
 					<h5>Contact Information</h5>
@@ -69,7 +69,7 @@
 						<textarea class="twelve columns" placeholder="Description" ng-model="content.value"></textarea>
 						<button class="delete-btn" ng-click="tc.delete($index)">Delete</button>
 					</div>
-					<h6 class="add-btn" ng-click="tc.addmore()">+Add fields</h6>
+					<button class="add-btn" ng-click="tc.addmore()">+Add fields</button>
 				</fieldset>
 
 				<fieldset>
