@@ -3,21 +3,11 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Leafii</title>
-	<link rel="stylesheet" href="/angular-material/angular-material.min.css">
-	<link rel="stylesheet" href="/angular-material/angular-material.layouts.min.css">
-	<link rel="stylesheet" href="/material-design-icons/iconfont/material-icons.css">
 	<link rel="stylesheet" href="/Skeleton-2.0.4/normalize.css">
 	<link rel="stylesheet" href="/Skeleton-2.0.4/skeleton.css">
 	<link rel="stylesheet" href="stylesheet/app.css">
 	<link rel="stylesheet" href="stylesheet/custom.css">
 	<link rel="stylesheet" href="stylesheet/raleway.css">
-	<script type="text/javascript" src="/jquery/dist/jquery.min.js"></script>
-	<script type="text/javascript" src="/angular/angular.min.js"></script>
-	<script type="text/javascript" src="/angular-animate/angular-animate.min.js"></script>
-	<script type="text/javascript" src="/angular-aria/angular-aria.min.js"></script>
-	<script type="text/javascript" src="/angular-material/angular-material.min.js"></script>
-	<script type="text/javascript" src="javascript/app.js"></script>
-	<script type="text/javascript" src="javascript/landing.js"></script>
 </head>
 <body>
 <div id="Landing">
@@ -27,7 +17,7 @@
         <div class="row">
           <div class="one-half column">
             <h4 class="hero-heading">Let everyone see you from <b>anywhere</b>. Build your brand now.</h4>
-            <a class="button button-primary" ng-click="showAdvanced($event)">Get Leafii</a>
+            <a class="button button-primary" href="template.html">Get Leafii</a>
           </div>
           <div class="one-half column phones">
             <img class="phone" src="assets/iphone.png">
@@ -63,7 +53,7 @@
       <div class="container">
         <h3 class="section-heading">Need help getting started?</h3>
         <p class="section-description"><b>Leafii</b> is a team of dedicated professionals, ready to bring you a customized personal site. Leave us with your email, and lets get started!</p>
-        <a class="button button-primary" ng-click="showAdvanced($event)">Sign me up!</a>
+        <a class="button button-primary" href="template.html">Sign me up!</a>
       </div>
     </div>
 
@@ -87,6 +77,7 @@
     <div class="container align-middle">
       <ul class="navbar-list">
         <li class="navbar-item"><a class="navbar-link" href="#">About</a></li>
+        <li class="navbar-item"><a class="navbar-link" href="#">Pricing</a></li>
         <li class="navbar-item"><a class="navbar-link" href="#">Contact</a></li>
       </ul>
       <h5><b>powered by Leafii</b></h5>
@@ -94,44 +85,5 @@
     </div>
   </div>
 </div>
-
-<script type="text/ng-template" id="signup.html">
-  <md-dialog ng-cloak>
-    <md-toolbar style="background-color:#1EAEDB;">
-      <div class="md-toolbar-tools">
-        <h2>Brand yourself NOW!</h2>
-        <span flex></span>
-        <md-button class="md-icon-button" ng-click="cancel()">
-          <i title="close" class="material-icons">close</i>
-        </md-button>
-      </div>
-    </md-toolbar>
-
-    <md-dialog-content>
-      <div class="md-dialog-content">
-        <form name="try" style="margin-bottom:0" novalidate>
-          <div>
-              <label>Your name</label>
-              <input class="u-full-width" name="name" type="text" placeholder="Bob thebuilder.." ng-model="user.name" required>
-          </div>
-          <div>
-              <label>Your email</label>
-              <input class="u-full-width" name="email" type="email" placeholder="myemail@mailbox.com" ng-model="user.email" required>
-          </div>
-          <div>
-              <label>Your phone number</label>
-              <input class="u-full-width" name="phone" type="tel" placeholder="123 456 7890" ng-model="user.phone" required>
-          </div>
-        </form>
-      </div>
-    </md-dialog-content>
-
-    <md-dialog-actions>
-      <a class="button" ng-click="cancel()">Cancle</a>
-      <span flex></span>
-      <a class="button button-primary" ng-click="answer(try.$valid)">Submit</a>
-    </md-dialog-actions>
-  </md-dialog>
-</script>
 </body>
 </html>
