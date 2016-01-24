@@ -12,12 +12,8 @@
 	width: 100%;
 }
 
-.backgroundFields input {
+input {
 	width: 100%;
-}
-
-.contactFields input {
-	width: 90%;
 }
 
 textarea {
@@ -63,7 +59,7 @@ hr {
 }
 .footer {
   width: 100%;
-  border-top: solid thin #1a1a1a;
+  border-top: solid thin black;
   position: absolute;
   text-align: center;
   background-color: #1a1a1a;
