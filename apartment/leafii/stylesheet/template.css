@@ -8,6 +8,63 @@
   text-align: right;
 }
 
+.full-width {
+	width: 100%;
+}
+
+.backgroundFields input {
+	width: 100%;
+}
+
+.contactFields input {
+	width: 90%;
+}
+
+.backgroundFields textarea {
+	resize: vertical;
+	min-width: 100%;
+	min-height: 100px;
+}
+
+textarea {
+	resize: vertical;
+	min-height: 200px;
+}
+
+.delete-btn {
+	 margin-bottom: 3rem;
+	 background:  #f44336;
+	 color: white;
+	 border: solid thin white;
+}
+
+.add-btn {
+	color: rgba(0,0,0,0.7);
+	cursor: pointer;
+	font-weight: bold;
+	width: 10%;
+}
+
+.add-btn:hover {
+	color: rgba(0,0,0, 1);
+}
+
+.submit-btn {
+	background: #00e676;
+	color: white;
+	border: solid thin white;
+}
+
 hr {
   width: 80%;
 }
+
+.star {
+	color: red;
+	font-size: 20px;
+}
+
+.required {
+	color: red;
+}
+

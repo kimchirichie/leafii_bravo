@@ -9,10 +9,10 @@
 App.controller('TemplateController', function($http){
 
 	var vm = this;
-	vm.user = {contents:[{field:"experiences",value:"blah"}]};
+	vm.user = {contents:[{field:"",value:""}]};
 
 	vm.addmore = function(){
-		vm.user.contents.push({field:"new field",value:"blah"});
+		vm.user.contents.push({field:"",value:""});
 	}
 
 	vm.delete = function(index){

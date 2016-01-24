@@ -1,80 +1,86 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Let's Get Started!</title>
-	<link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico">
-	<link rel="stylesheet" href="/angular-material/angular-material.min.css">
-	<link rel="stylesheet" href="/angular-material/angular-material.layouts.min.css">
-	<link rel="stylesheet" href="/material-design-icons/iconfont/material-icons.css">
-	<link rel="stylesheet" type="text/css" href="/Skeleton-2.0.4/normalize.css">
-	<link rel="stylesheet" type="text/css" href="/Skeleton-2.0.4/skeleton.css">
-	<link rel="stylesheet" type="text/css" href="/leafii/stylesheet/template.css">
-	<link rel="stylesheet" type="text/css" href="/leafii/stylesheet/raleway.css">
-	<script type="text/javascript" src="/jquery/dist/jquery.min.js"></script>
-	<script type="text/javascript" src="/angular/angular.min.js"></script>
-	<script type="text/javascript" src="/angular-animate/angular-animate.min.js"></script>
-	<script type="text/javascript" src="/angular-aria/angular-aria.min.js"></script>
-	<script type="text/javascript" src="/angular-material/angular-material.min.js"></script>
-	<script type="text/javascript" src="/leafii/javascript/app.js"></script>
-	<script type="text/javascript" src="/leafii/javascript/template.js"></script>
-</head>
-<body>
-<div class="black-back">
-	<div class="container">
-		<h1>Let's Get started!</h1>
-		<h4 class="align-right">Fill out as much as possible!</h4>
-	</div>
-</div>
-<div class="container" ng-controller="TemplateController as tc">
-	<br>
-	<h4>Hello there, let's get you started!</h4>
-	<hr></hr>
-	<form name="template" novalidate>
-		<fieldset>
-			<h5>Contact Information</h5>
-			<p>required fields are labeled as *</p>
-			<label>First Name*</label>
-			<input name="first" type="text" placeholder="Alice" ng-model="tc.user.first" required>
-			<label>Last Name*</label>
-			 <input name="last" type="text" placeholder="Bobbette" ng-model="tc.user.last" required>
-			<label>Email*</label>
-			<input name="email" type="email" placeholder="myemail@mailbox.com" ng-model="tc.user.email" required>
-			<label>Phone*</label>
-			<input name="phone" type="tel" placeholder="123 456 7890" ng-model="tc.user.phone" required>
-		</fieldset>
-		<hr></hr>
-		<fieldset>
-			<h5>Background</h5>
-			<label>School</label>
-			<input name="school" type="text" placeholder="University of Waterloo" ng-model="tc.user.school"/>
-			<label>Program</label>
-			<input name="program" type="text" placeholder="Physics and Astronomy" ng-model="tc.user.program"/>
-			<label>Profession</label>
-			<input name="profession" type="text" placeholder="Plumber" ng-model="tc.user.profession"/>
-			<label>About</label>
-			<textarea placeholder="I like playing league of legends.." ng-model="tc.user.about"></textarea>
-		</fieldset>
-		<hr></hr>
-		<fieldset>
-			<h5>Content</h5>
-			<div ng-repeat="content in tc.user.contents track by $index">
-				<label>{{$index + 1}}.</label>
-				<br>
-				<input type="text" placeholder="Experience..." ng-model="content.field"/>
-				<textarea placeholder="I am really good at..." ng-model="content.value"></textarea>
-				<button ng-click="tc.delete($index)">Delete</button>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Let's Get Started!</title>
+		<link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico">
+		<link rel="stylesheet" href="/angular-material/angular-material.min.css">
+		<link rel="stylesheet" href="/material-design-icons/iconfont/material-icons.css">
+		<link rel="stylesheet" type="text/css" href="/Skeleton-2.0.4/normalize.css">
+		<link rel="stylesheet" type="text/css" href="/Skeleton-2.0.4/skeleton.css">
+		<link rel="stylesheet" type="text/css" href="/leafii/stylesheet/template.css">
+		<link rel="stylesheet" type="text/css" href="/leafii/stylesheet/raleway.css">
+		<script type="text/javascript" src="/jquery/dist/jquery.min.js"></script>
+		<script type="text/javascript" src="/angular/angular.min.js"></script>
+		<script type="text/javascript" src="/angular-animate/angular-animate.min.js"></script>
+		<script type="text/javascript" src="/angular-aria/angular-aria.min.js"></script>
+		<script type="text/javascript" src="/angular-material/angular-material.min.js"></script>
+		<script type="text/javascript" src="/leafii/javascript/app.js"></script>
+		<script type="text/javascript" src="/leafii/javascript/template.js"></script>
+	</head>
+	<body>
+		<div class="black-back">
+			<div class="container">
+				<h1>Let's Get started!</h1>
+				<h4 class="align-right">Fill out as much as possible!</h4>
 			</div>
-			<button ng-click="tc.addmore()">Add fields</button>
-		</fieldset>
-		<hr></hr>
-		<fieldset>
-			<h5>Comment</h5>
-			<textarea placeholder="Please make it pretty!!.." ng-model="tc.user.comment"></textarea>
-		</fieldset>
-		<button ng-click="tc.submit()">Submit</button>
+		</div>
+		<div class="container" ng-controller="TemplateController as tc">
+			<br>
+			<h4>Hello there, let's get you started!</h4>
+			<hr></hr>
+			<form class="full-width" name="template" novalidate>
+				<fieldset class="five columns contactFields">
+					<h5>Contact Information</h5>
+					<span class="required">required fields are labeled as *</span>
+					<label>First Name<span class="star">*</span></label>
+					<input name="first" type="text" placeholder="John" ng-model="tc.user.first" required>
+					<label>Last Name<span class="star">*</span></label>
+					 <input name="last" type="text" placeholder="Smith" ng-model="tc.user.last" required>
+					<label>Email<span class="star">*</span></label>
+					<input name="email" type="email" placeholder="myemail@mailbox.com" ng-model="tc.user.email" required>
+					<label>Phone<span class="star">*</span></label>
+					<input name="phone" type="tel" placeholder="123 456 7890" ng-model="tc.user.phone" required>
+				</fieldset>
 
-    </form>
-</div>
-</body>
+				<fieldset class="six columns backgroundFields">
+					<h5>Background</h5>
+					<label>School</label>
+					<input name="school" type="text" placeholder="University of Waterloo" ng-model="tc.user.school"/>
+					<label>Program</label>
+					<input name="program" type="text" placeholder="Physics and Astronomy" ng-model="tc.user.program"/>
+					<label>Profession</label>
+					<input name="profession" type="text" placeholder="Physicist" ng-model="tc.user.profession"/>
+					<label>Motto (Personal Quote)</label>
+					<input name="quote" type="text" placeholder="To be or not to be" ng-model="tc.user.quote"/>
+					<label>About</label>
+					<textarea placeholder="I'm a rocket scientist" ng-model="tc.user.about"></textarea>
+				</fieldset>
+
+				<fieldset class="twelve columns">
+					<hr>
+					<h5>Content</h5>
+					<div ng-repeat="content in tc.user.contents track by $index">
+						<label>Experiences/Projects {{$index + 1}}:</label>
+						<br>
+						<div>
+							<input type="text" placeholder="Job/Project Title" ng-model="content.field"/>
+						</div>
+						<textarea class="twelve columns" placeholder="Description" ng-model="content.value"></textarea>
+						<button class="delete-btn" ng-click="tc.delete($index)">Delete</button>
+					</div>
+					<h6 class="add-btn" ng-click="tc.addmore()">+Add fields</h6>
+				</fieldset>
+
+				<fieldset>
+					<hr>
+					<h5>Comment</h5>
+					<textarea class="twelve columns" placeholder="I want a professional site" ng-model="tc.user.comment"></textarea>
+				</fieldset>
+
+				<button class="submit-btn" ng-click="tc.submit()">Submit</button>
+
+		    </form>
+		</div>
+	</body>
 </html>
