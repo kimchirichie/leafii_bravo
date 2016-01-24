@@ -33,13 +33,14 @@
 	<form name="template" novalidate>
 		<fieldset>
 			<h5>Contact Information</h5>
-			<label>First Name</label>
+			<p>required fields are labeled as *</p>
+			<label>First Name*</label>
 			<input name="first" type="text" placeholder="Alice" ng-model="tc.user.first" required>
-			<label>Last Name</label>
+			<label>Last Name*</label>
 			 <input name="last" type="text" placeholder="Bobbette" ng-model="tc.user.last" required>
-			<label>Email</label>
+			<label>Email*</label>
 			<input name="email" type="email" placeholder="myemail@mailbox.com" ng-model="tc.user.email" required>
-			<label>Phone</label>
+			<label>Phone*</label>
 			<input name="phone" type="tel" placeholder="123 456 7890" ng-model="tc.user.phone" required>
 		</fieldset>
 		<hr></hr>
@@ -66,6 +67,13 @@
 			</div>
 			<button ng-click="tc.addmore()">Add fields</button>
 		</fieldset>
+		<hr></hr>
+		<fieldset>
+			<h5>Comment</h5>
+			<textarea placeholder="Please make it pretty!!.." ng-model="tc.user.comment"></textarea>
+		</fieldset>
+		<button ng-click="tc.submit()">Submit</button>
+
     </form>
 </div>
 </body>

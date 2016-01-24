@@ -17,5 +17,9 @@ App.controller('TemplateController', function($http){
 
 	vm.delete = function(index){
 		vm.user.contents.splice(index,1);
-	}	
+	}
+
+	vm.submit = function(){
+		console.log(vm.user);
+	}
 });
