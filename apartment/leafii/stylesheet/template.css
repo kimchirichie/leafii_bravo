@@ -20,12 +20,6 @@
 	width: 90%;
 }
 
-.backgroundFields textarea {
-	resize: vertical;
-	min-width: 100%;
-	min-height: 100px;
-}
-
 textarea {
 	resize: vertical;
 	min-height: 200px;
@@ -60,10 +54,13 @@ hr {
 
 .star {
 	color: red;
-	font-size: 20px;
+	font-size: 25px;
+	line-height: 1px;
 }
 
 .required {
 	color: red;
 }
+
+
 
