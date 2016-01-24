@@ -3,7 +3,7 @@ var router = express.Router();
 var Sequelize = require('sequelize');
 var sequelize = new Sequelize(undefined,undefined, undefined, {
   dialect: 'sqlite',
-  storage: 'db/leafii_dev.db'
+  storage: 'db/leafii_prod.db'
 });
 
 // DATABASE MODEL
