@@ -27,12 +27,11 @@
 		</div>
 		<div class="container" ng-controller="TemplateController as tc">
 			<br>
-			<h4>Hello there, let's get you started!</h4>
-			<hr></hr>
+			<br>
+			<br>
 			<form class="full-width" name="template" novalidate>
 				<fieldset class="five columns contactFields">
 					<h5>Contact Information</h5>
-					<span class="required">required fields are labeled as *</span>
 					<label>First Name<span class="star">*</span></label>
 					<input name="first" type="text" placeholder="John" ng-model="tc.user.first" required>
 					<label>Last Name<span class="star">*</span></label>
@@ -53,8 +52,11 @@
 					<input name="profession" type="text" placeholder="Physicist" ng-model="tc.user.profession"/>
 					<label>Motto (Personal Quote)</label>
 					<input name="quote" type="text" placeholder="To be or not to be" ng-model="tc.user.quote"/>
+				</fieldset>
+
+				<fieldset class="twelve columns">
 					<label>About</label>
-					<textarea placeholder="I'm a rocket scientist" ng-model="tc.user.about"></textarea>
+					<textarea class="full-width" placeholder="I'm a rocket scientist" ng-model="tc.user.about"></textarea>
 				</fieldset>
 
 				<fieldset class="twelve columns">
@@ -69,7 +71,7 @@
 						<textarea class="twelve columns" placeholder="Description" ng-model="content.value"></textarea>
 						<button class="delete-btn" ng-click="tc.delete($index)">Delete</button>
 					</div>
-					<h6 class="add-btn" ng-click="tc.addmore()">+Add fields</h6>
+					<button class="add-btn" ng-click="tc.addmore()">+Add fields</button>
 				</fieldset>
 
 				<fieldset>
@@ -82,5 +84,11 @@
 
 		    </form>
 		</div>
+
+		<div class="footer">
+			<h6><b>powered by Leafii</b></h6>
+			<h6>Waterloo, ON &copy; 2016</h6>
+		</div>
+
 	</body>
 </html>

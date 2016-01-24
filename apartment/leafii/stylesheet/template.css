@@ -20,12 +20,6 @@
 	width: 90%;
 }
 
-.backgroundFields textarea {
-	resize: vertical;
-	min-width: 100%;
-	min-height: 100px;
-}
-
 textarea {
 	resize: vertical;
 	min-height: 200px;
@@ -42,7 +36,6 @@ textarea {
 	color: rgba(0,0,0,0.7);
 	cursor: pointer;
 	font-weight: bold;
-	width: 10%;
 }
 
 .add-btn:hover {
@@ -61,10 +54,21 @@ hr {
 
 .star {
 	color: red;
-	font-size: 20px;
+	font-size: 25px;
+	line-height: 1px;
 }
 
 .required {
 	color: red;
 }
+.footer {
+  width: 100%;
+  border-top: solid thin #1a1a1a;
+  position: absolute;
+  text-align: center;
+  background-color: #1a1a1a;
+  color: #f8f8f8;
+}
+
+
 
