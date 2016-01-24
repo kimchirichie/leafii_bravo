@@ -13,7 +13,7 @@ var Signup = sequelize.define('signup', {
   phone: {type: Sequelize.STRING, allowNull: false}
 });
 
-var Template = sequelize.define('signup', {
+var Template = sequelize.define('templates', {
   first: {type: Sequelize.STRING, allowNull: false},
   last: {type: Sequelize.STRING, allowNull: false},
   email: {type: Sequelize.STRING, allowNull: false},
@@ -22,7 +22,7 @@ var Template = sequelize.define('signup', {
   program: {type: Sequelize.STRING},
   profession: {type: Sequelize.STRING},
   about: {type: Sequelize.STRING},
-  content: {type: Sequelize.TEXT}
+  contents: {type: Sequelize.TEXT}
 });
 
 // LOG TIME
@@ -34,11 +34,24 @@ router.use(function (req, res, next){
 // ROUTES
 router.route('/template')
 	.get(function (req, res) {
-		res.send('coming soon');
+		console.log('GET: /template : Querying Templates');
+		Template.all().then(function (templates){
+			res.json(templates);
+		});
 	})
 	.post(function (req,res){
 		console.log('POST: /template : Recording Template');
-
+		console.dir(req.body);
+		console.log(JSON.stringify(req.body.contents));
+		Template.sync().then(function (){
+			var data = req.body
+			data.contents = JSON.stringify(data.contents);
+			console.log(data);
+			Template.create(data).then(function (template){
+				console.dir(template.get());
+			});
+		});
+		res.sendStatus(200);
 	});
 
 router.route('/signup')

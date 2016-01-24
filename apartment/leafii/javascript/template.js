@@ -9,7 +9,10 @@
 App.controller('TemplateController', function($http){
 
 	var vm = this;
-	vm.user = {contents:[{field:"",value:""}]};
+	
+	vm.initialize = function(){
+		vm.user = {contents:[{field:"",value:""}]};
+	}
 
 	vm.addmore = function(){
 		vm.user.contents.push({field:"",value:""});
@@ -21,5 +24,16 @@ App.controller('TemplateController', function($http){
 
 	vm.submit = function(){
 		console.log(vm.user);
+		$http.post('/db/template', vm.user)
+		.success(function (response){
+			alert('Thank you! We will get working on it right away!');
+			console.log('posting template successful');
+			// vm.initialize();
+		}).error(function (response){
+			alert('posting template unsuccessful');
+			console.log(response);
+		});
 	}
+
+	vm.initialize();
 });

@@ -3,7 +3,7 @@
 module.exports = {
   up: function (queryInterface, Sequelize) {
     return queryInterface.createTable(
-      'template',
+      'templates',
       {
         id: {
           type: Sequelize.INTEGER,
@@ -24,7 +24,7 @@ module.exports = {
         program: Sequelize.STRING,
         profession: Sequelize.STRING,
         about: Sequelize.STRING,
-        content: Sequelize.TEXT
+        contents: Sequelize.TEXT
       }
     );
   },
