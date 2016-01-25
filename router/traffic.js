@@ -3,7 +3,7 @@ var router = express.Router();
 var Sequelize = require('sequelize');
 var sequelize = new Sequelize(undefined,undefined, undefined, {
   dialect: 'sqlite',
-  storage: 'db/leafii_dev.db'
+  storage: 'db/leafii_prod.db'
 });
 
 // DATABASE MODEL
@@ -15,9 +15,9 @@ var Traffic = sequelize.define('traffic', {
 // LOG TRAFFIC
 router.use(function (req, res, next){
   console.log('MIDDLEWARE: Recording Traffic');
-  console.log('NAMESPACE: ' + namespace);
   var splitname = req.hostname.split(".")
-  var namespace = splitname[splitname.length-2];
+  var namespace = splitname[splitname.length-2] || 'localhost';
+  console.log('NAMESPACE: ' + namespace);
   Traffic.sync().then(function (){
     var data = {
       hostname: namespace,

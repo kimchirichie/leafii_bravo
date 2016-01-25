@@ -30,64 +30,67 @@
 			<br>
 			<br>
 			<form class="full-width" name="template" novalidate>
-				<fieldset class="five columns contactFields">
-					<h5>Contact Information</h5>
-					<label>First Name<span class="star">*</span></label>
-					<input name="first" type="text" placeholder="John" ng-model="tc.user.first" required>
-					<label>Last Name<span class="star">*</span></label>
-					 <input name="last" type="text" placeholder="Smith" ng-model="tc.user.last" required>
-					<label>Email<span class="star">*</span></label>
-					<input name="email" type="email" placeholder="myemail@mailbox.com" ng-model="tc.user.email" required>
-					<label>Phone<span class="star">*</span></label>
-					<input name="phone" type="tel" placeholder="123 456 7890" ng-model="tc.user.phone" required>
-				</fieldset>
-
-				<fieldset class="six columns backgroundFields">
-					<h5>Background</h5>
-					<label>School</label>
-					<input name="school" type="text" placeholder="University of Waterloo" ng-model="tc.user.school"/>
-					<label>Program</label>
-					<input name="program" type="text" placeholder="Physics and Astronomy" ng-model="tc.user.program"/>
-					<label>Profession</label>
-					<input name="profession" type="text" placeholder="Physicist" ng-model="tc.user.profession"/>
-					<label>Motto (Personal Quote)</label>
-					<input name="quote" type="text" placeholder="To be or not to be" ng-model="tc.user.quote"/>
-				</fieldset>
-
-				<fieldset class="twelve columns">
-					<label>About</label>
-					<textarea class="full-width" placeholder="I'm a rocket scientist" ng-model="tc.user.about"></textarea>
-				</fieldset>
-
-				<fieldset class="twelve columns">
-					<hr>
-					<h5>Content</h5>
-					<div ng-repeat="content in tc.user.contents track by $index">
-						<label>Experiences/Projects {{$index + 1}}:</label>
-						<br>
-						<div>
-							<input type="text" placeholder="Job/Project Title" ng-model="content.field"/>
-						</div>
-						<textarea class="twelve columns" placeholder="Description" ng-model="content.value"></textarea>
-						<button class="delete-btn" ng-click="tc.delete($index)">Delete</button>
+				<div class="row">
+					<div class="five columns">
+						<h5>Contact Information</h5>
+						<label><span class="star">*</span>First Name</label>
+						<input name="first" type="text" placeholder="John" ng-model="tc.user.first" required>
+						<label><span class="star">*</span>Last Name</label>
+						 <input name="last" type="text" placeholder="Smith" ng-model="tc.user.last" required>
+						<label><span class="star">*</span>Email</label>
+						<input name="email" type="email" placeholder="myemail@mailbox.com" ng-model="tc.user.email" required>
+						<label><span class="star">*</span>Phone</label>
+						<input name="phone" type="tel" placeholder="123 456 7890" ng-model="tc.user.phone" required>
 					</div>
-					<button class="add-btn" ng-click="tc.addmore()">+Add fields</button>
-				</fieldset>
-
-				<fieldset>
-					<hr>
-					<h5>Comment</h5>
-					<textarea class="twelve columns" placeholder="I want a professional site" ng-model="tc.user.comment"></textarea>
-				</fieldset>
-
+					<div class="seven columns">
+						<h5>Background</h5>
+						<label>School</label>
+						<input name="school" type="text" placeholder="University of Waterloo" ng-model="tc.user.school"/>
+						<label>Program</label>
+						<input name="program" type="text" placeholder="Physics and Astronomy" ng-model="tc.user.program"/>
+						<label>Profession</label>
+						<input name="profession" type="text" placeholder="Physicist" ng-model="tc.user.profession"/>
+						<label>Motto (Personal Quote)</label>
+						<input name="quote" type="text" placeholder="To be or not to be" ng-model="tc.user.quote"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="twelve columns">
+						<label>About</label>
+						<textarea class="full-width" placeholder="I'm a rocket scientist!" ng-model="tc.user.about"></textarea>
+					</div>
+				</div>
+				<div class="row">
+					<div class="twelve columns">
+						<hr>
+						<h5>Content</h5>
+						<div ng-repeat="content in tc.user.contents track by $index">
+							<label>Field {{$index + 1}}:</label>
+							<br>
+							<div>
+								<input type="text" placeholder="Experience/Project/.." ng-model="content.field"/>
+							</div>
+							<textarea class="twelve columns" placeholder="Content" ng-model="content.value"></textarea>
+							<button class="delete-btn" ng-click="tc.delete($index)">Delete</button>
+						</div>
+						<button class="add-btn" ng-click="tc.addmore()">+Add fields</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="twelve columns">
+						<hr>
+						<h5>Comment</h5>
+						<textarea class="twelve columns" placeholder="I want a professional site" ng-model="tc.user.comment"></textarea>
+					</div>
+				</div>
 				<button class="submit-btn" ng-click="tc.submit()">Submit</button>
-
+				</div>
 		    </form>
 		</div>
 
 		<div class="footer">
-			<h6><b>powered by Leafii</b></h6>
-			<h6>Waterloo, ON &copy; 2016</h6>
+			<h5><b>powered by Leafii</b></h5>
+      		<h6>Waterloo, ON &copy; 2016</h6>
 		</div>
 
 	</body>

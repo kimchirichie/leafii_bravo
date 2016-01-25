@@ -36,11 +36,11 @@ App.controller('LandingController',function($scope, $mdDialog, $mdMedia, $http){
 			fullscreen: useFullScreen
 		}).then(function(answer) {
 			console.log(answer);
-			$http.post('/signup', answer)
-			.success(function successCallback(response) {
+			$http.post('/db/signup', answer)
+			.success(function (response) {
 				alert('Thank You! We will get in touch with you very soon!');
 				console.log('posting contact successful');
-			}).error(function errorCallback(response) {
+			}).error(function (response) {
 				alert('posting contact unsuccessful');
 				console.log(response)
 			});
