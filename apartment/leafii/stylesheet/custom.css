@@ -59,7 +59,7 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .categories {
   background-image: url('../assets/values-bg.jpg');
-  background-size: cover;
+  /*background-size: cover;*/
   color: #fff;
 }
 .categories .section-description { 

@@ -41,3 +41,19 @@
 .navbar-link.active {
   color: #33C3F0;
 }
+
+.logo {
+  width: 85%;
+  color: #33C3F0;
+}
+
+.sampleWork {
+    width: 100%;
+    height: 300px;
+    cursor: pointer;
+}
+
+.sampleWork:hover {
+    border: solid 2px #33C3F0;
+}
+
