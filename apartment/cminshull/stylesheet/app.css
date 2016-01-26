@@ -76,7 +76,7 @@
 #Portfolio a.anchor {
   display: block;
   position: relative;
-  top: -90px;
+  top: -80px;
 }
 @media (max-width: 750px) {
   #Portfolio a.anchor {

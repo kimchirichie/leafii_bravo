@@ -32,6 +32,7 @@ textarea {
 	color: rgba(0,0,0,0.7);
 	cursor: pointer;
 	font-weight: bold;
+	border: thin solid black;
 }
 
 .add-btn:hover {
@@ -64,6 +65,16 @@ hr {
   text-align: center;
   background-color: #1a1a1a;
   color: #f8f8f8;
+}
+
+.icon-padding {
+	margin-right: 10px;
+	color: green;
+}
+
+.icon-padding-must {
+	margin-right: 10px;
+	color: red;
 }
 
 

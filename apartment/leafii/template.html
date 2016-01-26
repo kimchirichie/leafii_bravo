@@ -55,6 +55,24 @@
 					</div>
 				</div>
 				<div class="row">
+					<div class="six columns">
+						<label>Preferred Domain Name(s)</label>
+						<div layout="row" layout-align="start start">
+							<i class="material-icons icon-padding-must">filter_1</i>
+							<input type="text" placeholder="fire.com" ng-model="tc.user.domain1" required></input>
+						</div>
+						<div layout="row" layout-align="start start">
+							<i class="material-icons icon-padding">filter_2</i>
+							<input type="text" placeholder="flame.com" ng-model="tc.user.domain2"></input>
+						</div>
+						<div layout="row" layout-align="start start">
+							<i class="material-icons icon-padding">filter_3</i>
+							<input type="text" placeholder="torch.com" ng-model="tc.user.domain3"></input>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
 					<div class="twelve columns">
 						<label>About</label>
 						<textarea class="full-width" placeholder="I'm a rocket scientist!" ng-model="tc.user.about"></textarea>
@@ -71,19 +89,19 @@
 								<input type="text" placeholder="Experience/Project/.." ng-model="content.field"/>
 							</div>
 							<textarea class="twelve columns" placeholder="Content" ng-model="content.value"></textarea>
-							<button class="delete-btn" ng-click="tc.delete($index)">Delete</button>
+							<md-button class="delete-btn" ng-click="tc.delete($index)">Delete</md-button>
 						</div>
-						<button class="add-btn" ng-click="tc.addmore()">+Add fields</button>
+						<md-button class="add-btn" ng-click="tc.addmore()">+Add fields</md-button>
 					</div>
 				</div>
 				<div class="row">
 					<div class="twelve columns">
 						<hr>
 						<h5>Comment</h5>
-						<textarea class="twelve columns" placeholder="I want a professional site" ng-model="tc.user.comment"></textarea>
+						<textarea class="twelve columns" placeholder="I want a professional website, make it pretty!" ng-model="tc.user.comment"></textarea>
 					</div>
 				</div>
-				<button class="submit-btn" ng-click="tc.submit()">Submit</button>
+				<md-button class="submit-btn" ng-click="tc.submit(template)">Submit</md-button>
 				</div>
 		    </form>
 		</div>

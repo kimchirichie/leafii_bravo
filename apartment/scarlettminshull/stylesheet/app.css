@@ -76,7 +76,7 @@
 #Portfolio a.anchor {
   display: block;
   position: relative;
-  top: -90px;
+  top: -80px;
 }
 @media (max-width: 750px) {
   #Portfolio a.anchor {
@@ -100,7 +100,7 @@
 
 .black-back {
   padding-top: 50px;
-  background-color: #1a1a1a;
+  background-color:  #f44336;
   color: #f8f8f8;
 }
 
