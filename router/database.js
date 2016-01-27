@@ -1,9 +1,20 @@
 var express = require('express');
+var app = express();
 var router = express.Router();
 var Sequelize = require('sequelize');
+var database;
+
+if (app.get('env') === 'production') {
+	database = 'db/leafii_prod.db';
+} if (app.get('env') === 'development') {
+	database = 'db/leafii_dev.db';
+} else {
+	database = 'db/leafii_test.db';
+}
+
 var sequelize = new Sequelize(undefined,undefined, undefined, {
   dialect: 'sqlite',
-  storage: 'db/leafii_prod.db'
+  storage: database
 });
 
 // DATABASE MODEL
@@ -18,9 +29,11 @@ var Template = sequelize.define('templates', {
   last: {type: Sequelize.STRING, allowNull: false},
   email: {type: Sequelize.STRING, allowNull: false},
   phone: {type: Sequelize.STRING, allowNull: false},
+  domains: {type: Sequelize.TEXT, allowNull: false},
   school: {type: Sequelize.STRING},
   program: {type: Sequelize.STRING},
   profession: {type: Sequelize.STRING},
+  quote: {type: Sequelize.STRING},
   about: {type: Sequelize.STRING},
   contents: {type: Sequelize.TEXT}
 });
@@ -46,6 +59,7 @@ router.route('/template')
 		Template.sync().then(function (){
 			var data = req.body
 			data.contents = JSON.stringify(data.contents);
+			data.domains = JSON.stringify(data.domains);
 			console.log(data);
 			Template.create(data).then(function (template){
 				console.dir(template.get());

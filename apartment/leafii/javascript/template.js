@@ -23,7 +23,7 @@ App.controller('TemplateController', function($http){
 	}
 
 	vm.submit = function(template){
-
+		// console.log(vm.user);
 		if (template.$invalid){
 			alert('Please fill in the required fields');
 		}

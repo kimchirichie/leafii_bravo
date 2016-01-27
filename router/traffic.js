@@ -1,9 +1,20 @@
 var express = require('express');
+var app = express();
 var router = express.Router();
 var Sequelize = require('sequelize');
+var database;
+
+if (app.get('env') === 'production') {
+  database = 'db/leafii_prod.db';
+} if (app.get('env') === 'development') {
+  database = 'db/leafii_dev.db';
+} else {
+  database = 'db/leafii_test.db';
+}
+
 var sequelize = new Sequelize(undefined,undefined, undefined, {
   dialect: 'sqlite',
-  storage: 'db/leafii_prod.db'
+  storage: database
 });
 
 // DATABASE MODEL

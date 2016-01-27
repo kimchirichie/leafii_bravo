@@ -56,18 +56,18 @@
 				</div>
 				<div class="row">
 					<div class="six columns">
-						<label>Preferred Domain Name(s)</label>
+						<label><span class="star">*</span>Preferred Domain Name(s)</label>
 						<div layout="row" layout-align="start start">
 							<i class="material-icons icon-padding-must">filter_1</i>
-							<input type="text" placeholder="fire.com" ng-model="tc.user.domain1" required></input>
+							<input type="text" placeholder="fire.com" ng-model="tc.user.domains[0]" required></input>
 						</div>
 						<div layout="row" layout-align="start start">
 							<i class="material-icons icon-padding">filter_2</i>
-							<input type="text" placeholder="flame.com" ng-model="tc.user.domain2"></input>
+							<input type="text" placeholder="flame.com" ng-model="tc.user.domains[1]"></input>
 						</div>
 						<div layout="row" layout-align="start start">
 							<i class="material-icons icon-padding">filter_3</i>
-							<input type="text" placeholder="torch.com" ng-model="tc.user.domain3"></input>
+							<input type="text" placeholder="torch.com" ng-model="tc.user.domains[2]"></input>
 						</div>
 					</div>
 				</div>
