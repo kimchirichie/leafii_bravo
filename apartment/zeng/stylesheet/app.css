@@ -1,17 +1,17 @@
-.fullScroll {
-    min-width: 60%;
-}
+
 
 .full-width {
     width:100%;
 }
 
 .footer {
-  background: #212121;
+	
+	width: 100%;
+  	position: absolute;
+  	text-align: center;
+  	background: #212121;
+  	color: white;
 }
 
-h6 {
-    color: white;
-    margin: 20px;
-}
+
 
