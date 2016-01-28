@@ -16,6 +16,10 @@
   margin: 0 25px 0 25px;
 }
 
+.padding-top {
+  padding-top: 5%;
+}
+
 .navbar-list {
   list-style: none;
   margin-bottom: 0;
