@@ -1,3 +1,7 @@
+#popupContainer {
+  background: #b2ff59;
+}
+
 #Landing .footer {
   width: 100%;
   border-top: solid thin black;
@@ -14,6 +18,18 @@
 
 .align-middle ul li a {
   margin: 0 25px 0 25px;
+}
+
+.padding-top {
+  padding-top: 5%;
+}
+
+.steps {
+  border: solid 1px #424242;
+}
+
+.step {
+  border-bottom: solid 1px #424242;
 }
 
 .navbar-list {
