@@ -71,9 +71,9 @@
 }
 
 .plan_features{
-    font-size: 13px;
+    font-size: 15px;
     font-weight: bold;
-    padding: 10px 5px;
+    padding: 30px 5px;
 }
 
 .plan_price{
@@ -96,6 +96,10 @@
     border-top: 1px solid #5AD540;
 }
 
+.buy:hover {
+  color: black;
+}
+
 .plan_title{
     background: none repeat scroll 0 0 #000000;
     border-radius: 3px 3px 0 0;
@@ -115,6 +119,7 @@
     background: none repeat scroll 0 0 #000000;
     border-radius: 0 0 3px 3px;
     padding: 20px;
+    margin-bottom: 20px;
 }
 .plan_buy a{
     border-radius: 4px 4px 4px 4px;
@@ -142,7 +147,14 @@
 .feature_desc{
     color: #4E4E4E;
     font-family: arial;
-    text-align: center;
+    text-align: left;
+    padding: 20px;
+}
+
+@media (max-width: 750px){
+    .feature_desc {
+        text-align: center;
+    }
 }
  
 .highlight{
@@ -150,6 +162,15 @@
     font-family: helvetica;
     font-size: 15px;
     font-weight: bold;
+}
+
+.plans {
+  margin-top: 30px;
+}
+
+.img-fit {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 
