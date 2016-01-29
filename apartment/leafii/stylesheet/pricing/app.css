@@ -1,0 +1,180 @@
+#Landing .footer {
+  width: 100%;
+  border-top: solid thin black;
+  position: absolute;
+}
+
+.align-middle {
+  text-align: center;
+}
+
+.align-middle ul {
+  display: inline-block;
+}
+
+.align-middle ul li a {
+  margin: 0 25px 0 25px;
+}
+
+.padding-top {
+  padding-top: 5%;
+}
+
+.navbar-list {
+  list-style: none;
+  margin-bottom: 0;
+}
+
+.navbar-item {
+  position: relative;
+  float: middle;
+  margin-bottom: 0;
+}
+
+/*Larger than a phone*/
+@media (min-width: 750px) {
+  #Landing .navbar-item {
+    position: relative;
+    float: left;
+    margin-bottom: 0;
+  }
+}
+
+.navbar-link {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .2rem;
+  margin-right: 35px;
+  text-decoration: none;
+  line-height: 6.5rem;
+  color: #222;
+}
+
+.navbar-link.active {
+  color: #33C3F0;
+}
+
+.logo {
+  width: 85%;
+  color: #33C3F0;
+}
+
+.sampleWork {
+    width: 100%;
+    height: 300px;
+    cursor: pointer;
+}
+
+.sampleWork:hover {
+    opacity: 0.7;
+}
+
+.plan_features{
+    font-size: 15px;
+    font-weight: bold;
+    padding: 30px 5px;
+}
+
+.plan_price{
+    color: #FFFFFF;
+    font-size: 35px;
+    font-weight: bold;
+    padding: 30px;
+    text-align: center;
+}
+#pricing_plan1 .plan_price, #pricing_plan1 .buy{
+    background: none repeat scroll 0 0 #B71A1A;
+    border-top: 1px solid #F83333;
+}
+#pricing_plan2 .plan_price, #pricing_plan2 .buy{
+    background: none repeat scroll 0 0 #1A7BB7;
+    border-top: 1px solid #4BA3FF;
+}
+#pricing_plan3 .plan_price, #pricing_plan3 .buy{
+    background: none repeat scroll 0 0 #2D964B;
+    border-top: 1px solid #5AD540;
+}
+
+.buy:hover {
+  color: black;
+}
+
+.plan_title{
+    background: none repeat scroll 0 0 #000000;
+    border-radius: 3px 3px 0 0;
+    color: #FFFFFF;
+    font-family: helvetica;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 20px;
+    text-align: center;
+    text-shadow: 1px 1px 1px #5E5858;
+}
+.plan{
+    border:1px solid #eee;
+    margin-bottom: 15px;
+}
+.plan_buy{
+    background: none repeat scroll 0 0 #000000;
+    border-radius: 0 0 3px 3px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.plan_buy a{
+    border-radius: 4px 4px 4px 4px;
+    color: #FFFFFF;
+    display: block;
+    font-size: 15px;
+    font-weight: bold;
+    margin: auto;
+    padding: 10px 5px;
+    text-align: center;
+    text-decoration: none;
+    width: 90px;
+}
+.plan_more{
+    background: none repeat scroll 0 0 #fff;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 10px 5px;
+    display: none;
+    border-left: 2px solid #302C2C;
+    border-right: 2px solid #302C2C;
+    border-bottom: 2px solid #302C2C;
+}
+
+.feature_desc{
+    color: #4E4E4E;
+    font-family: arial;
+    text-align: left;
+    padding: 20px;
+}
+
+@media (max-width: 750px){
+    .feature_desc {
+        text-align: center;
+    }
+}
+ 
+.highlight{
+    color: #333233;
+    font-family: helvetica;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.plans {
+  margin-top: 30px;
+}
+
+.img-fit {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.img-fit:hover {
+  opacity: 0.7;
+}
+
+

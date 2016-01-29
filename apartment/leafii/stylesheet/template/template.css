@@ -1,0 +1,81 @@
+.black-back {
+  padding-top: 50px;
+  background-color: #1a1a1a;
+  color: #f8f8f8;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.full-width {
+	width: 100%;
+}
+
+input {
+	width: 100%;
+}
+
+textarea {
+	resize: vertical;
+	min-height: 200px;
+}
+
+.delete-btn {
+	 margin-bottom: 3rem;
+	 background:  #f44336;
+	 color: white;
+	 border: solid thin white;
+}
+
+.add-btn {
+	color: rgba(0,0,0,0.7);
+	cursor: pointer;
+	font-weight: bold;
+	border: thin solid black;
+}
+
+.add-btn:hover {
+	color: rgba(0,0,0, 1);
+}
+
+.submit-btn {
+	background: #00e676;
+	color: white;
+	border: solid thin white;
+}
+
+hr {
+  width: 80%;
+}
+
+.star {
+	color: red;
+	font-size: 25px;
+	line-height: 1px;
+}
+
+.required {
+	color: red;
+}
+.footer {
+  width: 100%;
+  border-top: solid thin black;
+  position: absolute;
+  text-align: center;
+  background-color: #1a1a1a;
+  color: #f8f8f8;
+}
+
+.icon-padding {
+	margin-right: 10px;
+	color: green;
+}
+
+.icon-padding-must {
+	margin-right: 10px;
+	color: red;
+}
+
+
+
