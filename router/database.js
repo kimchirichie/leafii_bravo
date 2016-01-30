@@ -2,8 +2,20 @@ var express = require('express');
 var app = express();
 var router = express.Router();
 var Sequelize = require('sequelize');
-var database;
+var multer  = require('multer');
 
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/')
+  },
+  filename: function (req, file, cb) {
+  	console.log(file);
+    cb(null, file.originalname + '-' + Date.now())
+  }
+})
+var upload = multer({ storage: storage });
+
+var database;
 if (app.get('env') === 'production') {
 	database = 'db/leafii_prod.db';
 } if (app.get('env') === 'development') {
@@ -24,7 +36,7 @@ var Signup = sequelize.define('signup', {
   phone: {type: Sequelize.STRING, allowNull: false}
 });
 
-var Template = sequelize.define('templates', {
+var Webform = sequelize.define('webforms', {
   first: {type: Sequelize.STRING, allowNull: false},
   last: {type: Sequelize.STRING, allowNull: false},
   email: {type: Sequelize.STRING, allowNull: false},
@@ -45,24 +57,24 @@ router.use(function (req, res, next){
 });
 
 // ROUTES
-router.route('/template')
+router.route('/webform')
 	.get(function (req, res) {
-		console.log('GET: /template : Querying Templates');
-		Template.all().then(function (templates){
-			res.json(templates);
+		console.log('GET: /webform : Querying Webform');
+		Webform.all().then(function (webform){
+			res.json(webform);
 		});
 	})
 	.post(function (req,res){
-		console.log('POST: /template : Recording Template');
+		console.log('POST: /webform : Recording webform');
 		console.dir(req.body);
 		console.log(JSON.stringify(req.body.contents));
-		Template.sync().then(function (){
+		Webform.sync().then(function (){
 			var data = req.body
 			data.contents = JSON.stringify(data.contents);
 			data.domains = JSON.stringify(data.domains);
 			console.log(data);
-			Template.create(data).then(function (template){
-				console.dir(template.get());
+			Webform.create(data).then(function (webform){
+				console.dir(webform.get());
 			});
 		});
 		res.sendStatus(200);
@@ -87,5 +99,11 @@ router.route('/signup')
 		});
 		res.sendStatus(200);
 	});
+
+router.post('/files', upload.single('file'), function(req, res){
+	console.log('POST: /files : File Upload Complete');
+	// console.log(req.)
+	res.sendStatus(200);
+});
 
 module.exports = router;

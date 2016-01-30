@@ -14,7 +14,8 @@
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0",
     "sqlite3": "latest",
-    "sequelize": "latest"
+    "sequelize": "latest",
+    "multer": "latest"
   },
   "devDependencies": {
     "sequelize": "^3.18.0",
