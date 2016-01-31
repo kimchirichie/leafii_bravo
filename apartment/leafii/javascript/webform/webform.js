@@ -40,7 +40,7 @@ App.controller('WebformController', function($http, Upload, $timeout){
 			$http.post('/db/webform', vm.user)
 			.success(function (response){
 				console.log('posting webform successful');
-				// window.location.replace('thankyou.html');
+				window.location.replace('thankyou.html');
 			}).error(function (response){
 				alert('posting webform unsuccessful');
 				console.log(response);
