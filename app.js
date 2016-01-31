@@ -47,13 +47,13 @@ if (app.get('env') === 'production') {
 app.use(express.static(path.join(__dirname, 'apartment')));
 
 // PRODUCTION LAST FALL BACK
-if (app.get('env') === 'production') {
-  app.use(function (req, res) {
-    console.log('ROUTER: Found no match. Forward to landing page')
-    // should log this in database for err
-    res.redirect('http://leafii.com');
-  });
-}
+// if (app.get('env') === 'production') {
+//   app.use(function (req, res) {
+//     console.log('ROUTER: Found no match. Forward to landing page')
+//     // should log this in database for err
+//     res.redirect('http://leafii.com');
+//   });
+// }
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

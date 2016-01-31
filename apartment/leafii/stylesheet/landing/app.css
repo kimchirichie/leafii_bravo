@@ -63,12 +63,12 @@
 .sampleWork {
     width: 100%;
     height: 300px;
-    cursor: pointer;
+    border-radius: 25px;
 }
 
-.sampleWork:hover {
+/*.sampleWork:hover {
     opacity: 0.7;
-}
+}*/
 
 .plan_features{
     font-size: 15px;
