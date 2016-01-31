@@ -1,15 +1,16 @@
 $(document).ready(function() {
 
-  $("#digitalOpen").click(function(){
-    $("#digitalFeedback").slideToggle("slow");
+  $("#open1").click(function(){
+    $("#openSide1").slideToggle("slow");
+    console.log('bitch');
   });
 
-  $("#iqcOpen").click(function(){
-    $("#IQCFeedback").slideToggle("slow");
+  $("#open2").click(function(){
+    $("#openSide2").slideToggle("slow");
   });
 
-  $("#scarsinOpen").click(function(){
-    $("#scarsinFeedback").slideToggle("slow");
+  $("#open3").click(function(){
+    $("#openSide3").slideToggle("slow");
   });
 
 });
