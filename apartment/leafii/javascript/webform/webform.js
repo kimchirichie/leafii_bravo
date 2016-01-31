@@ -25,7 +25,11 @@ App.controller('WebformController', function($http, Upload, $timeout){
 	}
 
 	vm.submit = function(webform){
-		console.log(vm.user);
+		for (var i = 0; i < vm.user.contents.length; i++){
+			if((vm.user.contents[i].files && vm.user.contents[i].files.length) && !confirm('attachements have not been uploaded. continue?')){
+				return;
+			}
+		}
 		if (webform.$invalid){
 			alert('Please fill in the required fields');
 		}
