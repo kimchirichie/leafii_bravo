@@ -102,8 +102,7 @@ router.route('/signup')
 
 router.post('/files', upload.single('file'), function(req, res){
 	console.log('POST: /files : File Upload Complete');
-	// console.log(req.)
-	res.sendStatus(200);
+	res.json({filename: req.file.filename});
 });
 
 module.exports = router;
