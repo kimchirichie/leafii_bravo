@@ -54,8 +54,10 @@ App.controller('WebformController', function($http, Upload, $timeout){
 					.then(function (resp) {
 						$timeout(function() {
 							console.log(resp.config.data.file);
-							console.log('file: ' + resp.config.data.file.name + ', Response: ' + JSON.stringify(resp.data));
-							content.uploaded.push(resp.config.data.file.name);
+							var filename = resp.config.data.file.name;
+							var response = JSON.stringify(resp.data)
+							console.log('file: ' + filename + ', Response: ' + response);
+							content.uploaded.push({filename: filename, savedas: response.filename});
 
 						});
 					}, null, function (evt) {
