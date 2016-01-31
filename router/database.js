@@ -18,7 +18,7 @@ var upload = multer({ storage: storage });
 var database;
 if (app.get('env') === 'production') {
 	database = 'db/leafii_prod.db';
-} if (app.get('env') === 'development') {
+} else if (app.get('env') === 'development') {
 	database = 'db/leafii_dev.db';
 } else {
 	database = 'db/leafii_test.db';
