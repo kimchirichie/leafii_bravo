@@ -40,7 +40,7 @@ App.controller('WebformController', function($http, Upload, $timeout){
 			$http.post('/db/webform', vm.user)
 			.success(function (response){
 				console.log('posting webform successful');
-				window.location.replace('thankyou.html');
+				// window.location.replace('thankyou.html');
 			}).error(function (response){
 				alert('posting webform unsuccessful');
 				console.log(response);
@@ -59,8 +59,7 @@ App.controller('WebformController', function($http, Upload, $timeout){
 						$timeout(function() {
 							console.log(resp.config.data.file);
 							var filename = resp.config.data.file.name;
-							var response = JSON.stringify(resp.data)
-							console.log('file: ' + filename + ', Response: ' + response);
+							var response = resp.data
 							content.uploaded.push({filename: filename, savedas: response.filename});
 
 						});
