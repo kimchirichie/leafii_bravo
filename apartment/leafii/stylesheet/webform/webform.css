@@ -99,5 +99,50 @@ hr {
 	color: red;
 }
 
+.align-middle {
+  text-align: center;
+}
 
+.align-middle ul {
+  display: inline-block;
+}
+
+.align-middle ul li a {
+  margin: 0 25px 0 25px;
+}
+
+.navbar-list {
+  list-style: none;
+  margin-bottom: 0;
+}
+
+.navbar-item {
+  position: relative;
+  float: middle;
+  margin-bottom: 0;
+}
+
+/*Larger than a phone*/
+@media (min-width: 750px) {
+  .navbar-item {
+    position: relative;
+    float: left;
+    margin-bottom: 0;
+  }
+}
+
+.navbar-link {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .2rem;
+  margin-right: 35px;
+  text-decoration: none;
+  line-height: 6.5rem;
+  color: #f8f8f8;
+}
+
+.navbar-link.active {
+  color: #33C3F0;
+}
 
