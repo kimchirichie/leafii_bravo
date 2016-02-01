@@ -85,7 +85,7 @@ hr {
 .footer {
   width: 100%;
   border-top: solid thin black;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   text-align: center;
   background-color: #1a1a1a;
@@ -112,6 +112,10 @@ hr {
 }
 
 #tabForm {
-	height: -moz-calc(100% -100px);
+	height: auto;
+}
+
+#tabs {
+	height: calc(100vh - 292px);
 }
 

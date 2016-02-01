@@ -29,7 +29,7 @@
 		</div>
 
 		<div id="tabForm" class="twelve columns" ng-controller="WebformController as tc">
-			<md-tabs md-dynamic-height md-center-tabs md-swipe-content class="md-accent" >
+			<md-tabs id="tabs" md-center-tabs md-swipe-content class="md-accent">
 				<md-tab>
 					<md-tab-label>
 						Contact
@@ -80,8 +80,10 @@
 					</md-tab-label>
 					<md-tab-body>
 						<md-content class="md-padding" layout="column" layout-align="center center">
-							<div class="eight columns" ng-repeat="content in tc.user.contents track by $index">
+							<div class="eight columns">
 								<h2>Tell us about your experiences, projects and Achievements</h2>
+							</div>
+							<div class="eight columns" ng-repeat="content in tc.user.contents track by $index">
 								<div class="row">
 									<div class="twelve columns">
 										<h5 style="display:inline-block">{{ content.field || "Field " + ($index + 1) }}:</h5>

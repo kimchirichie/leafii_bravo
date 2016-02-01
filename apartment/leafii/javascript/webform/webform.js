@@ -9,9 +9,6 @@
 App.controller('WebformController', function($http, Upload, $timeout){
 
 	var vm = this;
-
-	// vm.tabsHeight = angular.element().Height();
-
 	
 	vm.initialize = function(){
 		vm.user = {contents:[{field:"",value:""}]};
