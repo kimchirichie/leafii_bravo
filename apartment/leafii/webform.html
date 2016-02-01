@@ -19,127 +19,138 @@
 		<script type="text/javascript" src="javascript/webform/app.js"></script>
 		<script type="text/javascript" src="javascript/webform/webform.js"></script>
 	</head>
-	<body>
+	<body class="full-page">
+
 		<div class="black-back">
 			<div class="container">
 				<h1>Let's Get started!</h1>
 				<h4 class="align-right">Step 1: Fill out your portfolio!</h4>
 			</div>
 		</div>
-		<div class="container" ng-controller="WebformController as tc">
-			<br>
-			<br>
-			<br>
-			<form class="full-width" name="webform" novalidate>
-				<div class="row">
-					<div class="five columns">
-						<h5>Contact Information</h5>
-						<label><span class="star">*</span>First Name</label>
-						<input name="first" type="text" placeholder="John" ng-model="tc.user.first" required>
-						<label><span class="star">*</span>Last Name</label>
-						 <input name="last" type="text" placeholder="Smith" ng-model="tc.user.last" required>
-						<label><span class="star">*</span>Email</label>
-						<input name="email" type="email" placeholder="myemail@mailbox.com" ng-model="tc.user.email" required>
-						<label><span class="star">*</span>Phone</label>
-						<input name="phone" type="tel" placeholder="123 456 7890" ng-model="tc.user.phone" required>
-					</div>
-					<div class="seven columns">
-						<h5>Background</h5>
-						<label>School</label>
-						<input name="school" type="text" placeholder="University of Waterloo" ng-model="tc.user.school"/>
-						<label>Program</label>
-						<input name="program" type="text" placeholder="Physics and Astronomy" ng-model="tc.user.program"/>
-						<label>Profession</label>
-						<input name="profession" type="text" placeholder="Physicist" ng-model="tc.user.profession"/>
-						<label>Motto (Personal Quote)</label>
-						<input name="quote" type="text" placeholder="To be or not to be" ng-model="tc.user.quote"/>
-					</div>
-				</div>
-				<div class="row">
-					<div class="six columns">
-						<label><span class="star">*</span>Preferred Domain Name(s)</label>
-						<div layout="row" layout-align="start start">
-							<i class="material-icons icon-padding-must">filter_1</i>
-							<input type="text" placeholder="fire.com" ng-model="tc.user.domains[0]" required></input>
-						</div>
-						<div layout="row" layout-align="start start">
-							<i class="material-icons icon-padding">filter_2</i>
-							<input type="text" placeholder="flame.com" ng-model="tc.user.domains[1]"></input>
-						</div>
-						<div layout="row" layout-align="start start">
-							<i class="material-icons icon-padding">filter_3</i>
-							<input type="text" placeholder="torch.com" ng-model="tc.user.domains[2]"></input>
-						</div>
-					</div>
-				</div>
 
-				<div class="row">
-					<div class="twelve columns">
-						<label>About</label>
-						<textarea class="full-width" placeholder="I'm a rocket scientist!" ng-model="tc.user.about"></textarea>
-					</div>
-				</div>
-				<div class="row">
-					<div class="twelve columns">
-						<hr>
-						<h5>Content</h5>
-					</div>
-				</div>
-				<div ng-repeat="content in tc.user.contents track by $index">
-					<br>
-					<div class="row">
-						<div class="twelve columns">
-							<h5 style="display:inline-block">{{ content.field || "Field " + ($index + 1) }}:</h5>
-							<md-button class="delete-btn" ng-click="tc.delete($index)">Delete</md-button>
-						</div>
-					</div>
-					<div class="row">
-						<div class="twelve columns">
-							<input type="text" placeholder="Experience/Project/.." ng-model="content.field"/>
-							<textarea class="twelve columns" placeholder="Content" ng-model="content.value"></textarea>
-						</div>
-					</div>
-					<div class="row attachment-box">
-						<div class="six columns">
-							<label>Attachments:</label>
-							<div ngf-drop 
-								ngf-select 
-							    ng-model="content.files" 
-							    class="drop-box" 
-							    ngf-drag-over-class="'dragover'" 
-							    ngf-multiple="true"
-							    ngf-allow-dir="true"
-							    accept="image/*,application/pdf" 
-							    ngf-pattern="'image/*,application/pdf'">Drop pdfs or images here or click to upload</div>
-							<div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
-						</div>
-						<div class="six columns" ng-show="content.files">
-							<label>Files:</label>
-							<ul>
-								<h6 ng-show="content.files.length">To be uploaded</h6>
-							    <li ng-repeat="f in content.files" style="font:smaller">{{f.name}} {{"upload: " + (f.progress || 0) + "%"}} {{f.$error}} {{f.$errorParam}}</li>
-								<button ng-show="content.files.length" ng-click="tc.upload(content)">Upload</button>
-								<h6 ng-show="content.uploaded.length">uploaded</h6>
-							    <li ng-repeat="f in content.uploaded" style="font:smaller">{{ f.filename }}</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="twelve columns">
-						<md-button class="add-btn" ng-click="tc.addmore()">+Add fields</md-button>
-					</div>
-				</div>
-				<div class="row">
-					<div class="twelve columns">
-						<hr>
-						<h5>Comment</h5>
-						<textarea class="twelve columns" placeholder="I want a professional website, make it pretty!" ng-model="tc.user.comment"></textarea>
-					</div>
-				</div>
-				<md-button class="submit-btn" ng-click="tc.submit(webform)">Submit</md-button>
-				</div>
-		    </form>
+		<div id="tabForm" class="twelve columns" ng-controller="WebformController as tc">
+			<md-tabs id="tabs" md-center-tabs md-swipe-content class="md-accent">
+				<md-tab>
+					<md-tab-label>
+						Contact
+					</md-tab-label>
+					<md-tab-body>
+						<md-content class="md-padding" layout="row" layout-align="center start">
+							<div class="eight columns">
+								<h5>Contact Information</h5>
+								<label><span class="star">*</span>First Name</label>
+								<input name="first" type="text" placeholder="John" ng-model="tc.user.first" required>
+								<label><span class="star">*</span>Last Name</label>
+								 <input name="last" type="text" placeholder="Smith" ng-model="tc.user.last" required>
+								<label><span class="star">*</span>Email</label>
+								<input name="email" type="email" placeholder="myemail@mailbox.com" ng-model="tc.user.email" required>
+								<label><span class="star">*</span>Phone</label>
+								<input name="phone" type="tel" placeholder="123 456 7890" ng-model="tc.user.phone" required>
+							</div>
+						</md-content>
+					</md-tab-body>
+				</md-tab>
+
+				<md-tab>
+					<md-tab-label>
+						Background
+					</md-tab-label>
+					<md-tab-body>
+						<md-content class="md-padding" layout="row" layout-align="center start">
+							<div class="eight columns">
+								<h5>Background</h5>
+								<label>School</label>
+								<input name="school" type="text" placeholder="University of Waterloo" ng-model="tc.user.school"/>
+								<label>Program</label>
+								<input name="program" type="text" placeholder="Physics and Astronomy" ng-model="tc.user.program"/>
+								<label>Profession</label>
+								<input name="profession" type="text" placeholder="Physicist" ng-model="tc.user.profession"/>
+								<label>Motto (Personal Quote)</label>
+								<input name="quote" type="text" placeholder="To be or not to be" ng-model="tc.user.quote"/>
+								<label>About</label>
+								<textarea class="full-width" placeholder="I'm a rocket scientist!" ng-model="tc.user.about"></textarea>
+							</div>
+						</md-content>
+					</md-tab-body>
+				</md-tab>
+
+				<md-tab>
+					<md-tab-label>
+						Content
+					</md-tab-label>
+					<md-tab-body>
+						<md-content class="md-padding" layout="column" layout-align="center center">
+							<div class="eight columns">
+								<h2>Tell us about your experiences, projects and Achievements</h2>
+							</div>
+							<div class="eight columns" ng-repeat="content in tc.user.contents track by $index">
+								<div class="row">
+									<div class="twelve columns">
+										<h5 style="display:inline-block">{{ content.field || "Field " + ($index + 1) }}:</h5>
+										<md-button class="delete-btn" ng-click="tc.delete($index)">Delete</md-button>
+									</div>
+								</div>
+								<div class="row">
+									<div class="twelve columns">
+										<input type="text" placeholder="Experience/Project/.." ng-model="content.field"/>
+										<textarea class="twelve columns" placeholder="Content" ng-model="content.value"></textarea>
+									</div>
+								</div>
+								<div class="row attachment-box">
+									<div class="twelve columns">
+										<label>Attachments:</label>
+										<div ngf-drop 
+											ngf-select 
+										    ng-model="content.files" 
+										    class="drop-box" 
+										    ngf-drag-over-class="'dragover'" 
+										    ngf-multiple="true"
+										    ngf-allow-dir="true"
+										    accept="image/*,application/pdf" 
+										    ngf-pattern="'image/*,application/pdf'">Drop pdfs or images here or click to upload</div>
+										<div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+									</div>
+									<div class="twelve columns" ng-show="content.files">
+										<label>Files:</label>
+										<ul>
+										    <li ng-repeat="f in content.files" style="font:smaller">{{f.name}} {{"upload: " + (f.progress || 0) + "%"}} {{f.$error}} {{f.$errorParam}}</li>
+											<button ng-click="tc.upload(content)">Upload</button>
+										</ul>
+									</div>
+								</div>
+								<md-button class="add-btn" ng-click="tc.addmore()">+Add fields</md-button>
+							</div>
+						</md-content>
+					</md-tab-body>
+				</md-tab>
+
+				<md-tab>
+					<md-tab-label>
+						Domain
+					</md-tab-label>
+					<md-tab-body>
+						<md-content class="md-padding" layout="row" layout-align="center start">
+							<div class="eight columns">
+								<h2>Input your desired domain name</h2>
+								<label><span class="star">*</span>Preferred Domain Name(s)</label>
+								<div layout="row" layout-align="start start">
+									<i class="material-icons icon-padding-must">filter_1</i>
+									<input type="text" placeholder="fire.com" ng-model="tc.user.domains[0]" required></input>
+								</div>
+								<div layout="row" layout-align="start start">
+									<i class="material-icons icon-padding">filter_2</i>
+									<input type="text" placeholder="flame.com" ng-model="tc.user.domains[1]"></input>
+								</div>
+								<div layout="row" layout-align="start start">
+									<i class="material-icons icon-padding">filter_3</i>
+									<input type="text" placeholder="torch.com" ng-model="tc.user.domains[2]"></input>
+								</div>
+								<md-button class="submit-btn" ng-click="">Submit</md-button>
+							</div>
+						</md-content>
+					</md-tab-body>
+				</md-tab>
+			</md-tabs>
 		</div>
 
 		<div class="footer">
@@ -153,6 +164,5 @@
 				<h6>Waterloo, ON &copy; 2016</h6>
 			</div>
 		</div>
-
 	</body>
 </html>
