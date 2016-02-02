@@ -9,49 +9,183 @@
 	<link rel="stylesheet" href="stylesheet/fonts.css">
 	<link rel="stylesheet" href="stylesheet/app.css">
 	<script type="text/javascript" src="/jquery/dist/jquery.min.js"></script>
-	<script type="text/javascript" src="javascript/app.js"></script>
+	<script type="text/javascript" src="javascript/fade-in.js"></script>
+	<script type="text/javascript" src="javascript/scroll-fade-in.js"></script>
 </head>
 <body>
 <div id="overlay">
 	<h1 class="bash" id="first">$ sudo su</h1>
-	<h1 class="bash" id="second"># cat richard.sin <span class="blink">_</span></h1>
-	<h1 class="bash" id="third"><span class="ellipsis">loading</span><br></h1>
+	<h1 class="bash" id="second"># cat richard.sin 
+		<span class="blink">_</span></h1>
+	<h1 class="bash" id="third">
+		<span class="ellipsis">loading</span><br></h1>
 </div>
 
 <div class="top-banner">
-	<div class="container">
+	<div class="container" id="fourth" style="visibility:hidden;">
 		<h1 class="center">richard<b>sin</b></h1>
 		<h6 class="center">modern web developer</h6>
 	</div>
 </div>
-<div class="content"id="fourth" style="display:none;">
+<div class="content" style="display:none;">
 	<div class="container">
-		<h2 class="center">hello world,<span id="fifth" style="visibility:hidden;"> meet <b>richard</b></span></h2>
-		<h3 class="center"><span id="sixth" style="visibility:hidden;">Entrepreneur</span>
-		<span id="seventh" style="visibility:hidden;">, Hacker</span>
-		<span id="eighth" style="visibility:hidden;"> & Innovator.</h3></span>
+		<a id="Profile"></a>
+		<h2 class="center">
+			<span id="fifth" style="visibility:hidden;">hello world,</span>
+			<span id="sixth" style="visibility:hidden;"> meet <b>richard</b></span>
+		</h2>
+		<h3 class="center"><span id="seventh" style="visibility:hidden;">Entrepreneur</span>
+		<span id="eighth" style="visibility:hidden;">, Hacker</span>
+		<span class="nineth" style="visibility:hidden;"> & Innovator.</h3></span>
+		<hr class="nineth" style="visibility:hidden;"></hr>
 		<div class="row">
+			<div class="four columns">
+				<img class="tenth" style="visibility:hidden;" src="assets/hacker.jpg">
+			</div>
+			<div class="eight columns">
+				<h3 class="tenth" style="visibility:hidden;">So you want to know what I do.</h3>
+				<ul id="what-i-do">
+					<li style="visibility:hidden;">read self-help books</li>
+					<li style="visibility:hidden;">keep thought journals</li>
+					<li style="visibility:hidden;">collect personal data</li>
+					<li style="visibility:hidden;">attend lectures in front row</li>
+					<li style="visibility:hidden;">experiment in my backyard</li>
+				</ul>
+				<h5 id="eleventh" style="visibility:hidden;">Most importantly..</h5>
+				<h1 id="most-important">
+					<span style="visibility:hidden;">I.</span>
+					<span style="visibility:hidden;"> Just.</span>
+					<span style="visibility:hidden;"> <b>Hack</b>.</span>
+				</h1>
+				<a id="resume" class="button" style="visibility:hidden;" href="assets/resume.pdf" target="_blank">Resume</a>
+			</div>
+		</div>
+		<div id="twelveth" style="visibility:hidden;">
+			<hr></hr>
+			<a id="Background"></a>
+			<h2 class="center"><u>My background</u></h2>
+		</div>
+		<div class="row hideme">
+			<div class="twelve columns">
+				<h3 class="right">[2015] Filmocrats</h3>
+				<h4 class="right orange"><b>Rails Developer</b></h4>
+				<img src="assets/coding.jpg">
+			</div>
+		</div>
+		<div class="row hideme">
 			<div class="six columns">
-				<img src="assets/hacker.jpg" >
+				<ul>
+					<li>Conceived an entire business model using data integrity model</li>
+					<li>Constructed a model to collect steaming data of clients using HLS</li>
+					<li>Secured proprietary data by using AWS key signing URLs</li>
+					<li>Developed backend using Ruby on Rails MVC convention</li>
+					<li>Adapted TDD style development using RSpec</li>
+					<li>Controlled source with the team using Git</li>
+					<li>Forked open source projects to alter functionalities using GitHub</li>
+					<li>Developed one-page-app frontend using AngularJS, and CoffeeScript</li>
+					<li>Seeded database with fake data for testing using FactoryGirl</li>
+					<li>Constructed RESTful API using Rails convention</li>
+					<li>Connected steaming with AWS CDN using AWS CloudFront and S3 services</li>
+				</ul>
 			</div>
 			<div class="six columns">
-			<br>
-				<h4 id="nineth" style="display:none;">&nbsp;hi blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</h4>
+				<h5>Ahh..the startup life. The times of sweat and the times of adrenaline. Learned many technical skills, but more importantly: the startup culture.</h5>
 			</div>
-			
+		</div>
+		<hr class="hideme"></hr>
+		<div class="row hideme">
+			<div class="twelve columns">
+				<h3>[2015] Empress Effects</h3>
+				<h4 class="green"><b>Database Designer</b></h4>
+			</div>
+		</div>
+		<div class="row hideme">
+			<div class="six columns">
+				<img src="assets/gourd.jpg">
+			</div>
+			<div class="six columns">
+				<h5>Working together with my boss, Steve, I discovered what it really means to plan before carrying out any actions</h5>
+				<ul>
+					<li>Designed an inventory SQL database using ERD</li>
+					<li>Tested all functionalities using PHPUnit</li>
+					<li>Documented specifications of all PHP code using Doxygen</li>
+					<li>Optimized performance of queries using materialized views</li>
+					<li>Organized general schema of code using pseudo-code</li>
+					<li>Cached data for efficency using mySQL triggers</li>
+					<li>Controlled source with the team using mercurial</li>
+					<li>Conserved data integrity using foreign, unique, and composite key constraints</li>
+				</ul>
+			</div>
+		</div>
+		<hr class="hideme"></hr>
+		<div class="row hideme">
+			<div class="twelve columns">
+				<h3 class="right">[2014] UW Science Computing</h3>
+				<h4 class="right purple"><b>Django Developer</b></h4>
+			</div>
+		</div>
+		<div class="row hideme">
+			<div class="six columns">
+				<h5>All I remember is lots and lots of liquid caffeine and water enhancers..and lots of bootstrap</h5>
+				<ul>
+					<li>Developed backend using Django's MVC convention</li>
+					<li>Integrated frontend and API into a one-page-app using Ajax</li>
+					<li>Constructed API to take dynamic parameter queries using routes</li>
+					<li>Designed an interactive javascript version of paint using html5 canvas</li>
+					<li>Decorated frontend using Bootstrap framework</li>
+					<li>Constrained data by using foreign key constraints</li>
+					<li>Operated SQL database using Django's ORM</li>
+				</ul>
+			</div>
+			<div class="six columns">
+				<img src="assets/coffee.jpg">
+			</div>
+		</div>
+		<hr class="hideme"></hr>
+		<div class="row hideme">
+			<div class="twelve columns">
+				<h3 >[2014] UW Science Computing</h3>
+				<h4 class="brown"><b>PHP Developer</b></h4>
+			</div>
+		</div>
+		<div class="row hideme">
+			<div class="six columns">
+				<img src="assets/cabbage.jpg">
+			</div>
+			<div class="six columns">
+				<h5>I can't explain, but when I refuse to give up, doors start opening. Ask me how I got this position!</h5>
+				<ul>
+					<li>Managed ubuntu packages using Advanced Packaging Tool</li>
+					<li>Hosted local server using LAMP server</li>
+					<li>Analyzed errors in pre-existing PHP code using pattern identification</li>
+				</ul>
+			</div>
+		</div>
+		<hr class="hideme"></hr>
+		<div class="row hideme">
+			<div class="twelve columns">
+				<h2>Get in touch with me!</h2>
+				<form class="contact">
+					<label>Name</label>
+					<input type="text" placeholder="Richard Sin"/>
+					<label>Email</label>
+					<input type="text" placeholder="richard@sin.com"/>
+					<label>Message</label>
+					<textarea placeholder="I need a professional like you!"></textarea>
+				</form>
+			</div>
 		</div>
 	</div>
-
 	<div class="footer">
 		<ul class="footer-list">
 			<li class="footer-item">
 				<a class="footer-link" href="#Profile">Profile</a>
 			</li>
 			<li class="footer-item">
-				<a class="footer-link" href="#Experience">Experiences</a>
+				<a class="footer-link" href="#Background">Background</a>
 			</li>
 			<li class="footer-item">
-				<a class="footer-link" href="#Projects-and-Achievements">Projects & Achievements</a>
+				<a class="footer-link" href="assets/resume.pdf">Resume</a>
 			</li>
 		</ul>
 		<h6><b>powered by Leafii</b></h6>

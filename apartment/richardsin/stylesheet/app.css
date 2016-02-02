@@ -13,23 +13,62 @@
 /*font-family: 'Raleway', sans-serif;*/
 
 /*REGULAR STUFF*/
-.content{
+.content {
 	font-family: "Courier";
 }
 
-.center{
+.row {
+	margin-bottom: 3rem;
+}
+
+.center {
 	text-align: center;
 }
 
-img{
+.right {
+	clear:both;
+	float:right;
+}
+
+img {
   width: 100%;
   height: auto;
   border-radius: 15px;
 }
 
-.column, .columns{
+hr{
+	width:70%;
+}
+
+.column, .columns {
 	font-family: "Raleway";
 }
+
+.contact input, .contact textarea {
+	width:100%;
+}
+
+.hideme {
+    opacity:0;
+}
+
+.orange {
+	color: #FDA333
+}
+
+.green {
+	color: #C2E15F;
+}
+
+.purple {
+	color: #D3A4F9;
+}
+
+.brown {
+	color: #C3834C;
+}
+
+
 
 /*REGULAR STUFF*/
 
@@ -72,7 +111,7 @@ img{
 	margin: 10px 0 0 10px;
 	white-space: nowrap;
 	overflow: hidden;
-	width: 99%;
+	width: 95%;
 }
 
 @keyframes type1{ 
