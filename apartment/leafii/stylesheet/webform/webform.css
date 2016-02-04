@@ -28,6 +28,7 @@
   text-align: right;
 }
 
+
 .full-width {
 	width: 100%;
 }
@@ -65,6 +66,21 @@ textarea {
 	background: #00e676;
 	color: white;
 	border: solid thin white;
+	float:right;
+}
+
+.next-btn {
+	background: #00e676;
+	color: white;
+	border: solid thin white;
+	float:right;
+}
+
+.previous-btn {
+	background: orange;
+	color: white;
+	border: solid thin white;
+	float:right;
 }
 
 hr {
@@ -83,7 +99,8 @@ hr {
 .footer {
   width: 100%;
   border-top: solid thin black;
-  position: absolute;
+  position: fixed;
+  bottom: 0;
   text-align: center;
   background-color: #1a1a1a;
   color: #f8f8f8;
@@ -99,5 +116,20 @@ hr {
 	color: red;
 }
 
+.full-page {
+	overflow: hidden;
+}
 
+.scroll {
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#tabForm {
+	height: auto;
+}
+
+#tabs {
+	height: calc(100vh - 292px);
+}
 

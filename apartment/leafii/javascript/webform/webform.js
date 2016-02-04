@@ -9,6 +9,7 @@
 App.controller('WebformController', function($http, Upload, $timeout){
 
 	var vm = this;
+	vm.selectedTab = 0; 
 	
 	vm.initialize = function(){
 		vm.user = {contents:[{field:"",value:""}]};
@@ -24,8 +25,27 @@ App.controller('WebformController', function($http, Upload, $timeout){
 		}
 	}
 
+	vm.tabs = [
+		{ title:'step 1', content:'Contact' },
+		{ title:'step 2', content:'Background' },
+		{ title:'step 3', content:'Content' },
+		{ title:'step 4', content:'Domain'}
+	];
+
+	vm.next = function() {
+		vm.tabs[vm.selectedTab].active = false;
+		vm.selectedTab++;
+		vm.tabs[vm.selectedTab].active = true;
+	}
+
+	vm.previous = function() {
+		vm.tabs[vm.selectedTab].active = false;
+		vm.selectedTab--;
+		vm.tabs[vm.selectedTab].active = true;
+	}
+
 	vm.submit = function(webform){
-		console.log(vm.user);
+
 		if (webform.$invalid){
 			alert('Please fill in the required fields');
 		}
@@ -43,7 +63,7 @@ App.controller('WebformController', function($http, Upload, $timeout){
 	}
 
     vm.upload = function (content) {
-    	console.log(vm.user);
+    	
     	var files = content.files;
         if (files && files.length) {
             for (var i = 0; i < files.length; i++) {
