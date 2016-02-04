@@ -28,8 +28,8 @@
 			</div>
 		</div>
 
-		<div id="tabForm" class="twelve columns" ng-controller="WebformController as tc">
-			<md-tabs id="tabs" md-center-tabs md-swipe-content class="md-accent">
+		<form id="tabForm" name="webform" class="twelve columns" ng-controller="WebformController as wc">
+			<md-tabs id="tabs" md-center-tabs md-swipe-content class="md-accent" md-selected="wc.selectedTab">
 				<md-tab>
 					<md-tab-label>
 						Contact
@@ -39,13 +39,14 @@
 							<div class="eight columns">
 								<h5>Contact Information</h5>
 								<label><span class="star">*</span>First Name</label>
-								<input name="first" type="text" placeholder="John" ng-model="tc.user.first" required>
+								<input name="first" type="text" placeholder="John" ng-model="wc.user.first" required>
 								<label><span class="star">*</span>Last Name</label>
-								 <input name="last" type="text" placeholder="Smith" ng-model="tc.user.last" required>
+								 <input name="last" type="text" placeholder="Smith" ng-model="wc.user.last" required>
 								<label><span class="star">*</span>Email</label>
-								<input name="email" type="email" placeholder="myemail@mailbox.com" ng-model="tc.user.email" required>
+								<input name="email" type="email" placeholder="myemail@mailbox.com" ng-model="wc.user.email" required>
 								<label><span class="star">*</span>Phone</label>
-								<input name="phone" type="tel" placeholder="123 456 7890" ng-model="tc.user.phone" required>
+								<input name="phone" type="tel" placeholder="123 456 7890" ng-model="wc.user.phone" required>
+								<md-button class="next-btn" ng-click="wc.next()">Next</md-button>
 							</div>
 						</md-content>
 					</md-tab-body>
@@ -60,15 +61,19 @@
 							<div class="eight columns">
 								<h5>Background</h5>
 								<label>School</label>
-								<input name="school" type="text" placeholder="University of Waterloo" ng-model="tc.user.school"/>
+								<input name="school" type="text" placeholder="University of Waterloo" ng-model="wc.user.school"/>
 								<label>Program</label>
-								<input name="program" type="text" placeholder="Physics and Astronomy" ng-model="tc.user.program"/>
+								<input name="program" type="text" placeholder="Physics and Astronomy" ng-model="wc.user.program"/>
 								<label>Profession</label>
-								<input name="profession" type="text" placeholder="Physicist" ng-model="tc.user.profession"/>
+								<input name="profession" type="text" placeholder="Physicist" ng-model="wc.user.profession"/>
 								<label>Motto (Personal Quote)</label>
-								<input name="quote" type="text" placeholder="To be or not to be" ng-model="tc.user.quote"/>
+								<input name="quote" type="text" placeholder="To be or not to be" ng-model="wc.user.quote"/>
 								<label>About</label>
-								<textarea class="full-width" placeholder="I'm a rocket scientist!" ng-model="tc.user.about"></textarea>
+								<textarea class="full-width" placeholder="I'm a rocket scientist!" ng-model="wc.user.about"></textarea>
+								<div layout="row" layout-align="space-between center">
+									<md-button class="previous-btn" ng-click="wc.previous()">Back</md-button>
+									<md-button class="next-btn" ng-click="wc.next()">Next</md-button>
+								</div>
 							</div>
 						</md-content>
 					</md-tab-body>
@@ -83,11 +88,11 @@
 							<div class="eight columns">
 								<h2>Tell us about your experiences, projects and Achievements</h2>
 							</div>
-							<div class="eight columns" ng-repeat="content in tc.user.contents track by $index">
+							<div class="eight columns" ng-repeat="content in wc.user.contents track by $index">
 								<div class="row">
 									<div class="twelve columns">
 										<h5 style="display:inline-block">{{ content.field || "Field " + ($index + 1) }}:</h5>
-										<md-button class="delete-btn" ng-click="tc.delete($index)">Delete</md-button>
+										<md-button class="delete-btn" ng-click="wc.delete($index)">Delete</md-button>
 									</div>
 								</div>
 								<div class="row">
@@ -114,11 +119,17 @@
 										<label>Files:</label>
 										<ul>
 										    <li ng-repeat="f in content.files" style="font:smaller">{{f.name}} {{"upload: " + (f.progress || 0) + "%"}} {{f.$error}} {{f.$errorParam}}</li>
-											<button ng-click="tc.upload(content)">Upload</button>
+											<button ng-click="wc.upload(content)">Upload</button>
 										</ul>
 									</div>
 								</div>
-								<md-button class="add-btn" ng-click="tc.addmore()">+Add fields</md-button>
+								<md-button class="add-btn" ng-click="wc.addmore()">+Add fields</md-button>
+							</div>
+							<div class="eight columns">
+								<div layout="row" layout-align="space-between center">
+									<md-button class="previous-btn" ng-click="wc.previous()">Back</md-button>
+									<md-button class="next-btn" ng-click="wc.next()">Next</md-button>
+								</div>
 							</div>
 						</md-content>
 					</md-tab-body>
@@ -135,23 +146,27 @@
 								<label><span class="star">*</span>Preferred Domain Name(s)</label>
 								<div layout="row" layout-align="start start">
 									<i class="material-icons icon-padding-must">filter_1</i>
-									<input type="text" placeholder="fire.com" ng-model="tc.user.domains[0]" required></input>
+									<input type="text" placeholder="fire.com" ng-model="wc.user.domains[0]" required></input>
 								</div>
 								<div layout="row" layout-align="start start">
 									<i class="material-icons icon-padding">filter_2</i>
-									<input type="text" placeholder="flame.com" ng-model="tc.user.domains[1]"></input>
+									<input type="text" placeholder="flame.com" ng-model="wc.user.domains[1]"></input>
 								</div>
 								<div layout="row" layout-align="start start">
 									<i class="material-icons icon-padding">filter_3</i>
-									<input type="text" placeholder="torch.com" ng-model="tc.user.domains[2]"></input>
+									<input type="text" placeholder="torch.com" ng-model="wc.user.domains[2]"></input>
 								</div>
-								<md-button class="submit-btn" ng-click="">Submit</md-button>
+
+								<div layout="row" layout-align="space-between center">
+									<md-button class="previous-btn" ng-click="wc.previous()">Back</md-button>
+									<md-button class="submit-btn" ng-click="wc.submit(webform)">Submit</md-button>
+								</div>
 							</div>
 						</md-content>
 					</md-tab-body>
 				</md-tab>
 			</md-tabs>
-		</div>
+		</form>
 
 		<div class="footer">
 			<h5><b>powered by Leafii</b></h5>

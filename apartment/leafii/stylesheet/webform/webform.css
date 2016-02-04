@@ -69,6 +69,20 @@ textarea {
 	float:right;
 }
 
+.next-btn {
+	background: #00e676;
+	color: white;
+	border: solid thin white;
+	float:right;
+}
+
+.previous-btn {
+	background: orange;
+	color: white;
+	border: solid thin white;
+	float:right;
+}
+
 hr {
   width: 80%;
 }
