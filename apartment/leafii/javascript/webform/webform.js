@@ -11,6 +11,7 @@ App.controller('WebformController', function($http, Upload, $timeout){
 	var vm = this;
 	vm.selectedTab = 0; 
 
+
 	vm.initialize = function(){
 		vm.user = {contents:[{field:"",value:"",uploaded:[]}]};
 	}
