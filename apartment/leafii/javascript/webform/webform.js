@@ -10,13 +10,13 @@ App.controller('WebformController', function($http, Upload, $timeout){
 
 	var vm = this;
 	vm.selectedTab = 0; 
-	
+
 	vm.initialize = function(){
-		vm.user = {contents:[{field:"",value:""}]};
+		vm.user = {contents:[{field:"",value:"",uploaded:[]}]};
 	}
 
 	vm.addmore = function(){
-		vm.user.contents.push({field:"",value:""});
+		vm.user.contents.push({field:"",value:"",uploaded:[]});
 	}
 
 	vm.delete = function(index){
@@ -45,16 +45,22 @@ App.controller('WebformController', function($http, Upload, $timeout){
 	}
 
 	vm.submit = function(webform){
-
+		for (var i = 0; i < vm.user.contents.length; i++){
+			if((vm.user.contents[i].files && vm.user.contents[i].files.length) && !confirm('attachements have not been uploaded. continue?')){
+				return;
+			}
+		}
 		if (webform.$invalid){
 			alert('Please fill in the required fields');
 		}
 		else {
+			for (var i = 0; i < vm.user.contents.length; i++){
+				delete vm.user.contents[i].files;
+			}
 			$http.post('/db/webform', vm.user)
 			.success(function (response){
-				alert('Thank you! We will get working on it right away!');
 				console.log('posting webform successful');
-				window.location.replace('http://leafii.com');
+				window.location.replace('thankyou.html');
 			}).error(function (response){
 				alert('posting webform unsuccessful');
 				console.log(response);
@@ -62,35 +68,37 @@ App.controller('WebformController', function($http, Upload, $timeout){
 		}	
 	}
 
-    vm.upload = function (content) {
-    	
-    	var files = content.files;
-        if (files && files.length) {
-            for (var i = 0; i < files.length; i++) {
-              var file = files[i];
-              if (!file.$error) {
-            	// file.progress = 0;
-                Upload.upload({
-                    url: '/db/files',
-                    data: {
-                      somekey: 'somevalue',
-                      file: file  
-                    }
-                }).then(function (resp) {
-                    $timeout(function() {
-                        console.log('file: ' + resp.config.data.file.name + ', Response: ' + JSON.stringify(resp.data));
-                    });
-                }, null, function (evt) {
-                	console.log('-----------');
-                	console.log('event!');
+	vm.upload = function (content) {
+		var files = content.files;
+		if (files && files.length) {
+			for (var i = 0; i < files.length; i++) {
+				var file = files[i];
+				if (!file.$error) {
+					Upload.upload({url: '/db/files',data: {file: file}})
+					.then(function (resp) {
+						$timeout(function() {
+							console.log(resp.config.data.file);
+							var filename = resp.config.data.file.name;
+							var response = resp.data
+							content.uploaded.push({filename: filename, savedas: response.filename});
 
-                    var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                	file.progress = progressPercentage;
-                    console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
-                });
-              }
-            }
-        }
-    };
+						});
+					}, null, function (evt) {
+						for (var i = 0; i < files.length; i++) {
+							if (files[i].name == evt.config.data.file.name){
+								var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+								files[i].progress = progressPercentage;
+								if (progressPercentage == 100){
+									files.splice(i,1)
+								}
+								break;
+							}
+						}
+						console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+					});
+				}
+			}
+		}
+	};
 	vm.initialize();
 });

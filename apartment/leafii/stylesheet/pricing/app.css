@@ -1,4 +1,4 @@
-#Landing .footer {
+.footer {
   width: 100%;
   border-top: solid thin black;
   position: absolute;
@@ -33,7 +33,7 @@
 
 /*Larger than a phone*/
 @media (min-width: 750px) {
-  #Landing .navbar-item {
+  .navbar-item {
     position: relative;
     float: left;
     margin-bottom: 0;
@@ -48,32 +48,17 @@
   margin-right: 35px;
   text-decoration: none;
   line-height: 6.5rem;
-  color: #222;
-}
-
-.navbar-link.active {
-  color: #33C3F0;
-}
-
-.logo {
-  width: 85%;
-  color: #33C3F0;
-}
-
-.sampleWork {
-    width: 100%;
-    height: 300px;
-    cursor: pointer;
-}
-
-.sampleWork:hover {
-    opacity: 0.7;
+  color: #f8f8f8;
 }
 
 .plan_features{
     font-size: 15px;
     font-weight: bold;
     padding: 30px 5px;
+}
+
+.navbar-link.active {
+  color: #33C3F0;
 }
 
 .plan_price{
@@ -83,14 +68,17 @@
     padding: 30px;
     text-align: center;
 }
+
 #pricing_plan1 .plan_price, #pricing_plan1 .buy{
     background: none repeat scroll 0 0 #B71A1A;
     border-top: 1px solid #F83333;
 }
+
 #pricing_plan2 .plan_price, #pricing_plan2 .buy{
     background: none repeat scroll 0 0 #1A7BB7;
     border-top: 1px solid #4BA3FF;
 }
+
 #pricing_plan3 .plan_price, #pricing_plan3 .buy{
     background: none repeat scroll 0 0 #2D964B;
     border-top: 1px solid #5AD540;
@@ -111,16 +99,19 @@
     text-align: center;
     text-shadow: 1px 1px 1px #5E5858;
 }
+
 .plan{
     border:1px solid #eee;
     margin-bottom: 15px;
 }
+
 .plan_buy{
     background: none repeat scroll 0 0 #000000;
     border-radius: 0 0 3px 3px;
     padding: 20px;
     margin-bottom: 20px;
 }
+
 .plan_buy a{
     border-radius: 4px 4px 4px 4px;
     color: #FFFFFF;
@@ -133,6 +124,7 @@
     text-decoration: none;
     width: 90px;
 }
+
 .plan_more{
     background: none repeat scroll 0 0 #fff;
     font-size: 13px;
