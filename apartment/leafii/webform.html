@@ -28,7 +28,7 @@
 			</div>
 		</div>
 
-		<form id="tabForm" name="webform" class="twelve columns" ng-controller="WebformController as wc">
+		<form id="tabForm" name="webform" class="twelve columns" ng-controller="WebformController as wc" novalidate>
 			<md-tabs id="tabs" md-center-tabs md-swipe-content md-selected="wc.selectedTab">
 
 				<md-tab>
@@ -133,7 +133,7 @@
 									</div>
 								</div>
 								<div class="row attachment-box">
-									<div class="twelve columns">
+									<div class="six columns">
 										<label>Attachments:</label>
 										<div ngf-drop 
 											ngf-select 
@@ -146,11 +146,14 @@
 										    ngf-pattern="'image/*,application/pdf'">Add photos or reference letters here. Drop or click to upload</div>
 										<div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
 									</div>
-									<div class="twelve columns" ng-show="content.files">
+									<div class="six columns" ng-show="content.files">
 										<label>Files:</label>
 										<ul>
-										    <li ng-repeat="f in content.files" style="font:smaller">{{f.name}} {{"upload: " + (f.progress || 0) + "%"}} {{f.$error}} {{f.$errorParam}}</li>
-											<button ng-click="wc.upload(content)">Upload</button>
+											<h6 ng-show="content.files.length">To be uploaded</h6>
+											<li ng-repeat="f in content.files" style="font:smaller">{{f.name}} {{"upload: " + (f.progress || 0) + "%"}} {{f.$error}} {{f.$errorParam}}</li>
+											<button ng-show="content.files.length" ng-click="wc.upload(content)">Upload</button>
+											<h6 ng-show="content.uploaded.length">uploaded</h6>
+											<li ng-repeat="f in content.uploaded" style="font:smaller">{{ f.filename }}</li>
 										</ul>
 									</div>
 								</div>
