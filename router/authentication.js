@@ -4,7 +4,7 @@ var router = express.Router();
 var path = require("path");
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
-var bcrypt   = require('bcrypt-nodejs');
+var bcrypt   = require("bcrypt-nodejs");
 
 
 // DATABASE MODEL
@@ -20,17 +20,17 @@ router.use(function (req, res, next){
 passport.use(new LocalStrategy(
 	function(username, password, done){
 		console.log("Local Auth Strategy Init");
-		User.findOne({where:{username: username}}).then(function (user) {
+		User.findOne({where:{username: username}}).then(function (user){
+			if (!user){
+				console.log("Local Auth Strategy Failed: No user found");
+				return done(null, false, {message: "Incorrect username"});
+			}
 			console.log("Database query finished. Checking data");
 			console.log("password: ", password);
 			console.log("salt: ", user.salt);
 			console.log("hash input+salt: ", bcrypt.hashSync(password, user.salt, null));
 			console.log("hash password: ", user.password);
 			console.log("match: ", bcrypt.compareSync(password, user.password))
-			if (!user){
-				console.log("Local Auth Strategy Failed: No user found");
-				return done(null, false, {message: "Incorrect username"});
-			}
 			if (!bcrypt.compareSync(password, user.password)) {
 				console.log("Local Auth Strategy Failed: Password Mismatch");
 				return done(null, false, {message: "Incorrect password"});
@@ -42,50 +42,95 @@ passport.use(new LocalStrategy(
 ));
 
 // ROUTES
-router.route('/signup')
+
+	// SIGNUP
+router.route("/signup")
+	// serves up static signup page
 	.get(function (req,res){
-		console.log("GET /signin : Getting signup page");
-		res.sendFile(path.join(__dirname, "../views/signup.html"));
+		console.log("GET: /signup : Getting signup page");
+		if (req.user){
+			console.log("User session found. Invoke error");
+			res.redirect("/auth/admin");
+		} else {
+			res.sendFile(path.join(__dirname, "../views/signup.html"));
+		}
 	})
+	// records new signup
+	// requires: user session is undefined
 	.post(function (req, res){
-		console.log('POST: /signup : Recording Signup');
-		if (req.body.password != req.body.confirm){
+		console.log("POST: /signup : Recording Signup");
+		if (req.user){
+			console.log("User session found. Invoke error");
+			res.send("can not be signed in!"); // CHANGE THIS TO PROPERLY RESPOND
+		} else if (req.body.password != req.body.confirm){
+			console.log("Passwords mismatch. Invoke error");
 			res.send("passwords do not match"); // CHANGE THIS TO PROPERLY RESPOND
 		} else if (req.body.username == "" || req.body.password == "") {
+			console.log("Required fields blank. Invoke error");
 			res.send("required fields can not be blank"); // CHANGE THIS TO PROPERLY RESPOND
+		} else {
+			console.log("Parameters all good. Proceed to record in database")
+			User.sync().then(function (){
+				var data = req.body;
+				data.salt = bcrypt.genSaltSync(8);
+				data.password = bcrypt.hashSync(req.body.password, data.salt, null);
+				console.log(data);
+				User.create(data).then(function (user){
+					console.log("Successfully recorded user in database");
+					console.dir(user.get());
+				})
+			});
+			res.redirect("/auth/signin");
 		}
-		User.sync().then(function (){
-			var data = req.body;
-			data.salt = bcrypt.genSaltSync(8);
-			data.password = bcrypt.hashSync(req.body.password, data.salt, null);
-			console.log(data);
-			User.create(data).then(function (user){
-				console.dir(user.get());
-			})
-		});
-		res.sendStatus(200);
 	});
 
+	// SIGNIN
 router.route("/signin")
+	// servers up static signin page
+	// requires: user session is undefined
 	.get(function (req, res){
-		console.log(req.user);
-		res.sendFile(path.join(__dirname, "../views/signin.html"));
+		console.log("GET: /signin : Getting signin page");
+		if (req.user) { 
+			console.log("User session found. Redirecting to user page");
+			return res.redirect("/auth/admin");
+		} else {
+			console.log("User session not found. Continue to signin page");
+			res.sendFile(path.join(__dirname, "../views/signin.html"));
+		}
 	})
-	.post(passport.authenticate("local", {
-			successRedirect: "/auth/user",
+	// authenticated user
+	.post(function(req, res, next){
+		console.log("POST: /signin : Authenticating user");
+		next();
+	},passport.authenticate("local", {
+			successRedirect: "/auth/admin",
 			failureRedirect: "/auth/signin",
 			failureFlash: true
 	}));
 
-router.all("/signout",function(req, res){
+	// SIGNOUT
+router
+	// signs out user
+	.all("/signout",function(req, res){
+		console.log("ANY: /signout : Signing out user");
 		req.logout();
-		res.redirect('/auth/signin');
+		console.log("Redirecting to signin page");
+		res.redirect("/auth/signin");
 	});
 
-router.route("/user")
+	// ADMIN OF USER
+router.route("/admin")
+	// serves up static admin page
+	// requires: user session to exist
 	.get(function (req, res){
-		console.log("GET /user : Getting user page");
-		res.sendFile(path.join(__dirname, "../views/user.html"));
+		console.log("GET: /admin : Getting admin page");
+		if (!req.user) { 
+			console.log("User session not found. Redirecting to signin page");
+			return res.redirect("/auth/signin");
+		} else {
+			console.log("User session found. Continue to admin page");
+			res.sendFile(path.join(__dirname, "../views/useradmin.html"));
+		}
 	});
 
 module.exports = router;

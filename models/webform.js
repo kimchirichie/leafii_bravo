@@ -17,6 +17,7 @@ var sequelize = new Sequelize(undefined,undefined, undefined, {
 });
 
 module.exports = sequelize.define('webforms', {
+	user_id: {type: Sequelize.INTEGER},
 	first: {type: Sequelize.STRING, allowNull: false},
 	last: {type: Sequelize.STRING, allowNull: false},
 	email: {type: Sequelize.STRING, allowNull: false},
