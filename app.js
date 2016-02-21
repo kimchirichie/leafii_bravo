@@ -4,20 +4,23 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var passport = require('passport');
+var flash = require('connect-flash');
 
-// DATABASE MODULE
-var sqlite3 = require('sqlite3').verbose();
-
+// DATABASE MODEL
+var User = require('./models/user');
 
 // ROUTER
-var database = require('./router/database.js')
-var traffic = require('./router/traffic.js')
+var database = require('./router/database');
+var traffic = require('./router/traffic');
+var auth = require('./router/authentication');
 
 // SERVER OPERATION
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+// app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use(logger('dev'));
@@ -25,9 +28,27 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+// PASSPORT CONFIG
+app.use(session({ secret: '87dfyas9fy78234y82f25g35tg' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // flash message
+passport.serializeUser(function(user, done) {
+  console.log("Serialize User: " + user.id);
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  console.log("Deserialize User: " + id);
+  User.findById(id).then(function(user) {
+    done(null, user);
+  });
+});
+
 // LOG TRAFFIC
 app.use(/\/$/, traffic);
-app.use('/db', database)
+app.use('/db', database);
+app.use('/auth', auth);
 
 // PUBLIC ASSETS BEFORE PRIVATE ASSETS
 app.use(express.static(path.join(__dirname, 'bower_components')));

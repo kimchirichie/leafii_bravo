@@ -178,7 +178,7 @@ hr {
 }
 
 #tabs {
-	height: calc(100vh - 292px);
+	height: calc(100vh - 130px);
 }
 
 md-tabs md-tabs-wrapper {

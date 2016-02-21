@@ -1,9 +1,9 @@
 var express = require('express');
 var app = express();
 var router = express.Router();
-var Sequelize = require('sequelize');
 var multer  = require('multer');
 
+// MULTER UPLOAD
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'uploads/')
@@ -15,40 +15,8 @@ var storage = multer.diskStorage({
 })
 var upload = multer({ storage: storage });
 
-var database;
-if (app.get('env') === 'production') {
-	database = 'db/leafii_prod.db';
-} else if (app.get('env') === 'development') {
-	database = 'db/leafii_dev.db';
-} else {
-	database = 'db/leafii_test.db';
-}
-
-var sequelize = new Sequelize(undefined,undefined, undefined, {
-  dialect: 'sqlite',
-  storage: database
-});
-
 // DATABASE MODEL
-var Signup = sequelize.define('signup', {
-  name: {type: Sequelize.STRING, allowNull: false},
-  email: {type: Sequelize.STRING, allowNull: false},
-  phone: {type: Sequelize.STRING, allowNull: false}
-});
-
-var Webform = sequelize.define('webforms', {
-  first: {type: Sequelize.STRING, allowNull: false},
-  last: {type: Sequelize.STRING, allowNull: false},
-  email: {type: Sequelize.STRING, allowNull: false},
-  phone: {type: Sequelize.STRING, allowNull: false},
-  domains: {type: Sequelize.TEXT, allowNull: false},
-  school: {type: Sequelize.STRING},
-  program: {type: Sequelize.STRING},
-  profession: {type: Sequelize.STRING},
-  quote: {type: Sequelize.STRING},
-  about: {type: Sequelize.STRING},
-  contents: {type: Sequelize.TEXT}
-});
+var Webform = require('../models/webform');
 
 // LOG TIME
 router.use(function (req, res, next){
@@ -59,8 +27,23 @@ router.use(function (req, res, next){
 // ROUTES
 router.route('/webform')
 	.get(function (req, res) {
+		console.log("Authenticating user");
+		req.login(req.user, function(err) {
+			console.log("err: ", err);
+			if (err) { 
+				console.log("Failed authenticating user. Redirecting to sign in page");
+				return res.redirect("/auth/signin"); 
+			} else {
+				console.log("Succeeded authenticating user");
+			}
+		});
 		console.log('GET: /webform : Querying Webform');
-		Webform.all().then(function (webform){
+		// FILTER WITH AUTHENTICATION THIS SHOULD BE CHANGED!
+		Webform.all({
+			where: {
+				user_id: req.user.id
+			}
+		}).then(function (webform){
 			res.json(webform);
 		});
 	})
@@ -75,26 +58,6 @@ router.route('/webform')
 			console.log(data);
 			Webform.create(data).then(function (webform){
 				console.dir(webform.get());
-			});
-		});
-		res.sendStatus(200);
-	});
-
-router.route('/signup')
-	.get(function (req,res){
-		res.send('coming soon');
-	})
-	.post(function (req, res){
-		console.log('POST: /signup : Recording Signup');
-		Signup.sync().then(function (){
-			var data = {
-				name: req.body.name,
-				email: req.body.email,
-				phone: req.body.phone
-			}
-
-			Signup.create(data).then(function (signup){
-				console.dir(signup.get());
 			});
 		});
 		res.sendStatus(200);
