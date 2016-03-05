@@ -43,7 +43,7 @@ router.route("/admin")
 			res.sendStatus(404)
 		} else {
 			console.log("Admin authenticated. Getting admin page");
-			res.sendFile(path.join(__dirname, "../views/siteadmin.html"));
+			res.sendFile(path.join(__dirname, "../views/serveradmin.html"));
 		}
 	})
 	.post(function (req, res){
