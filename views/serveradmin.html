@@ -7,5 +7,119 @@
 </head>
 <body ng-controller="serveradminController as sc">
 	<p>site administration</p>
+
+	<h1>Users</h1>
+	<table>
+		<tr>
+			<th>User ID</th>
+			<th>Username</th>
+		</tr>
+
+		<tr ng-repeat="user in sc.users">
+			<td>{{user.id}}</td>
+			<td>{{user.username}}</td>
+		</tr>
+	</table>
+
+	<h1>Webforms</h1>
+	<table>
+		<tr>
+			<th>Webform ID</th>
+			<th>Username</th>
+			<th>First name</th>
+			<th>Last name</th>
+			<th>Edit</th>
+		</tr>
+
+		<tr ng-repeat="webform in sc.webforms track by $index">
+			<td>{{webform.id}}</td>
+			<td>{{webform.user.username}}</td>
+			<td>{{webform.first}}</td>
+			<td>{{webform.last}}</td>
+			<td><button ng-click="sc.edit(webform)">Edit</button></td>
+		</tr>
+	</table>
+
+	<div ng-show="sc.webform">
+		<h1>Edit</h1>
+		<div>
+		<h1>Portfolio of {{sc.webform.first}}:</h1>
+		<p>Webform #{{sc.webform.id}}</p>
+		<form>
+			<!-- DOMAIN -->
+			<h3>USER</h3>
+			<div>
+				<label>User ID</label>
+				<input ng-model="sc.webform.user_id"></input>
+			</div>
+
+			<h3>DOMAINS</h3>
+			<div ng-repeat="domain in sc.webform.domains track by $index">
+				<label>Domain #{{$index}}</label>
+				<input ng-model="domain"/>
+			</div>
+
+			<!-- PERSONAL -->
+			<h3>PERSONAL</h3>
+			<div>
+				<label>First name</label>
+				<input ng-model="sc.webform.first"/>
+			</div>
+			<div>
+				<label>Last name</label>
+				<input ng-model="sc.webform.last"/>
+			</div>
+			<div>
+				<label>Email</label>
+				<input ng-model="sc.webform.email"/>
+			</div>
+			<div>
+				<label>phone</label>
+				<input ng-model="sc.webform.phone"/>
+			</div>
+			<!-- PROFESSIONAL -->
+			<h3>PROFESSIONAL</h3>
+			<div>
+				<label>school</label>
+				<input ng-model="sc.webform.school"/>
+			</div>
+			<div>
+				<label>program</label>
+				<input ng-model="sc.webform.program"/>
+			</div>
+			<div>
+				<label>profession</label>
+				<input ng-model="sc.webform.profession"/>
+			</div>
+			<div>
+				<label>quote</label>
+			<input ng-mo	del="sc.webform.quote"/>
+						</div>
+			<div>
+				<label>About</label>
+				<input ng-model="sc.webform.about"/>
+			</div>
+			<!-- CONTENT -->
+			<h3>CONTENTS</h3>
+			<div>
+				<div ng-repeat="content in sc.webform.contents track by $index">
+					<div>
+						<label>Field</label>
+						<input ng-model="content.field"/>
+					</div>
+					<div>
+						<label>Value</label>
+						<input ng-model="content.value"/>
+					</div>
+					<button ng-click="sc.delete(sc.webform, $index)">Delete</button>
+				</div>
+				<button ng-click="sc.addMore(sc.webform);">Add More</button>
+			</div>			
+			<button ng-click="sc.cancel();">Cancel</button>
+			<button ng-click="sc.update(sc.webform);">Update</button>
+		</form>
+	</div>
+	</div>
+	
 </body>
 </html>

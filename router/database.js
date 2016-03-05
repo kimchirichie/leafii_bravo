@@ -60,6 +60,22 @@ router.route("/webform")
 			//FIXME: NEED PUBLIC ACCESS
 			console.log("User session not found. Responding with 401");
 			res.sendStatus(401);
+		} else if (req.query.id){
+			Webform.findOne({where:{id:req.query.id}}).then(function (webform){
+				console.log("Found webform to update. Checking ownership");
+				console.log(webform);
+				if (!webform){
+					console.log("No webform found. Responding with 401");
+					res.sendStatus(401);
+				} else if (webform.user_id != req.user.id && !req.user.admin){
+					console.log("Not admin/owner of webform. Responding with 401");
+					res.sendStatus(401);
+				} else {
+					console.log("Confirmed admin/owner of webform. Updating webform");
+					res.json(webform);
+				}
+			})
+
 		} else if (req.user.admin){
 			console.log("Getting admin level JSON response");
 			Webform
@@ -106,7 +122,10 @@ router.route("/webform")
 			Webform.findOne({where:{id:req.body.id}}).then(function (webform){
 				console.log("Found webform to update. Checking ownership");
 				console.log(webform);
-				if (webform.user_id != req.user.id && !req.user.admin){
+				if (!webform){
+					console.log("No webform found. Responding with 401");
+					res.sendStatus(401);
+				} else if (webform.user_id != req.user.id && !req.user.admin){
 					console.log("Not admin/owner of webform. Responding with 401");
 					res.sendStatus(401);
 				} else {
