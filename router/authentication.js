@@ -26,11 +26,11 @@ passport.use(new LocalStrategy(
 				return done(null, false, {message: "Incorrect username"});
 			}
 			console.log("Database query finished. Checking data");
-			console.log("password: ", password);
-			console.log("salt: ", user.salt);
-			console.log("hash input+salt: ", bcrypt.hashSync(password, user.salt, null));
-			console.log("hash password: ", user.password);
-			console.log("match: ", bcrypt.compareSync(password, user.password))
+			// console.log("password: ", password);
+			// console.log("salt: ", user.salt);
+			// console.log("hash input+salt: ",bcrypt.hashSync(password, user.salt, null));
+			// console.log("hash password: ", user.password);
+			// console.log("match: ", bcrypt.compareSync(password, user.password))
 			if (!bcrypt.compareSync(password, user.password)) {
 				console.log("Local Auth Strategy Failed: Password Mismatch");
 				return done(null, false, {message: "Incorrect password"});
