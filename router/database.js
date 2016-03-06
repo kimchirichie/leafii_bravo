@@ -56,26 +56,18 @@ router.route("/webform")
 	// serves up webform JSON
 	.get(function (req, res){
 		console.log("GET: /webform : Getting webform JSON");
-		if (!req.user){
-			//FIXME: NEED PUBLIC ACCESS
-			console.log("User session not found. Responding with 401");
-			res.sendStatus(401);
-		} else if (req.query.id){
+		if (req.query.id){
 			Webform.findOne({where:{id:req.query.id}}).then(function (webform){
 				console.log("Found webform to update. Checking ownership");
 				console.log(webform);
 				if (!webform){
 					console.log("No webform found. Responding with 401");
 					res.sendStatus(401);
-				} else if (webform.user_id != req.user.id && !req.user.admin){
-					console.log("Not admin/owner of webform. Responding with 401");
-					res.sendStatus(401);
 				} else {
-					console.log("Confirmed admin/owner of webform. Updating webform");
+					console.log("Webform found. Responding with JSON");
 					res.json(webform);
 				}
-			})
-
+			});
 		} else if (req.user.admin){
 			console.log("Getting admin level JSON response");
 			Webform

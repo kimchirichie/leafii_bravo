@@ -7,6 +7,7 @@ var bodyParser = require("body-parser");
 var session = require("express-session");
 var passport = require("passport");
 var flash = require("connect-flash");
+var cors = require('cors');
 
 // DATABASE MODEL
 var User = require("./models/user");
@@ -27,6 +28,7 @@ app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(cors());
 
 // PASSPORT CONFIG
 app.use(session({ secret: "87dfyas9fy78234y82f25g35tg" })); // session secret
