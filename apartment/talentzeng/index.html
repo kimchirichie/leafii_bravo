@@ -4,7 +4,7 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Talent Zeng</title>
-		<link rel="shortcut icon" type="image/x-icon" href="/zeng/assets/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="/talentzeng/assets/favicon.ico">
 		<link rel="stylesheet" href="stylesheet/app.css">
 		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 		<link rel="stylesheet" href="stylesheet/custom.css">
@@ -14,12 +14,11 @@
 		<script type="text/javascript" src="/angular-aria/angular-aria.min.js"></script>
 		<script type="text/javascript" src="/angular-material/angular-material.min.js"></script>
 		<script type="text/javascript" src="/jquery/dist/jquery.min.js"></script>
-		<script type="text/javascript" src="/zeng/javascript/app.js"></script>
-		<script type="text/javascript" src="/zeng/javascript/mainPage.js"></script>
+		<script type="text/javascript" src="/talentzeng/javascript/app.js"></script>
+		<script type="text/javascript" src="/talentzeng/javascript/mainPage.js"></script>
 	</head>
 
 	<body>
-
 		<div id="layout" ng-controller="MainPageController as main">
 		    <a href="#menu" id="menuLink" class="menu-link">
 		        <!-- Hamburger icon -->
@@ -43,16 +42,23 @@
 		    </div>
 
 		    <div id="main">
+
 		        <div class="header">
 		            <h1>Talent Zeng</h1>
-		            <h2>Physicist & Programmer</h2>
+		            <h2>Physicist, Entrepreneur & Programmer</h2>
 		        </div>
 
 		        <div class="content">
-		            <h2 class="content-subhead">How to use this layout</h2>
-		            <p>
-		                To use this layout, you can just copy paste the HTML, along with the CSS in <a href="/css/layouts/side-menu.css" alt="Side Menu CSS">side-menu.css</a>, and the JavaScript in <a href="/js/ui.js">ui.js</a>. The JS file uses vanilla JavaScript to simply toggle an <code>active</code> class that makes the menu responsive.
-		            </p>
+
+		        	<div id="profile">
+			            <h2 class="content-subhead">Programmer for fun</h2>
+
+			            <img class="pure-u-7-12" src="assets/theStars.jpg">
+			            <p class="pure-u-7-24">
+			               hello, meet <b>Talent</b>. A code panda that converts coffee and food into useful tools that can
+			               help people improve their lives.
+			            </p>
+		            </div>
 
 		            <h2 class="content-subhead">Now Let's Speak Some Latin</h2>
 		            <p>
@@ -78,6 +84,45 @@
 		            <p>
 		                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 		            </p>
+
+		            <ul class="timeline">
+
+					  <li>
+					    <div class="direction-r">
+					      <div class="flag-wrapper">
+					        <span class="hexa"></span>
+					        <span class="flag">Lorem ipsum.</span>
+					        <span class="time-wrapper"><span class="time">Feb 2015</span></span>
+					      </div>
+					      <div class="desc">Lorem ipsum Nisi labore aute do aute culpa magna nulla voluptate exercitation deserunt proident.</div>
+					    </div>
+					  </li>
+
+					  <li>
+					    <div class="direction-l">
+					      <div class="flag-wrapper">
+					        <span class="hexa"></span>
+					        <span class="flag">Lorem ipsum Anim.</span>
+					        <span class="time-wrapper"><span class="time">Dec 2014</span></span>
+					      </div>
+					      <div class="desc">Lorem ipsum In ut sit in dolor nisi ex magna eu anim anim tempor dolore aliquip enim cupidatat laborum dolore.</div>
+					    </div>
+					  </li>
+
+					  <li>
+					    <div class="direction-r">
+					      <div class="flag-wrapper">
+					        <span class="hexa"></span>
+					        <span class="flag">Lorem Occaecat.</span>
+					        <span class="time-wrapper"><span class="time">July 2014</span></span>
+					      </div>
+					      <div class="desc">Lorem ipsum Minim labore Ut cupidatat quis qui deserunt proident fugiat pariatur cillum cupidatat reprehenderit sit id dolor consectetur ut.</div>
+					    </div>
+					  </li>
+					</ul>
+
+
+
 		        </div>
 		    </div>
 		</div>

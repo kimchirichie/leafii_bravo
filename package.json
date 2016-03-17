@@ -14,10 +14,21 @@
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0",
     "sqlite3": "latest",
-    "multer": "latest"
+    "sequelize": "latest",
+    "multer": "latest",
+    "express-session": "latest",
+    "passport": "latest",
+    "passport-local": "latest",
+    "connect-flash": "latest",
+    "bcrypt-nodejs": "latest",
+    "cors": "latest"
   },
   "devDependencies": {
     "sequelize": "^3.18.0",
-    "sequelize-cli": "^2.3.1"
+    "sequelize-cli": "^2.3.1",
+    "grunt": "latest",
+    "grunt-cli": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-nodemon": "latest"
   }
 }
