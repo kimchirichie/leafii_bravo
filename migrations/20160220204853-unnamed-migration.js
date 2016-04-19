@@ -28,6 +28,6 @@ module.exports = {
   },
 
   down: function (queryInterface, Sequelize) {
-    queryInterface.dropTable('signup');
+    queryInterface.dropTable('users');
   }
 };
