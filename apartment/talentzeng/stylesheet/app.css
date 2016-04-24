@@ -63,7 +63,7 @@
 }
 
 .timeline li {
-  padding: 2em 0;
+  padding: 1em 0;
 }
 
 .timeline .hexa{
@@ -275,6 +275,14 @@
   .direction-r .desc {
     margin: 1em 0 0 0.75em;
   }
+}
+
+.noMargin {
+  margin: 0;
+}
+
+.noPadding {
+  padding: 0;
 }
 
 @media(min-width: 992px){
