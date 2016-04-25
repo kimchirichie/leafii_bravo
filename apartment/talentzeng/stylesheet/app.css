@@ -267,6 +267,32 @@
 
 }
 
+#profile {
+  margin-bottom: 25px;
+}
+
+.posts {
+  margin: 40px;
+}
+
+.post-title {
+  margin-bottom: 10px;
+}
+
+.post-title a {
+  color: #17a3da;
+  text-decoration: none !important;
+}
+
+.post-title a:hover {
+  color: black;
+}
+
+.post-date {
+  font-size: 20px;
+  color: rgb(174, 169, 169);
+}
+
 .noMargin {
   margin: 0;
 }
