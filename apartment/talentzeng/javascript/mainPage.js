@@ -4,7 +4,8 @@
 ////////////////////////////////////
 
 
-App.controller('MainPageController', function(){
+App.controller('MainPageController', ['$scope', 
+    function($scope){
 
 	var vm = this;
 
@@ -12,6 +13,7 @@ App.controller('MainPageController', function(){
         menu     = document.getElementById('menu'),
         menuLink = document.getElementById('menuLink');
 
+    //toggleClass
     function toggleClass(element, className) {
         var classes = element.className.split(/\s+/),
             length = classes.length,
@@ -31,6 +33,7 @@ App.controller('MainPageController', function(){
         element.className = classes.join(' ');
     }
 
+    //Hamburger link click
     menuLink.onclick = function (e) {
         var active = 'active';
 
@@ -40,4 +43,6 @@ App.controller('MainPageController', function(){
         toggleClass(menuLink, active);
     };
 
-})
+
+
+}]);
