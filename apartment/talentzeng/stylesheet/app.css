@@ -271,6 +271,16 @@
   margin-bottom: 25px;
 }
 
+.website-title a{
+  font-weight: bold;
+  color: #17a3da;
+  text-decoration: none !important;
+}
+
+.website-title a:hover {
+  color: black;
+}
+
 .posts {
   margin: 40px;
 }
