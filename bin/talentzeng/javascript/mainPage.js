@@ -13,9 +13,6 @@ App.controller('MainPageController',
         menu     = document.getElementById('menu'),
         menuLink = document.getElementById('menuLink');
 
-    //On Load
-    $("#main").load("posts.html");
-
     //toggleClass
     function toggleClass(element, className) {
         var classes = element.className.split(/\s+/),
@@ -45,27 +42,6 @@ App.controller('MainPageController',
         toggleClass(menu, active);
         toggleClass(menuLink, active);
     };
-
-
-    $('#about').on("click", function(){
-        $("#main").load("profile.html");
-    });
-
-    $('#home').on("click", function(){
-        $("#main").load("posts.html");
-    });
-
-    $('#experience').on("click", function(){
-        $("#main").load("experience.html");
-    });
-
-    $('#projects').on("click", function(){
-        $("#main").load("projects.html");
-    });
-
-
-
-
 
 
 
