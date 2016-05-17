@@ -13,8 +13,19 @@ App.controller('MainPageController',
         menu     = document.getElementById('menu'),
         menuLink = document.getElementById('menuLink');
 
-    //On Load
-    $("#main").load("posts.html");
+    $scope.views = [{name: 'home', url: 'posts.html'},
+                    {name: 'profile', url: 'profile.html'},
+                    {name: 'experience', url: 'experience.html'},
+                    {name: 'projects', url: 'projects.html'}];
+
+    //On load
+    $scope.content = $scope.views[0].url;
+
+    //Change on view click
+    $scope.selectView = function(view){
+        $scope.content = $scope.views[view].url;
+        $scope.$broadcast('viewSelected', {index: view});
+    };
 
     //toggleClass
     function toggleClass(element, className) {
@@ -47,25 +58,21 @@ App.controller('MainPageController',
     };
 
 
-    $('#about').on("click", function(){
-        $("#main").load("profile.html");
-    });
+    // $('#about').on("click", function(){
+    //     $("#main").load("profile.html");
+    // });
 
-    $('#home').on("click", function(){
-        $("#main").load("posts.html");
-    });
+    // $('#home').on("click", function(){
+    //     $("#main").load("posts.html");
+    // });
 
-    $('#experience').on("click", function(){
-        $("#main").load("experience.html");
-    });
+    // $('#experience').on("click", function(){
+    //     $("#main").load("experience.html");
+    // });
 
-    $('#projects').on("click", function(){
-        $("#main").load("projects.html");
-    });
-
-
-
-
+    // $('#projects').on("click", function(){
+    //     $("#main").load("projects.html");
+    // });
 
 
 
