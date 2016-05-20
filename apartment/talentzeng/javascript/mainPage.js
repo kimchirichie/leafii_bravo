@@ -13,10 +13,10 @@ App.controller('MainPageController',
         menu     = document.getElementById('menu'),
         menuLink = document.getElementById('menuLink');
 
-    $scope.views = [{name: 'home', url: '/posts.html'},
-                    {name: 'profile', url: '/profile.html'},
-                    {name: 'experience', url: '/experience.html'},
-                    {name: 'projects', url: '/projects.html'}];
+    $scope.views = [{name: 'home', url: 'posts.html'},
+                    {name: 'profile', url: 'profile.html'},
+                    {name: 'experience', url: 'experience.html'},
+                    {name: 'projects', url: 'projects.html'}];
 
     //On load
     $scope.content = $scope.views[0].url;
