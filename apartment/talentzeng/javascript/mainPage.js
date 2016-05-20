@@ -18,6 +18,9 @@ App.controller('MainPageController',
                     {name: 'experience', url: 'experience.html'},
                     {name: 'projects', url: 'projects.html'}];
 
+    $scope.blogposts = [{name: 'blank', url: 'blogposts/blank.html'},
+                        {name: 'blog1', url:'blogposts/05-19-2016.html'}];
+
     //On load
     $scope.content = $scope.views[0].url;
 
@@ -26,6 +29,12 @@ App.controller('MainPageController',
         $scope.content = $scope.views[view].url;
         $scope.$broadcast('viewSelected', {index: view});
     };
+
+    //Change post views
+    $scope.selectPost = function(post){
+        $scope.blogpost = $scope.blogposts[post].url;
+        $scope.$broadcast('postSelected', {index: view});
+    }
 
     //toggleClass
     function toggleClass(element, className) {

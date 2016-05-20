@@ -1,27 +1,21 @@
-<div class="header">
+<div class="header animated slideInDown">
     <h1>Blog Posts</h1>
     <h2>Topic of the day</h2>
 </div>
 
 
-<div class="content" ng-controller="BlogController as blog">
+<div class="content">
 		
 	<div class="main">
 
-		<div class="posts">
+		<div class="posts animated fadeIn">
 
 			<div class="preview">
 				<h1 class="post-title">
-					<a id="post1">Blog Post Number 1</a>
+					<a ng-click="selectPost(1)" ng-class="{active: selectedPost == 1}">Learning how to learn</a>
 				</h1>
-				<span class="post-date">April 25, 2016</span>
-				<p>
-					blah blah blah blah
-					blah blah blah blah
-					blah blah blah blah
-					blah blah blah blah
-					blah blah blah blah
-				</p>
+				<span class="post-date">May 19, 2016</span>
+				<div ng-include="blogpost" class="animated zoomInDown"></div>
 			</div>
 
 	    </div>
