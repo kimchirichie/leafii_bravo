@@ -2,7 +2,7 @@
 
 module.exports = {
   up: function (queryInterface, Sequelize) {
-    queryInterface.addColumn('users','admin',{
+    return queryInterface.addColumn('users','admin',{
       type: Sequelize.BOOLEAN,
       defaultValue: false,
       allowNull: false

@@ -12,7 +12,7 @@
 	<td>Webforms</td>
 	<div ng-hide="uc.webforms">
 		<p>Looks like you dont have any webforms completed yet!</p>
-		<a href="http://leafii.com/webform.html"><button>Fill one out!</button></a>
+		<a href="/db/webform"><button>Fill one out!</button></a>
 	</div>
 	<div ng-repeat="webform in uc.webforms track by $index">
 		<h1>Portfolio of {{webform.first}}:</h1>
