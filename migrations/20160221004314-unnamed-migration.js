@@ -23,7 +23,10 @@ module.exports = {
         phone: Sequelize.STRING,
         company: Sequelize.STRING,
         about: Sequelize.STRING,
-        contents: Sequelize.TEXT
+        contents: Sequelize.TEXT,
+        facebook: Sequelize.STRING,
+        instagram: Sequelize.STRING,
+        youtube: Sequelize.STRING
       }
     );
   },

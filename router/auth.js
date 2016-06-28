@@ -90,7 +90,7 @@ router.route("/signin")
 			console.log("POST: /signin : Authenticating user");
 			next();
 		},passport.authenticate("local", {
-			successRedirect: "/profile",
+			successRedirect: "/profile/edit",
 			failureRedirect: "/auth/signin",
 			failureFlash: true
 		}

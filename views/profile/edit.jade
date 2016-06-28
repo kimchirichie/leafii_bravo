@@ -1,24 +1,34 @@
 p edit your profile
-
+p or goto my 
+	a(href="/profile") profile
 
 form(action="/profile" method="post")
 	div
 		label First Name
-		input(type="text", name="first", value="#{profile.first}")
+		input(type="text", name="first", value=profile.first)
 	div
 		label Last Name
-		input(type="text", name="last", value="#{profile.last}")
+		input(type="text", name="last", value=profile.last)
 	div
 		label Email
-		input(type="email", name="email", value="#{profile.email}")
+		input(type="email", name="email", value=profile.email)
 	div
 		label Phone
-		input(type="text", name="phone", value="#{profile.email}")
+		input(type="text", name="phone", value=profile.email)
 	div
 		label Company
-		input(type="text", name="company", value="#{profile.company}")
+		input(type="text", name="company", value=profile.company)
 	div
 		label About
-		input(type="text", name="about", value="#{profile.about}")
-
+		input(type="text", name="about", value=profile.about)
+	div
+		label Youtube video id
+		input(type="text", name="youtube", value=profile.youtube, placeholder="zSAJ0l4OBHM")
+	div
+		p *please include 'https://' in the URL
+		label Facebook
+		input(type="url", name="facebook", value=profile.facebook, placeholder="https://facebook.com/#{profile.company}")
+	div
+		label Instagram
+		input(type="url", name="instagram", value=profile.instagram, placeholder="https://instagram.com/#{profile.company}")
 	input(type="submit" value="Save")

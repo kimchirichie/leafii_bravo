@@ -24,5 +24,8 @@ module.exports = sequelize.define('profiles', {
 	phone: {type: Sequelize.STRING},
 	company: {type: Sequelize.STRING},
 	about: {type: Sequelize.STRING},
-	contents: {type: Sequelize.TEXT}
+	contents: {type: Sequelize.TEXT},
+    facebook: {type: Sequelize.STRING},
+    instagram: {type: Sequelize.STRING},
+    youtube: {type: Sequelize.STRING}
 });
