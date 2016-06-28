@@ -1,0 +1,24 @@
+p edit your profile
+
+
+form(action="/profile" method="post")
+	div
+		label First Name
+		input(type="text", name="first", value="#{profile.first}")
+	div
+		label Last Name
+		input(type="text", name="last", value="#{profile.last}")
+	div
+		label Email
+		input(type="email", name="email", value="#{profile.email}")
+	div
+		label Phone
+		input(type="text", name="phone", value="#{profile.email}")
+	div
+		label Company
+		input(type="text", name="company", value="#{profile.company}")
+	div
+		label About
+		input(type="text", name="about", value="#{profile.about}")
+
+	input(type="submit" value="Save")

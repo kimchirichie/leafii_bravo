@@ -1,0 +1,17 @@
+html
+	head
+		title Sign In
+	body
+		form(action="/auth/signin", method="post")
+			div
+				label Username:
+				input(type="text", name="username")
+
+			div
+				label Password:
+				input(type="password", name="password")
+
+			input(type="submit", value="Sign In")
+
+		p Or you can sign up!
+		a(href="/auth/signup") Here 

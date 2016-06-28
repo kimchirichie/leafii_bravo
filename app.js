@@ -13,9 +13,8 @@ var cors = require('cors');
 var User = require("./models/user");
 
 // ROUTER
-var database = require("./router/database");
-var traffic = require("./router/traffic");
-var auth = require("./router/authentication");
+var auth = require("./router/auth");
+var profile = require("./router/profile");
 
 // SERVER OPERATION
 var app = express();
@@ -48,9 +47,8 @@ passport.deserializeUser(function(id, done) {
 });
 
 // LOG TRAFFIC
-app.use(/\/$/, traffic);
-app.use("/db", database);
 app.use("/auth", auth);
+app.use("/profile", profile);
 
 // PUBLIC ASSETS BEFORE PRIVATE ASSETS
 app.use(express.static(path.join(__dirname, "bower_components")));

@@ -1,0 +1,27 @@
+html
+	head
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		meta(property="og:title" content="profile of #{profile.first}")
+		meta(property="og:type" content="website")
+		meta(property="og:description" content="#{profile.about}")
+		link(rel="shortcut icon" type="image/x-icon" href="/Leafii/assets/favicon.ico")
+		link(rel="stylesheet" href="/Skeleton-2.0.4/normalize.css")
+		link(rel="stylesheet" href="/Skeleton-2.0.4/skeleton.css")
+		link(rel="stylesheet" href="/Leafii/stylesheet/fonts.css")
+		link(rel="stylesheet" href="/Leafii/stylesheet/app.css")
+
+	body
+		div(class="top-banner")
+			div(class="container")
+				h1(class="center") #{profile.company}
+				h6(class="center") #{profile.first} #{profile.last}
+
+		div(class="content")
+			div(class="container")
+				a(id="Profile")
+				h2(class="center")
+					span #{profile.about}
+				hr
+				div(class="row")
+					img(class="banner" src="http://2.bp.blogspot.com/-Q6kq-Jm8O48/Ut0o4UXzmRI/AAAAAAAAD_8/dPakawdSXiE/s1600/Yarn+balls+image.jpg")
+			

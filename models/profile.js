@@ -16,17 +16,13 @@ var sequelize = new Sequelize(undefined,undefined, undefined, {
 	storage: database
 });
 
-module.exports = sequelize.define('webforms', {
+module.exports = sequelize.define('profiles', {
 	user_id: {type: Sequelize.INTEGER},
-	first: {type: Sequelize.STRING, allowNull: false},
-	last: {type: Sequelize.STRING, allowNull: false},
-	email: {type: Sequelize.STRING, allowNull: false},
-	phone: {type: Sequelize.STRING, allowNull: false},
-	domains: {type: Sequelize.TEXT, allowNull: false},
-	school: {type: Sequelize.STRING},
-	program: {type: Sequelize.STRING},
-	profession: {type: Sequelize.STRING},
-	quote: {type: Sequelize.STRING},
+	first: {type: Sequelize.STRING},
+	last: {type: Sequelize.STRING},
+	email: {type: Sequelize.STRING},
+	phone: {type: Sequelize.STRING},
+	company: {type: Sequelize.STRING},
 	about: {type: Sequelize.STRING},
 	contents: {type: Sequelize.TEXT}
 });

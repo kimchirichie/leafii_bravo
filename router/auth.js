@@ -9,12 +9,7 @@ var bcrypt   = require("bcrypt-nodejs");
 
 // DATABASE MODEL
 var User = require("../models/user.js");
-
-// LOG TIME
-router.use(function (req, res, next){
-	console.log("AUTH: ", Date.now());
-	next();
-});
+var Profile = require("../models/profile.js");
 
 // PASSPORT
 passport.use(new LocalStrategy(
@@ -26,11 +21,6 @@ passport.use(new LocalStrategy(
 				return done(null, false, {message: "Incorrect username"});
 			}
 			console.log("Database query finished. Checking data");
-			// console.log("password: ", password);
-			// console.log("salt: ", user.salt);
-			// console.log("hash input+salt: ",bcrypt.hashSync(password, user.salt, null));
-			// console.log("hash password: ", user.password);
-			// console.log("match: ", bcrypt.compareSync(password, user.password))
 			if (!bcrypt.compareSync(password, user.password)) {
 				console.log("Local Auth Strategy Failed: Password Mismatch");
 				return done(null, false, {message: "Incorrect password"});
@@ -42,22 +32,17 @@ passport.use(new LocalStrategy(
 ));
 
 // ROUTES
-
-	// SIGNUP
 router.route("/signup")
-	// serves up static signup page
-	.get(function (req,res){
+	.get(function(req, res){
 		console.log("GET: /signup : Getting signup page");
 		if (req.user){
 			console.log("User session found. Invoke error");
-			res.redirect("/auth/admin");
+			res.redirect("/auth/signin");
 		} else {
-			res.sendFile(path.join(__dirname, "../views/signup.html"));
+			res.render("auth/signup");
 		}
 	})
-	// records new signup
-	// requires: user session is undefined
-	.post(function (req, res){
+	.post(function(req, res){
 		console.log("POST: /signup : Recording Signup");
 		if (req.user){
 			console.log("User session found. Invoke error");
@@ -78,59 +63,44 @@ router.route("/signup")
 				User.create(data).then(function (user){
 					console.log("Successfully recorded user in database");
 					console.dir(user.get());
-				})
+					Profile.sync().then(function (){
+						Profile.create({user_id: user.id}).then(function (){
+							console.log("Successfully recorded Profile for user");
+							res.redirect("/auth/signin");
+						})
+					})
+				});
 			});
-			res.redirect("/auth/signin");
+			// res.redirect("/auth/signin");
 		}
 	});
 
-	// SIGNIN
 router.route("/signin")
-	// servers up static signin page
-	// requires: user session is undefined
-	.get(function (req, res){
+	.get(function(req, res){
 		console.log("GET: /signin : Getting signin page");
 		if (req.user) { 
 			console.log("User session found. Redirecting to user page");
-			return res.redirect("/auth/admin");
+			return res.redirect("/profile");
 		} else {
 			console.log("User session not found. Continue to signin page");
-			res.sendFile(path.join(__dirname, "../views/signin.html"));
+			res.render("auth/signin");
 		}
 	})
-	// authenticated user
 	.post(function(req, res, next){
-		console.log("POST: /signin : Authenticating user");
-		next();
-	},passport.authenticate("local", {
-			successRedirect: "/auth/admin",
+			console.log("POST: /signin : Authenticating user");
+			next();
+		},passport.authenticate("local", {
+			successRedirect: "/profile",
 			failureRedirect: "/auth/signin",
 			failureFlash: true
-	}));
+		}
+	));
 
-	// SIGNOUT
-router
-	// signs out user
-	.all("/signout",function(req, res){
+router.all("/signout", function(req, res){
 		console.log("ANY: /signout : Signing out user");
 		req.logout();
 		console.log("Redirecting to signin page");
 		res.redirect("/auth/signin");
-	});
-
-	// ADMIN OF USER
-router.route("/admin")
-	// serves up static admin page
-	// requires: user session to exist
-	.get(function (req, res){
-		console.log("GET: /admin : Getting admin page");
-		if (!req.user) { 
-			console.log("User session not found. Redirecting to signin page");
-			return res.redirect("/auth/signin");
-		} else {
-			console.log("User session found. Continue to admin page");
-			res.sendFile(path.join(__dirname, "../views/useradmin.html"));
-		}
 	});
 
 module.exports = router;
