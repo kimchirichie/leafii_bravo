@@ -17,3 +17,41 @@ html
 
 		p Or you can sign in!
 		a(href="/auth/signin") Here 
+
+
+extends ../layout
+
+block content
+
+	#header
+		.container
+			.row
+				h1 Sign Up
+
+	.container
+		.form(class="animated fadeIn")
+			form(action="/auth/signup" method="post")
+
+				.field-wrap
+					label Username 
+						span.req *
+					input(type='text' name="first" placeholder="Bobby" value=username required)
+				.field-wrap
+					label Password 
+						span.req *
+					input(type='password', name="password" placeholder="password" required)
+
+				.field-wrap
+					label Confirm password 
+						span.req *
+					input(type='password', name="confirm" placeholder="confirm" required)
+
+				if error
+					.field-wrap
+						div(id="error" class="animated fadeIn")
+							p= error
+
+				.field-wrap
+					input(type='submit' value="Submit")
+				a(href="/auth/signin") Have an account? Sign in here
+		

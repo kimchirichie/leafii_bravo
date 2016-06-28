@@ -10,19 +10,6 @@ var Profile = require("../models/profile.js");
 
 // ROUTES
 router.route("/")
-	.get(function(req, res){
-		console.log("GET: / : Getting profile page");
-		if (!req.user){
-			console.log("User not found. Redirect");
-			res.redirect("/auth/signin");
-		}
-		Profile.findOne({where:{user_id: req.user.id}}).then(function(profile){
-			res.render("profile/index",{profile: profile});
-		}, function(err){
-			console.log(err);
-			res.sendStatus(500);
-		});
-	})
 	.post(function(req, res){
 		console.log("POST: / : Updating profile");
 		if (!req.user){
@@ -36,7 +23,7 @@ router.route("/")
 			} else {
 				profile.update(req.body);
 				console.log("Profile updated")
-				res.redirect("/profile");
+				res.redirect("/profile/"+req.user.id);
 			}
 		}, function(err){
 			console.log(err);
@@ -52,11 +39,21 @@ router.route("/edit")
 			res.redirect("/auth/signin");
 		}
 		Profile.findOne({where:{user_id: req.user.id}}).then(function(profile){
-			res.render("profile/edit",{profile: profile});
+			res.render("profile/edit",{user_id: req.user.id, profile: profile});
 		}, function(err){
 			console.log(err);
 			res.sendStatus(500);
 		});
 	});
+
+router.route("/:user_id")
+	.get(function(req, res){
+		Profile.findOne({where:{user_id: req.params.user_id}}).then(function(profile){
+			res.render("profile/index",{profile: profile});
+		}, function(err){
+			console.log(err);
+			res.sendStatus(500);
+		});
+	})
 
 module.exports = router;

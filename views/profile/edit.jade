@@ -1,34 +1,68 @@
-p edit your profile
-p or goto my 
-	a(href="/profile") profile
 
-form(action="/profile" method="post")
-	div
-		label First Name
-		input(type="text", name="first", value=profile.first)
-	div
-		label Last Name
-		input(type="text", name="last", value=profile.last)
-	div
-		label Email
-		input(type="email", name="email", value=profile.email)
-	div
-		label Phone
-		input(type="text", name="phone", value=profile.email)
-	div
-		label Company
-		input(type="text", name="company", value=profile.company)
-	div
-		label About
-		input(type="text", name="about", value=profile.about)
-	div
-		label Youtube video id
-		input(type="text", name="youtube", value=profile.youtube, placeholder="zSAJ0l4OBHM")
-	div
-		p *please include 'https://' in the URL
-		label Facebook
-		input(type="url", name="facebook", value=profile.facebook, placeholder="https://facebook.com/#{profile.company}")
-	div
-		label Instagram
-		input(type="url", name="instagram", value=profile.instagram, placeholder="https://instagram.com/#{profile.company}")
-	input(type="submit" value="Save")
+extends ../layout
+
+block content
+
+	#header
+		.container
+			.row
+				h1 Edit your profile
+
+	.container
+		.form(class="animated fadeIn")
+			a(href="/profile/#{user_id}")
+				button(style="width:100%") go to profile
+
+			form(action="/profile" method="post")
+
+				.field-wrap
+					label First Name 
+						input(type='text' name="first" placeholder="Bobby" value=profile.first)
+
+				.field-wrap
+					label Last Name 
+						input(type='text' name="last" placeholder="Lee" value=profile.last)
+
+				.field-wrap
+					label Email 
+						input(type="email" name="email" placeholder="bobby@lee.com" value=profile.email)
+					
+				.field-wrap
+					label Phone 
+						input(type="text" name="phone" placeholder="1234567890" value=profile.phone)
+
+				.field-wrap
+					label Company 
+						input(type='text' name="company" placeholder="example@uwaterloo.ca" value=profile.company)
+
+				.field-wrap
+					label About 
+						input(type='text' name="about" placeholder="my passion is yarn knitting" value=profile.about)
+				
+				.field-wrap
+					label Youtube video id 
+						input(type="text" name="youtube"  placeholder="zSAJ0l4OBHM" value=profile.youtube)
+
+				p(style="display:inline") please include 
+					pre(style="display:inline") https:// 
+					| in the URL
+				.field-wrap
+					label Facebook 
+						input(type="url" name="facebook" placeholder="https://facebook.com/#{profile.company}" value=profile.facebook)
+
+				.field-wrap
+					label Instagram 
+						input(type="url" name="instagram" placeholder="https://instagram.com/#{profile.company}" value=profile.instagram)
+
+
+
+				if error
+					.field-wrap
+						div(id="error" class="animated fadeIn")
+							p= error
+				.row
+					div(class="one-half column")
+						a(class="button button-primary" style="width:100%;background-color:red; border-color:red;" href="/auth/signout") Sign out
+					div(class="one-half column")
+						input(class="button-primary" type='submit' value="Submit")
+

@@ -80,7 +80,7 @@ router.route("/signin")
 		console.log("GET: /signin : Getting signin page");
 		if (req.user) { 
 			console.log("User session found. Redirecting to user page");
-			return res.redirect("/profile");
+			return res.redirect("/profile/edit");
 		} else {
 			console.log("User session not found. Continue to signin page");
 			res.render("auth/signin");

@@ -1,7 +1,27 @@
 doctype html
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+html(prefix="og: http://ogp.me/ns#")
+	head
+		title= title || Leafii
+		block meta	
+			meta(property="og:title" content="Leafii")
+			meta(property="og:type" content="website")
+			meta(property="og:url" content="http://www.leafii.com")
+			meta(property="og:image" content="http://www.leafii.com/images/finite_logo_leaf.png")
+			meta(property="og:description" content="Digital portfolio search engine. Submit your URL & get discovered by recruiters today!")
+			meta(property="fb:app_id" content="1630201160635801")
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(rel='stylesheet', href='/Skeleton-2.0.4/normalize.css')
+		link(rel='stylesheet', href='/Skeleton-2.0.4/skeleton.css')
+		link(rel='stylesheet', href='/Fonts/raleway.css')
+		link(rel='stylesheet', href='/Animate/animate.css')
+		link(rel='stylesheet', href='/Leafii/stylesheet/auth.css')
+
+	body
+		block content
+			div(class="container")
+				div(class="row")
+					div(class="four columns") &nbsp;
+					div(class="four columns")
+						p "Woops! something went wrong!"
+						img(src="/Leafii/assets/images/err.jpg")
+					div(class="four columns") &nbsp;

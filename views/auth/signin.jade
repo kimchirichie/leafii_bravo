@@ -1,17 +1,30 @@
-html
-	head
-		title Sign In
-	body
-		form(action="/auth/signin", method="post")
-			div
-				label Username:
-				input(type="text", name="username")
+extends ../layout
 
-			div
-				label Password:
-				input(type="password", name="password")
+block content
 
-			input(type="submit", value="Sign In")
+	#header
+		.container
+			.row
+				h1 Sign In
 
-		p Or you can sign up!
-		a(href="/auth/signup") Here 
+	.container
+		.form(class="animated fadeIn")
+			form(action="/auth/signin" method="post")
+				.field-wrap
+					label Email Address 
+						span.req *
+					input(name="username" type='text', placeholder="kanyewest99" required)
+
+				.field-wrap
+					label Password 
+						span.req *
+					input(name="password" type='password', placeholder="********" required)
+
+				if error
+					.field-wrap
+						div(id="error" class="animated fadeIn")
+							p= error
+
+				.field-wrap
+					input(type='submit' value="Sign In")
+				a(href="/auth/signup") Don't have an account? Sign up here
