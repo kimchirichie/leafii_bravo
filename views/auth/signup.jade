@@ -1,24 +1,3 @@
-html
-	head
-		title Sign Up
-	body
-		form(action="/auth/signup", method="post")
-			div
-				label Username:
-				input(type="text", name="username")
-			div
-				label Password:
-				input(type="password", name="password")
-			div
-				label Confirm:
-				input(type="password", name="confirm")
-
-			input(type="submit", value="Sign Up")
-
-		p Or you can sign in!
-		a(href="/auth/signin") Here 
-
-
 extends ../layout
 
 block content
@@ -35,16 +14,16 @@ block content
 				.field-wrap
 					label Username 
 						span.req *
-					input(type='text' name="first" placeholder="Bobby" value=username required)
+					input(type='text' name="username" placeholder="Bobby" value=username required)
 				.field-wrap
 					label Password 
 						span.req *
-					input(type='password', name="password" placeholder="password" required)
+					input(type='password' name="password" placeholder="password" required)
 
 				.field-wrap
 					label Confirm password 
 						span.req *
-					input(type='password', name="confirm" placeholder="confirm" required)
+					input(type='password' name="confirm" placeholder="confirm" required)
 
 				if error
 					.field-wrap
