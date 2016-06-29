@@ -10,8 +10,6 @@ block content
 
 	.container
 		.form(class="animated fadeIn")
-			a(href="/profile/#{user_id}")
-				button(style="width:100%") go to profile
 
 			form(action="/profile" method="post")
 
@@ -33,15 +31,12 @@ block content
 
 				.field-wrap
 					label Company 
-						input(type='text' name="company" placeholder="example@uwaterloo.ca" value=profile.company)
+						input(type='text' name="company" placeholder="Google" value=profile.company)
 
 				.field-wrap
 					label About 
 						input(type='text' name="about" placeholder="my passion is yarn knitting" value=profile.about)
 				
-				.field-wrap
-					label Youtube video id 
-						input(type="text" name="youtube"  placeholder="zSAJ0l4OBHM" value=profile.youtube)
 
 				p(style="display:inline") please include 
 					pre(style="display:inline") https:// 
@@ -54,12 +49,19 @@ block content
 					label Instagram 
 						input(type="url" name="instagram" placeholder="https://instagram.com/#{profile.company}" value=profile.instagram)
 
+				.field-wrap
+					label Youtube Video 
+						input(type="text" name="youtube"  placeholder="https://www.youtube.com/watch?v=zSAJ0l4OBHM" value=profile.youtube)
+
 
 
 				if error
 					.field-wrap
 						div(id="error" class="animated fadeIn")
 							p= error
+				.row
+					a(href="/profile/#{user_id}")
+						button(style="width:100%") go to profile
 				.row
 					div(class="one-half column")
 						a(class="button button-primary" style="width:100%;background-color:red; border-color:red;" href="/auth/signout") Sign out
