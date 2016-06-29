@@ -49,8 +49,11 @@ router.route("/edit")
 router.route("/:user_id")
 	.get(function(req, res){
 		Profile.findOne({where:{user_id: req.params.user_id}}).then(function(profile){
-			var myregexp = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i;
-			var youtube = profile.youtube.match(myregexp)[1];
+			var youtube;
+			if (profile.youtube){
+				var myregexp = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i;
+				youtube = profile.youtube.match(myregexp)[1];
+			}
 			res.render("profile/index",{profile: profile, youtube:youtube});
 		}, function(err){
 			console.log(err);
