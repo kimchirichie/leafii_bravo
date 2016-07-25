@@ -8,7 +8,6 @@ App.controller('MainPageController',
     function($scope){
 
 	var vm = this;
-    $scope.showPost = false;
 
     var layout   = document.getElementById('layout'),
         menu     = document.getElementById('menu'),
