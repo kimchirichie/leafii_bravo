@@ -3,21 +3,16 @@
     <h2>Topic of the day</h2>
 </div>
 
-
 <div class="content">
-		
 	<div class="main">
-
-		<div class="posts animated fadeIn">
-
+		<div class="posts animated fadeIn" ng-repeat="post in $parent.blogposts">
 			<div class="preview">
 				<h1 class="post-title">
-					<a ng-click="selectPost(1)" ng-class="{active: selectedPost == 1}">Learning how to learn</a>
+					<a ng-click="$parent.showPost = !$parent.showPost">{{post.name}}</a>
 				</h1>
-				<span class="post-date">May 19, 2016</span>
-				<div ng-include="blogpost" class="animated fadeIn"></div>
+				<span class="post-date">{{post.date}}</span>
+				<div ng-if="$parent.showPost" ng-include="post.url" class="animated fadeIn"></div>
 			</div>
-
 	    </div>
 	</div>
 </div>

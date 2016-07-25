@@ -8,6 +8,7 @@ App.controller('MainPageController',
     function($scope){
 
 	var vm = this;
+    $scope.showPost = false;
 
     var layout   = document.getElementById('layout'),
         menu     = document.getElementById('menu'),
@@ -18,23 +19,17 @@ App.controller('MainPageController',
                     {name: 'experience', url: 'experience.html'},
                     {name: 'projects', url: 'projects.html'}];
 
-    $scope.blogposts = [{name: 'blank', url: 'blogposts/blank.html'},
-                        {name: 'blog1', url:'blogposts/05-19-2016.html'}];
-
     //On load
     $scope.content = $scope.views[0].url;
+
+    $scope.blogposts = [{name: 'Early bird or night owl', url: 'blogposts/06-19-2016.html', date: 'June 19 2016'},
+                        {name: 'Learning how to learn', url: 'blogposts/05-19-2016.html', date: 'May 19 2016'}];
 
     //Change on view click
     $scope.selectView = function(view){
         $scope.content = $scope.views[view].url;
         $scope.$broadcast('viewSelected', {index: view});
     };
-
-    //Change post views
-    $scope.selectPost = function(post){
-        $scope.blogpost = $scope.blogposts[post].url;
-        $scope.$broadcast('postSelected', {index: view});
-    }
 
     //toggleClass
     function toggleClass(element, className) {
