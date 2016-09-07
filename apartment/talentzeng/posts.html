@@ -3,15 +3,15 @@
     <h2>Topic of the day</h2>
 </div>
 
-<div class="content">
+<div class="content" ng-init="open == false">
 	<div class="main">
-		<div class="posts animated fadeIn" ng-nit="open == false" ng-repeat="post in $parent.blogposts">
+		<div class="posts animated fadeIn" ng-repeat="post in $parent.blogposts">
 			<div class="preview">
 				<h1 class="post-title">
 					<a ng-click="open = !open">{{post.name}}</a>
 				</h1>
 				<span class="post-date">{{post.date}}</span>
-				<div ng-show="open" ng-include="post.url" class="animated fadeIn"></div>
+				<div ng-if="open" ng-include="post.url" class="animated fadeIn"></div>
 			</div>
 	    </div>
 	</div>

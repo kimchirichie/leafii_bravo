@@ -21,7 +21,8 @@ App.controller('MainPageController',
     //On load
     $scope.content = $scope.views[0].url;
 
-    $scope.blogposts = [{name: 'Early bird or night owl', url: 'blogposts/06-19-2016.html', date: 'June 19 2016'},
+    $scope.blogposts = [{name: 'Dealing with difficult concepts and logic', url: 'blogposts/09-06-2016.html', date: 'September 6 2016'},
+                        {name: 'Early bird or night owl', url: 'blogposts/06-19-2016.html', date: 'June 19 2016'},
                         {name: 'Learning how to learn', url: 'blogposts/05-19-2016.html', date: 'May 19 2016'}];
 
     //Change on view click
