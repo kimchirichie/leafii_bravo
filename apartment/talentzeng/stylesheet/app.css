@@ -1,3 +1,9 @@
+@media(max-width: 767px){
+  .hexa {
+    display: none;
+  }
+}
+
 .hexa{
   border: 0px;
   float: left;
