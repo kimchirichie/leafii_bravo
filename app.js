@@ -64,7 +64,9 @@ if (app.get("env") === "production") {
     next();
   });
 }
-
+app.use(function(err,req,res,next){
+  res.send('done')
+});
 app.use(express.static(path.join(__dirname, "apartment")));
 
 // catch 404 and forward to error handler
