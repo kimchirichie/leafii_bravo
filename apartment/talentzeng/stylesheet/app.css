@@ -7,6 +7,11 @@
   }
 }
 
+.selectedView{
+  background: white;
+  color: black !important;
+}
+
 .hexa{
   border: 0px;
   float: left;
@@ -90,7 +95,7 @@
 }
 
 .timeline .hexa:before {
-  border-bottom: 4px solid #00c4f3;
+  border-bottom: 5px solid #00c4f3;
   border-left-width: 8px;
   border-right-width: 8px;
   top: -4px;

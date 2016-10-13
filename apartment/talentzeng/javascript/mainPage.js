@@ -4,7 +4,7 @@
 ////////////////////////////////////
 
 
-App.controller('MainPageController',  
+TalentPage.controller('MainPageController',  
     function($scope){
 
 	var vm = this;
@@ -13,23 +13,9 @@ App.controller('MainPageController',
         menu     = document.getElementById('menu'),
         menuLink = document.getElementById('menuLink');
 
-    $scope.views = [{name: 'home', url: 'posts.html'},
-                    {name: 'profile', url: 'profile.html'},
-                    {name: 'experience', url: 'experience.html'},
-                    {name: 'projects', url: 'projects.html'}];
-
-    //On load
-    $scope.content = $scope.views[0].url;
-
-    $scope.blogposts = [{name: 'Dealing with difficult concepts and logic', url: 'blogposts/09-06-2016.html', date: 'September 6 2016'},
-                        {name: 'Early bird or night owl', url: 'blogposts/06-19-2016.html', date: 'June 19 2016'},
-                        {name: 'Learning how to learn', url: 'blogposts/05-19-2016.html', date: 'May 19 2016'}];
-
-    //Change on view click
-    $scope.selectView = function(view){
-        $scope.content = $scope.views[view].url;
-        $scope.$broadcast('viewSelected', {index: view});
-    };
+    $scope.blogposts = [{blogNum: 'blog3', name: 'Dealing with difficult concepts and logic', date: 'September 6 2016'},
+                        {blogNum: 'blog2', name: 'Early bird or night owl', date: 'June 19 2016'},
+                        {blogNum: 'blog1', name: 'Learning how to learn', date: 'May 19 2016'}];
 
     //toggleClass
     function toggleClass(element, className) {
@@ -60,24 +46,6 @@ App.controller('MainPageController',
         toggleClass(menu, active);
         toggleClass(menuLink, active);
     };
-
-
-    // $('#about').on("click", function(){
-    //     $("#main").load("profile.html");
-    // });
-
-    // $('#home').on("click", function(){
-    //     $("#main").load("posts.html");
-    // });
-
-    // $('#experience').on("click", function(){
-    //     $("#main").load("experience.html");
-    // });
-
-    // $('#projects').on("click", function(){
-    //     $("#main").load("projects.html");
-    // });
-
 
 
 });
