@@ -26,6 +26,11 @@ TalentPage.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
 				templateUrl: 'projects.html'
 			})
 
+			.state('blog4', {
+				url: '/11-06-2016',
+				templateUrl: 'blogposts/11-06-2016.html'
+			})
+
 			.state('blog3', {
 				url: '/09-06-2016',
 				templateUrl: 'blogposts/09-06-2016.html'

@@ -13,7 +13,8 @@ TalentPage.controller('MainPageController',
         menu     = document.getElementById('menu'),
         menuLink = document.getElementById('menuLink');
 
-    $scope.blogposts = [{blogNum: 'blog3', name: 'Dealing with difficult concepts and logic', date: 'September 6 2016'},
+    $scope.blogposts = [{blogNum: 'blog4', name: 'The momentum of failure and success', date: 'November 6 2016'},
+                        {blogNum: 'blog3', name: 'Dealing with difficult concepts and logic', date: 'September 6 2016'},
                         {blogNum: 'blog2', name: 'Early bird or night owl', date: 'June 19 2016'},
                         {blogNum: 'blog1', name: 'Learning how to learn', date: 'May 19 2016'}];
 
