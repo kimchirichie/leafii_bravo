@@ -3,8 +3,6 @@ var TalentPage = angular.module("TalentPage", ["ngMaterial", "ui.router", "ngRou
 TalentPage.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
 	function($stateProvider, $urlRouterProvider, $locationProvider){
 
-	    $urlRouterProvider.otherwise('/');
-
 		$stateProvider
 			.state('blogPosts', {
 				url: '/',
@@ -26,6 +24,11 @@ TalentPage.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
 				templateUrl: 'projects.html'
 			})
 
+			.state('blog4', {
+				url: '/11-06-2016',
+				templateUrl: 'blogposts/11-06-2016.html'
+			})
+
 			.state('blog3', {
 				url: '/09-06-2016',
 				templateUrl: 'blogposts/09-06-2016.html'
@@ -41,10 +44,14 @@ TalentPage.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
 				templateUrl: 'blogposts/05-19-2016.html'
 		});
 
-		// $locationProvider.html5Mode({
-		// 	enabled: true,
-		// 	requireBase: false
-		// });
+		$urlRouterProvider.otherwise('/');
+
+		// $locationProvider.html5Mode(true);
+
+		$locationProvider.html5Mode({
+			enabled: true,
+			requireBase: false
+		});
 	}
 ]);
 
