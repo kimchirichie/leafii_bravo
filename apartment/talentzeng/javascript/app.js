@@ -24,6 +24,11 @@ TalentPage.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
 				templateUrl: 'projects.html'
 			})
 
+			.state('blog5', {
+				url: '/01-16-2017',
+				templateUrl: 'blogposts/01-06-2017.html'
+			})
+
 			.state('blog4', {
 				url: '/11-06-2016',
 				templateUrl: 'blogposts/11-06-2016.html'
@@ -45,8 +50,6 @@ TalentPage.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
 		});
 
 		$urlRouterProvider.otherwise('/');
-
-		// $locationProvider.html5Mode(true);
 
 		$locationProvider.html5Mode({
 			enabled: true,
