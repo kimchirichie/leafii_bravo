@@ -31,8 +31,8 @@ app.use(cors());
 
 // PASSPORT CONFIG
 app.use(session({ secret: "87dfyas9fy78234y82f25g35tg" })); // session secret
-app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
+// app.use(passport.initialize());
+// app.use(passport.session()); // persistent login sessions
 app.use(flash()); // flash message
 // passport.serializeUser(function(user, done) {
 //   console.log("Serialize User: " + user.id);
