@@ -5,16 +5,16 @@ var logger = require("morgan");
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var session = require("express-session");
-var passport = require("passport");
+// var passport = require("passport");
 var flash = require("connect-flash");
 var cors = require('cors');
 
 // DATABASE MODEL
-var User = require("./models/user");
+// var User = require("./models/user");
 
 // ROUTER
-var auth = require("./router/auth");
-var profile = require("./router/profile");
+// var auth = require("./router/auth");
+// var profile = require("./router/profile");
 
 // SERVER OPERATION
 var app = express();
@@ -34,21 +34,21 @@ app.use(session({ secret: "87dfyas9fy78234y82f25g35tg" })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // flash message
-passport.serializeUser(function(user, done) {
-  console.log("Serialize User: " + user.id);
-  done(null, user.id);
-});
+// passport.serializeUser(function(user, done) {
+//   console.log("Serialize User: " + user.id);
+//   done(null, user.id);
+// });
 
-passport.deserializeUser(function(id, done) {
-  console.log("Deserialize User: " + id);
-  User.findById(id).then(function(user) {
-    done(null, user);
-  });
-});
+// passport.deserializeUser(function(id, done) {
+//   console.log("Deserialize User: " + id);
+//   User.findById(id).then(function(user) {
+//     done(null, user);
+//   });
+// });
 
 // LOG TRAFFIC
-app.use("/auth", auth);
-app.use("/profile", profile);
+// app.use("/auth", auth);
+// app.use("/profile", profile);
 
 // PUBLIC ASSETS BEFORE PRIVATE ASSETS
 app.use(express.static(path.join(__dirname, "bower_components")));
