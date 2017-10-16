@@ -20,6 +20,7 @@ app.use(cookieParser());
 
 // PUBLIC ASSETS BEFORE PRIVATE ASSETS
 app.use(express.static(path.join(__dirname, "vendors")));
+app.use(express.static(path.join(__dirname, "bower_components")));
 
 // TRANSLATING DOMAIN TO FOLDER STRUCTURE
 if (app.get("env") === "production") {
