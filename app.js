@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, "vendors")));
 app.use(express.static(path.join(__dirname, "bower_components")));
 
 // TRANSLATING DOMAIN TO FOLDER STRUCTURE
-if (app.get("env") === "production") {
+if (process.env.ENV === "production") {
 	app.use(function (req, res, next) {
 		console.log("GET: /:hostname : Rerouting to Apartment");
 		var splitname = req.hostname.split(".")
@@ -55,7 +55,7 @@ app.use(function (req, res, next) {
 // error handlers
 app.use(function (err, req, res, next) {
 	res.status(err.status || 500);
-	if (app.get("env") === "development") {
+	if (process.env.ENV === "development") {
 		// development error handler
 		// will print stacktrace
 		res.render("error",{message: err.message,error: err});
