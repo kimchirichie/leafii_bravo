@@ -1,5 +1,6 @@
 // IMPORT MODULES
 var express = require("express");
+var session = require('express-session')
 var path = require("path");
 var logger = require("morgan");
 var cookieParser = require("cookie-parser");
@@ -9,6 +10,15 @@ var fs = require('fs');
 
 // SERVER OPERATION
 var app = express();
+
+// SESSION INITIATION
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+  secret: 'some secret string',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { maxAge: null }
+}))
 
 // VIEW ENGING
 app.set("view engine", "pug")
