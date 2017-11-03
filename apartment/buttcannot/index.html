@@ -6,8 +6,8 @@
 	<meta name="viewport" content="width=device-width initial-scale=1">
 	<meta property="og:title" content="Toronto lovers">
 	<meta property="og:type" content="website">
-	<meta property="og:url" content="http://kayla.kimchirichie.com">
-	<meta property="og:image" content="http://kayla.kimchirichie.com/image/fish.jpg">
+	<meta property="og:url" content="http://buttcannot.ca">
+	<meta property="og:image" content="http://buttcannot.ca/image/fish.jpg">
 	<meta property="og:description" content="OMG we're gonna have so much funnnnn">
 
 	<link rel="stylesheet" href="/Skeleton-2.0.4/normalize.css">
@@ -17,7 +17,6 @@
 	
 	<script type="text/javascript" src="/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="javascript/intimacy.js"></script>
-	<script type="text/javascript" src="javascript/msgs.js"></script>
 
 </head>
 <body>
@@ -36,24 +35,49 @@
 
 	<div class="container">
 		<div class="row">
-			<h2 class="title">our whispers .. ;)</h2>
+			<div class="meter">
+				<span id="totalbar" style="width:25%"></span>
+				<img id="fire" src="image/fire.gif">
+				<img id="flag" src="image/flag.svg">
+			</div>
+			<h1 id="warning">WARNING.HOT!</h1>
 		</div>
-		<div class="row" id="msg-box">
-			<p class="nothing">nothing yet ..</p>
+		<br>
+		<div class="row">
+			<img id="photo" src="image/us.jpg">
+			<h6 class="quote">"Still got a bf tho.." - Kayla</h6>
+		</div>
+		<hr>
+		<div class="row">
+			<h2 class="title">our secret .. ;)</h2>
 		</div>
 		<div class="row">
-			<form clss="msg-form" method="post">
-				<label>Write a message</label>
-				<select class="user-select" name="user">
-					<option>kayla</option>
-					<option>richard</option>
-				</select>
-				<br>
-				<div class="btn-group">
-					<input class="msg-field" type="text" name="msg" placeholder="Ex. a quickie in 30mins? ;)">
-					<button class="msg-btn" type="submit">post</button>
-				</div>
-			</form>
+			<img src="image/kiss.ico">
+			<h4 class="subtitle">kiss..<span id="kisscount"></span></h4>
+			<div class="meter">
+				<span id="kissbar" style="width:25%;"></span>
+			</div>
+		</div>
+		<div class="row">
+			<img src="image/lick.ico">
+			<h4 class="subtitle">lick..<span id="lickcount"></span></h4>
+			<div class="meter">
+				<span id="lickbar" style="width:25%;"></span>
+			</div>
+		</div>
+		<div class="row">
+			<img src="image/sex.ico">
+			<h4 class="subtitle">sex..<span id="sexcount"></span></h4>
+			<div class="meter">
+				<span id="sexbar" style="width:25%;"></span>
+			</div>
+		</div>
+		<div class="row">
+			<ul class="stats">
+				<li><a class="button" href="./kiss"><img src="image/kiss.ico"></a></li>
+				<li><a class="button" href="./lick"><img src="image/lick.ico"></a></li>
+				<li><a class="button" href="./sex"><img src="image/sex.ico"></a></li>
+			</ul>
 		</div>
 	</div>
 
