@@ -1,5 +1,22 @@
 $(document).ready(function(){
-	var images = ['us.jpg','spagburger.jpg','canal.jpg','fish.jpg','pc.jpg']
+	var images = [
+	'backwards.png',
+	'building.png',
+	'canal.png',
+	'car.png',
+	'ketchup.png',
+	'panties.png',
+	'pc.png',
+	'phone.png',
+	'sleep.png',
+	'sleeper.png',
+	'snap.png',
+	'spagburger.png',
+	'street.png',
+	'train.png',
+	'up.png',
+	'us.png'
+	]
 	
 	$.get('./stats',function(data){
 		var kiss_goal = 100;
@@ -45,7 +62,7 @@ $(document).ready(function(){
 			$('#fire').show();
 		}
 
-		changePhoto(0);
+		changePhoto();
 	});
 
 	fadeout = function(){
@@ -56,12 +73,12 @@ $(document).ready(function(){
 		$('#warning').fadeIn('slow', fadeout);
 	}
 
-	changePhoto = function(i){
+	changePhoto = function(){
 		setTimeout(function(){
-			i = (i + 1) % images.length
+			var i = Math.floor(Math.random()*(images.length-1));
 			$("#photo").attr("src","image/"+images[i]);
-			changePhoto(i)
-		}, 5000);
+			changePhoto()
+		}, 3000);
 	}
 
 })
