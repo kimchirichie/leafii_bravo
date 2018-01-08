@@ -1,0 +1,32 @@
+.header {
+	width: 100%;
+	height: 350px;
+	background-image: url('../assets/physics.jpg');
+	background-size: cover;
+	background-position: center; 
+}
+
+.header img{
+	width: 25%;
+	min-width: 300px;
+
+	border-radius: 50%;
+	border-style: solid;
+	border-color: white;
+	border-width: 5px;
+
+	/*display as block to put into middle*/
+	display:block;
+	margin:auto;
+	/*position as relative to offset*/
+	position: relative;
+	top:150px;
+}
+
+.header .name {
+	text-align: center;
+
+	/*position as relative to offset*/
+	position: relative;
+	top:150px;
+}
