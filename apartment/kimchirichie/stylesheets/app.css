@@ -7,7 +7,7 @@
 }
 
 #visual .pc-profile-pic {
-	max-width:35%;
+	max-width:30%;
 	float: right;
 }
 
@@ -37,10 +37,10 @@
 
 #visual .pc-school img{
 	float: right;
-	width: 55%;
+	width: 45%;
 	position: relative;
-	left: 140px;
-	top: 65px;
+	left: 110px;
+	top: 45px;
 }
 
 #about .mobile-school {
@@ -54,4 +54,16 @@
 
 #about .since {
 	font-family: 'Spinnaker', sans-serif;
+}
+
+#about .value-props {
+}
+
+#about .value-props img {
+	background: #FDD54F;
+	text-align: center;
+	border-radius:50%;
+	display:inline-block;
+	padding:30px;
+	width:100%;
 }
