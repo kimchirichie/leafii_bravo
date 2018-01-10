@@ -87,10 +87,20 @@ body {
 }
 
 #testimonial {
-	padding: 100px 0;
 	color:white;
 	background-color: black;
 }
+
+#testimonial .mobile-testimonial{
+	height: 600px;
+	padding: 100px 0;
+}
+
+#testimonial .pc-testimonial{
+	height: 350px;
+	padding: 100px 0;
+}
+
 #testimonial .name {
 	float:right;
 }
@@ -112,11 +122,9 @@ body {
 
 #contact h1, #contact p {
 	display:inline-block !important;
-	/*font-size: 2em;*/
 }
 
 #contact .subheader {
-	/*text-align: center;*/
 	margin-bottom: 30px;
 }
 
