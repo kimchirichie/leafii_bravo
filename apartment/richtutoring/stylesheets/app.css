@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css?family=Jockey+One|Spinnaker');
+
+body {
+	font-family: 'Spinnaker', sans-serif !important;
+	overflow-x: hidden;
+}
+
+#visual{
+	background: url(../assets/physics.jpg) ;
+	background-repeat: repeat-x;
+	background-size: auto 100%;
+}
+
+#visual .pc-profile-pic {
+	max-width:30%;
+	float: right;
+}
+
+#visual .mobile-profile-pic {
+	max-width:70%;
+	float: right;
+}
+#visual .title {
+	color: white;
+	background-color: rgba(255,255,255,0.5);
+	display:inline-block; 
+	font-family: 'Jockey One', sans-serif;
+	text-shadow: 5px 5px black;
+}
+
+#visual .bottom{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+#visual .pc-school {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+#visual .pc-school img{
+	float: right;
+	width: 45%;
+	position: relative;
+	left: 100px;
+	top: 45px;
+}
+
+#about .mobile-school {
+	width: 100%;
+}
+
+#about .degree {
+	background-color: #FDD54F;
+	font-family: 'Jockey One', sans-serif;
+}
+
+#about .since {
+}
+
+#about .value-props {
+	text-align: center;
+	margin: 50px 0 10px 0px;
+}
+
+#about .value-props img {
+	background: #FDD54F;
+	border-radius:25%;
+	display:inline-block;
+	padding:30px;
+	width:60%;
+	z-index: 1;
+}
+
+#about .mission {
+	padding: 10px 0px;
+	background-color: black;
+	color: #FDD54F;
+}
+
+#pricing {
+	background-color: #FDD54F;
+	padding: 100px 0;
+	text-align: center
+}
+
+#testimonial {
+	padding: 100px 0;
+	color:white;
+	background-color: black;
+}
+#testimonial .name {
+	float:right;
+}
+
+#contact {
+	padding: 50px 0px;
+}
+
+#contact img {
+	background: #FDD54F;
+	border-radius:25%;
+	padding:10px;
+	width:15%;
+	margin-right: 10%;
+}
+
+#contact .icon {
+	margin: 20px 0px;
+}
+
+#contact h1, #contact p {
+	display:inline-block !important;
+	/*font-size: 2em;*/
+}
+
+#contact .subheader {
+	/*text-align: center;*/
+	margin-bottom: 30px;
+}
+
+#footer {
+	color: white;
+	padding: 50px 0px;
+	background-color: black;
+	width: 100%;
+	height: 300px;
+}
