@@ -16,3 +16,12 @@ img {
 .row {
 	margin: 50px 0px;
 }
+
+.college {
+	text-align: center;
+
+}
+
+.college img{
+	width: 40%;
+}
