@@ -15,13 +15,18 @@ $ npm install
 To change the port and set the environment to production the server requires the following envvars
 
 ```sh
-$ export PORT=80
 $ export NODE_ENV=production
 ```
 
 # Production
 
-To run the node server on background, there are two methods that can work. The first is the usual method using nohup
+To run the node server on background, use a node module called forever:
+
+```sh
+$ sudo npm install -g forever
+```
+
+Then start the node server through forever:
 
 ```sh
 $ forever npm start bin/www
