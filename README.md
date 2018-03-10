@@ -2,6 +2,24 @@
 
 Leafolio is a node app that conveniently serves many different websites at the same time on a single server.
 
+# Prereq
+
+If you are running Ubuntu run the following. If not, use your own package manager:
+
+```sh
+# apt update
+# apt upgrade
+# apt -y install nginx socat
+```
+
+For npm, take it from the source (or later versions if it becomes available):
+
+```sh
+$ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+# apt -y install nodejs
+# npm install -g npm
+```
+
 # Setup
 
 To get started run the package manager to download the necessary modules
@@ -16,7 +34,7 @@ To change the port and set the environment to production the server requires the
 
 ```sh
 $ export PORT=80
-$ export NODE_ENV=production
+$ export ENV=production
 ```
 
 # Production
@@ -46,6 +64,12 @@ $ sudo su
 # service nginx start
 ```
 
+for example:
+
+```
+# acme.sh --issue --standalone -d richtutoring.com -d www.richtutoring.com -d cminshull.com -d kimchirichie.com -d scarlettminshull.com -d sminshull.com -d spacesniagara.com -d money.kimchirichie.com
+```
+
 which will store the generated files in `~/.acme.sh/example.com/`. Copy the folder into `/var/www/cert/` and change permissions. Proceed to specify the cert and key paths in `nginx.conf` reference guides to [setup nginx ssl](http://nginx.org/en/docs/http/configuring_https_servers.html) and [forward http to https](https://www.bjornjohansen.no/redirect-to-https-with-nginx). Then reload nginx server
 
 ```sh
@@ -64,6 +88,15 @@ acme.sh --install-cert -d example.com
   --key-file       /var/www/cert/example.com/example.com.key
   --fullchain-file /var/www/cert/example.com/fullchain.cer
   --reloadcmd     "service nginx force-reload"
+```
+
+for example:
+
+```sh
+acme.sh --install-cert -d richtutoring.com -d www.richtutoring.com -d cminshull.com -d kimchirichie.com -d scarlettminshull.com -d sminshull.com -d spacesniagara.com -d money.kimchirichie.com
+  --key-file /var/www/cert/richtutoring.com/richtutoring.com.key
+  --fullchain-file /var/www/cert/richtutoring.com/fullchain.cer
+  --reloadcmd "service nginx force-reload"
 ```
 
 This will auto-renew the certificate every 60 days by default.
