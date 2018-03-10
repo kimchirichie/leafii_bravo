@@ -39,7 +39,13 @@ $ export ENV=production
 
 # Production
 
-To run the node server on background, there are two methods that can work. The first is the usual method using nohup
+To run the node server on background, use a node module called forever:
+
+```sh
+$ sudo npm install -g forever
+```
+
+Then start the node server through forever:
 
 ```sh
 $ forever npm start bin/www
