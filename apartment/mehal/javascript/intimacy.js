@@ -1,23 +1,9 @@
 $(document).ready(function(){
 	var images = [
-	'backwards.png',
-	'building.png',
-	'canal.png',
-	'car.png',
-	'ketchup.png',
-	'panties.png',
-	'pc.png',
-	'phone.png',
-	'sleep.png',
-	'sleeper.png',
-	'snap.png',
-	'spagburger.png',
-	'street.png',
-	'train.png',
-	'up.png',
-	'us.png'
+	'tower.jpg',
+	'room.jpg',
 	]
-	
+	var i = 0;
 	$.get('./stats',function(data){
 		var kiss_goal = 100;
 		var lick_goal = 100;
@@ -75,9 +61,10 @@ $(document).ready(function(){
 
 	changePhoto = function(){
 		setTimeout(function(){
-			var i = Math.floor(Math.random()*(images.length-1));
+			// var i = Math.floor(Math.random()*(images.length-1));
+			i = (i + 1) % images.length;
 			$("#photo").attr("src","image/"+images[i]);
-			changePhoto()
+			changePhoto();
 		}, 3000);
 	}
 

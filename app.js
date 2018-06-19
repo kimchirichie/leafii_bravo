@@ -37,7 +37,7 @@ if (process.env.ENV === "production") {
 	app.use(function (req, res, next) {
 		console.log("GET: /:hostname : Rerouting to Apartment");
 		var splitname = req.hostname.split(".")
-		var namespace = splitname[splitname.length-2];
+		var namespace = splitname[0]==="www"? splitname[splitname.length-2] : splitname[0];
 		req.url="/"+namespace+req.url;
 		next();
 	});

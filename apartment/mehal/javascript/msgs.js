@@ -5,7 +5,7 @@ $(document).ready(function(){
 		if(len) $('.nothing').hide();
 		for(var i=0; i<len; i++){
 			var $p = $("<p>", {class: "bubble"});
-			if(data[i].user==="kayla"){
+			if(data[i].user==="mehal"){
 				$p.addClass("me");
 			} else {
 				$p.addClass("them");
