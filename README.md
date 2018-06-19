@@ -73,7 +73,7 @@ $ sudo su
 for example:
 
 ```
-# acme.sh --issue --standalone -d richtutoring.com -d www.richtutoring.com -d cminshull.com -d kimchirichie.com -d scarlettminshull.com -d sminshull.com -d spacesniagara.com -d money.kimchirichie.com
+# acme.sh --issue --standalone -d richtutoring.com -d www.richtutoring.com -d cminshull.com -d kimchirichie.com -d scarlettminshull.com -d sminshull.com -d spacesniagara.com -d money.kimchirichie.com -d mehal.kimchirichie.com
 ```
 
 which will store the generated files in `~/.acme.sh/example.com/`. Copy the folder into `/var/www/cert/` and change permissions. Proceed to specify the cert and key paths in `nginx.conf` reference guides to [setup nginx ssl](http://nginx.org/en/docs/http/configuring_https_servers.html) and [forward http to https](https://www.bjornjohansen.no/redirect-to-https-with-nginx). Then reload nginx server
@@ -99,7 +99,7 @@ acme.sh --install-cert -d example.com
 for example:
 
 ```sh
-acme.sh --install-cert -d richtutoring.com -d www.richtutoring.com -d cminshull.com -d kimchirichie.com -d scarlettminshull.com -d sminshull.com -d spacesniagara.com -d money.kimchirichie.com
+acme.sh --install-cert -d richtutoring.com -d www.richtutoring.com -d cminshull.com -d kimchirichie.com -d scarlettminshull.com -d sminshull.com -d spacesniagara.com -d money.kimchirichie.com -d mehal.kimchirichie.com
   --key-file /var/www/cert/richtutoring.com/richtutoring.com.key
   --fullchain-file /var/www/cert/richtutoring.com/fullchain.cer
   --reloadcmd "service nginx force-reload"
