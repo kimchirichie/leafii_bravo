@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	
-	$.get('../sent',function(data){
+	$.get('./sent',function(data){
 		var len = data.length
 		if(len) $('.nothing').hide();
 		for(var i=0; i<len; i++){
