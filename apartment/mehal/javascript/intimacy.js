@@ -2,12 +2,13 @@ $(document).ready(function(){
 	var images = [
 	'tower.jpg',
 	'room.jpg',
+	'vidchat.jpg',
 	]
 	var i = 0;
 	$.get('./stats',function(data){
-		var kiss_goal = 100;
-		var lick_goal = 100;
-		var sex_goal = 100;
+		var kiss_goal = 30;
+		var lick_goal = 5;
+		var sex_goal = 5;
 		var kissprog = parseFloat(data.kiss)*(100/kiss_goal);
 		var lickprog = parseFloat(data.lick)*(100/lick_goal);
 		var sexprog = parseFloat(data.sex)*(100/sex_goal);
