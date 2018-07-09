@@ -1,8 +1,10 @@
 $(document).ready(function(){
 	var images = [
+	'fu.jpg',
+	'vidchat.jpg',
+	'ice.jpg',
 	'tower.jpg',
 	'room.jpg',
-	'vidchat.jpg',
 	]
 	var i = 0;
 	$.get('./stats',function(data){
