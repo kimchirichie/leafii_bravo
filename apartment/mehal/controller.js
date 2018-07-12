@@ -8,6 +8,8 @@ var assert = require('assert');
 var url = 'mongodb://localhost:27017/redcounter';
 // to access $ mongo localhost:27017/redcounter
 
+var password = ['abc','123'];
+
 // SECURITY VERIFICATION TO KEEP CREEPS OFF SERVER
 var authenticate = function(req, res, next){
 	// LOG NUMBER OF ATTEMPS TO BLOCK BRUTE FORCE
@@ -35,13 +37,23 @@ var authenticate = function(req, res, next){
 	}
 
 	// IF PASSWORD INVALID INCERMENT ATTEMPT
-	if(req.session.password !== 'abc'){
+	if(password.indexOf(req.session.password)<0){
 		delete req.session.password;
 		console.log("ATTEMPT #"+req.session.tries+" FAILED")
 		req.session.tries++;
 		res.sendFile(__dirname +'/fail.html');
 		return
+	} else if(req.body.password) {
+		MongoClient.connect(url, function(err, db) {
+			assert.equal(null, err);
+			db.collection('login').insertOne({pw:req.body.password, createdAt: new Date()}, function(err, r) {
+				assert.equal(null, err);
+				assert.equal(1, r.insertedCount);
+				db.close();
+			});
+		});
 	}
+
 
 	next();
 };
