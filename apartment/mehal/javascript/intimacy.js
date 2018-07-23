@@ -1,10 +1,10 @@
 $(document).ready(function(){
 	var images = [
-	'fu.jpg',
-	'vidchat.jpg',
-	'ice.jpg',
-	'tower.jpg',
-	'room.jpg',
+	'1.PNG',
+	'2.PNG',
+	'3.PNG',
+	'4.PNG',
+	'5.PNG',
 	]
 	var i = 0;
 	$.get('./stats',function(data){
@@ -66,7 +66,7 @@ $(document).ready(function(){
 		setTimeout(function(){
 			// var i = Math.floor(Math.random()*(images.length-1));
 			i = (i + 1) % images.length;
-			$("#photo").attr("src","image/"+images[i]);
+			$("#photo").attr("src","image/slide/"+images[i]);
 			changePhoto();
 		}, 3000);
 	}
