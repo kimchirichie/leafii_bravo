@@ -1,55 +1,56 @@
 $(document).ready(function(){
 	var images = [
-		"beach.png",
-		"car.png",
-		"boulevard.png",
-		"fire.png",
-		"room.png",
-		"toronto.png",
-		"tower.png",
+	'1.PNG',
+	'2.PNG',
+	'3.PNG',
+	'4.PNG',
+	'5.PNG',
 	]
 	var i = 0;
 	$.get('./stats',function(data){
-		var sex_goal = 2;
-		var sleep_goal = 2;
-
+		var kiss_goal = 30;
+		var lick_goal = 5;
+		var sex_goal = 5;
+		var kissprog = parseFloat(data.kiss)*(100/kiss_goal);
+		var lickprog = parseFloat(data.lick)*(100/lick_goal);
 		var sexprog = parseFloat(data.sex)*(100/sex_goal);
-		var sleepprog = parseFloat(data.sleep)*(100/sleep_goal);
-
-		var totalprog = (sexprog+sleepprog)/2;
-
+		var totalprog = (kissprog+lickprog+sexprog)/3;
+		var image = 0;
+		if (kissprog < 5) kissprog = 5;
+		if (lickprog < 5) lickprog = 5;
 		if (sexprog < 5) sexprog = 5;
-		if (sleepprog < 5) sleepprog = 5;
 		if (totalprog < 5) totalprog = 5;
 
-		if (sexprog > 100) sexprog = 100;
-		if (sleepprog > 100) sleepprog = 100;
-		if (totalprog > 100) totalprog = 100;
-
+		$('#kisscount').html(parseFloat(data.kiss)*5);
+		$('#lickcount').html(data.lick);
 		$('#sexcount').html(data.sex);
-		$('#sleepcount').html(data.sleep);
 
+		$('#kissbar').width(kissprog+"%");
+		$('#lickbar').width(lickprog+"%");
 		$('#sexbar').width(sexprog+"%");
-		$('#sleepbar').width(sleepprog+"%");
 		$('#totalbar').width(totalprog+"%");
+
+		if(kissprog >=60){
+			$('#kissbar').parent().addClass('orange');
+		}
+
+		if(lickprog >= 60){
+			$('#lickbar').parent().addClass('orange');
+		}
 
 		if(sexprog >= 80){
 			$('#sexbar').parent().addClass('red');
 			$('#totalbar').parent().addClass('red');
+			fadeout();
 		} else if (sexprog >= 40){
 			$('#sexbar').parent().addClass('orange');
 			$('#totalbar').parent().addClass('orange');
-		}
-
-		if(sleepprog >= 40){
-			$('#sleepbar').parent().addClass('red');
 		}
 
 		if(totalprog >= 60){
 			$('#fire').show();
 		}
 
-		fadeout();
 		changePhoto();
 	});
 
@@ -65,8 +66,9 @@ $(document).ready(function(){
 		setTimeout(function(){
 			// var i = Math.floor(Math.random()*(images.length-1));
 			i = (i + 1) % images.length;
-			$("#photo").attr("src","image/photos/"+images[i]);
+			$("#photo").attr("src","image/slide/"+images[i]);
 			changePhoto();
-		}, 5000);
+		}, 3000);
 	}
+
 })

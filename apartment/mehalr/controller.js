@@ -53,19 +53,11 @@ var authenticate = function(req, res, next){
 			});
 		});
 	}
+
+
 	next();
 };
 
-var record = function(type){
-	MongoClient.connect(url, function(err, db) {
-		assert.equal(null, err);
-		db.collection('redcounter').insertOne({type: type, createdAt: new Date()}, function(err, r) {
-			assert.equal(null, err);
-			assert.equal(1, r.insertedCount);
-			db.close();
-		});
-	});
-}
 
 /* GET home page. */
 router.get('/', authenticate, function(req, res, next) {
@@ -108,22 +100,43 @@ router.get('/sent', authenticate, function(req, res, next){
 
 
 router.get('/kiss', authenticate, function(req, res, next) {
-	record("kiss");
+	MongoClient.connect(url, function(err, db) {
+		assert.equal(null, err);
+		db.collection('redcounter').insertOne({type:"kiss", createdAt: new Date()}, function(err, r) {
+			assert.equal(null, err);
+			assert.equal(1, r.insertedCount);
+			db.close();
+		});
+	});
+
 	res.redirect('.');
 });
+
 
 router.get('/lick', authenticate, function(req, res, next) {
-	record("lick");
+	MongoClient.connect(url, function(err, db) {
+		assert.equal(null, err);
+		db.collection('redcounter').insertOne({type:"lick", createdAt: new Date()}, function(err, r) {
+			assert.equal(null, err);
+			assert.equal(1, r.insertedCount);
+			db.close();
+		});
+	});
+
 	res.redirect('.');
 });
+
 
 router.get('/sex', authenticate, function(req, res, next) {
-	record("sex");
-	res.redirect('.');
-});
+	MongoClient.connect(url, function(err, db) {
+		assert.equal(null, err);
+		db.collection('redcounter').insertOne({type:"sex", createdAt: new Date()}, function(err, r) {
+			assert.equal(null, err);
+			assert.equal(1, r.insertedCount);
+			db.close();
+		});
+	});
 
-router.get('/sleep', authenticate, function(req, res, next) {
-	record("sleep");
 	res.redirect('.');
 });
 
@@ -133,10 +146,8 @@ router.get('/stats', authenticate, function(req, res, next) {
 		db.collection('redcounter').count({type:"kiss"}).then(function(kiss) {
 			db.collection('redcounter').count({type:"lick"}).then(function(lick) {
 				db.collection('redcounter').count({type:"sex"}).then(function(sex) {
-					db.collection('redcounter').count({type:"sleep"}).then(function(sleep) {
-						db.close();
-						res.json({kiss:kiss, lick:lick, sex:sex, sleep:sleep});
-					});
+					db.close();
+					res.json({kiss:kiss, lick:lick, sex:sex});
 				});
 			});
 		});

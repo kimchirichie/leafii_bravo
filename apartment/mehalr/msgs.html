@@ -21,60 +21,44 @@
 	<link rel="stylesheet" href="stylesheet/style.css">
 	<link rel="stylesheet" href="stylesheet/msgs.css">
 	<link rel="apple-touch-icon" href="image/touch-icon-iphone.png">
-	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="javascript/intimacy.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>	
+	<script type="text/javascript" src="javascript/msgs.js"></script>	
 </head>
 <body>
 	<div class="header">
 		<div class="container">
 			<div class="row panel-relative">
 				<a class="msgs-btn" href="msgs">
-					<img id="msgs" src="image/icons/msgs.png">
+					<img id="msgs" src="image/msgs.svg">					
 				</a>
 				<h1 class="top-title">
-					<a href=".">Our Secret</a>
+					<a href=".">Mehal&Richard</a>
 				</h1>
-			</div>
+			</div>			
 		</div>
 	</div>
 
 	<div class="container">
 		<div class="row">
-			<div class="meter">
-				<span id="totalbar" style="width:25%"></span>
-				<img id="fire" src="image/fire.gif">
-				<img id="flag" src="image/flag.svg">
-			</div>
-			<h1 id="warning">HOT! LVL 2!</h1>
+			<h2 class="title">our whispers .. ;)</h2>
 		</div>
-		<br>
-		<div class="row">
-			<img id="photo" src="image/photos/boulevard.png">
-			<h6 class="quote">"i'll call you soon. i promise" - Mehal</h6>
-		</div>
-		<hr>
-		<div class="row">
-			<h2 class="title">🍆💦uh..wet wipes?😉</h2>
+		<div class="row" id="msg-box">
+			<p class="nothing">nothing yet ..</p>
 		</div>
 		<div class="row">
-			<a href="./sex">
-				<img class="icon" src="image/icons/deed.svg">
-				<h4 class="subtitle">sex..<span id="sexcount"></span></h4>
-				<div class="meter">
-					<span id="sexbar" style="width:25%;"></span>
+			<form class="msg-form" method="post">
+				<label>Write a message</label>
+				<select class="user-select" name="user">
+					<option>mehal</option>
+					<option>richard</option>
+				</select>
+				<br>
+				<div class="btn-group">
+					<input class="msg-field" type="text" name="msg" placeholder="Ex. a quickie in 30mins? ;)">
+					<button class="msg-btn" type="submit">post</button>
 				</div>
-			</a>
-		</div>
-		<div class="row">
-			<a href="./sleep">
-				<img class="icon" src="image/icons/sleep.svg">
-				<h4 class="subtitle">sleepover..<span id="sleepcount"></span></h4>
-				<div class="meter">
-					<span id="sleepbar" style="width:25%;"></span>
-				</div>
-			</a>
+			</form>
 		</div>
 	</div>
 
